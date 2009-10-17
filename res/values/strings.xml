@@ -9,6 +9,7 @@
 	<string name="about_label">About</string>
 
 	<!-- settings -->
+	<string name="site_name">Site name</string>
 	<string name="site_url_label">URL</string>
 	<string name="site_url_summary">Your Drupal page</string>
 	<string name="username">User name</string>
@@ -22,14 +23,22 @@
 	<string name="location_link_text">I'm here!</string>
 	<string name="enable_gps">Enable GPS</string>
 	<string name="enable_gps_summary">For inserting location: higher accuracy, but might take longer</string>
-	
+	<string name="signature">Signature</string>
+	<string name="show_signature">Add signature</string>
+	<string name="start">Start</string>
+	<string name="end">End</string>
+	<string name="add_site">Add site</string>
+
 	<!-- about dialog -->
 	<string name="about_title">About Drupal Editor</string>
 	<string name="about_text_what">Drupal Editor lets you edit the contents of your Drupal based sites using the Blog API.</string>
 	<string name="about_text_thanks">Thanks to: the Drupal team for their great CMS, the people who created the Android xmlrpc library and the Android team!</string>
 
-	<!-- edit post -->
+	<!-- edit -->
 	<string name="save">Save</string>
+	<string name="cancel">Cancel</string>
+
+	<!-- edit post -->
 	<string name="publish">Publish</string>
 	<string name="xmlrpc_fault_1">You do not have permission to save this post as a draft. Please publish it instead.</string>
 

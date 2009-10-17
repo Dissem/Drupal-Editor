@@ -1,6 +1,7 @@
 package ch.dissem.android.drupal;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.xmlrpc.android.XMLRPCClient;
@@ -16,17 +17,24 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
+import ch.dissem.android.drupal.model.Site;
+import ch.dissem.android.drupal.model.SiteDAO;
 import ch.dissem.android.drupal.model.UsersBlog;
 
 public class Main extends Activity implements OnClickListener {
 	public static final String BLOGGER_API_KEY = "0123456789ABCDEF";
 	public static final String KEY_SITE_LIST = "siteList";
 	public static final String KEY_SITE_LIST_SELECTION = "siteListSelection";
+	public static final String KEY_DRUPAL_LIST_SELECTION = "drupalListSelection";
 	private ArrayList<UsersBlog> siteList;
+	private List<Site> drupalList;
 	private int siteListSelection;
+	private int drupalListSelection;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -38,6 +46,42 @@ public class Main extends Activity implements OnClickListener {
 		newButton.setOnClickListener(this);
 		View recentButton = findViewById(R.id.recent_button);
 		recentButton.setOnClickListener(this);
+	}
+
+	protected void fillDrupalsSpinner() {
+		Spinner drupals = (Spinner) findViewById(R.id.drupals);
+		SiteDAO dao = new SiteDAO(this);
+		drupalList = dao.getSites();
+		if (drupalList.isEmpty() && Settings.getURL(this) != null) {
+			Site imported = new Site();
+			imported.setName("Default");
+			imported.setUrl(Settings.getURL(this));
+			imported.setUsername(Settings.getUserName(this));
+			imported.setPassword(Settings.getPassword(this));
+			dao.save(imported);
+			drupalList.add(imported);
+		}
+		ArrayAdapter<Site> adapter = new ArrayAdapter<Site>(this,
+				android.R.layout.simple_spinner_item, dao.getSites());
+		adapter.setDropDownViewResource(//
+				android.R.layout.simple_spinner_dropdown_item);
+		drupals.setAdapter(adapter);
+		drupals.setClickable(true);
+		if (!drupalList.isEmpty())
+			drupals.setSelection(drupalListSelection);
+		drupals.setOnItemSelectedListener(new OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> av, View view,
+					int position, long id) {
+				Settings.setSite((Site) av.getSelectedItem());
+				fillSiteSpinner();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> adapterView) {
+				// Nothing to do, I presume
+			}
+		});
 	}
 
 	protected void fillSiteSpinner() {
@@ -70,8 +114,8 @@ public class Main extends Activity implements OnClickListener {
 									Main.this,
 									android.R.layout.simple_spinner_item,
 									siteList);
-							adapter
-									.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+							adapter.setDropDownViewResource(//
+									android.R.layout.simple_spinner_dropdown_item);
 							blogs.setAdapter(adapter);
 							blogs.setClickable(true);
 							blogs.setSelection(siteListSelection);
@@ -97,6 +141,9 @@ public class Main extends Activity implements OnClickListener {
 		outState.putParcelableArrayList(KEY_SITE_LIST, siteList);
 		outState.putInt(KEY_SITE_LIST_SELECTION,
 				((Spinner) findViewById(R.id.sites)).getSelectedItemPosition());
+		outState.putInt(KEY_DRUPAL_LIST_SELECTION,
+				((Spinner) findViewById(R.id.drupals))
+						.getSelectedItemPosition());
 		super.onSaveInstanceState(outState);
 	}
 
@@ -105,12 +152,16 @@ public class Main extends Activity implements OnClickListener {
 		super.onRestoreInstanceState(savedInstanceState);
 		siteList = savedInstanceState.getParcelableArrayList(KEY_SITE_LIST);
 		siteListSelection = savedInstanceState.getInt(KEY_SITE_LIST_SELECTION);
+		drupalList = new SiteDAO(this).getSites();
+		drupalListSelection = savedInstanceState
+				.getInt(KEY_DRUPAL_LIST_SELECTION);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		fillSiteSpinner();
+//		fillSiteSpinner();
+		fillDrupalsSpinner();
 	}
 
 	@Override

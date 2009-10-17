@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:layout_weight="1">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:orientation="vertical">
+		<TextView android:text="@string/site_name"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		<EditText android:id="@+id/site_name" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+		<TextView android:text="@string/site_url_label"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		<EditText android:id="@+id/site_url" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+		<TextView android:text="@string/username"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		<EditText android:id="@+id/username" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+		<TextView android:text="@string/password"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		<EditText android:id="@+id/password" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:password="true" />
+
+		<TextView android:text="@string/signature"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		<EditText android:id="@+id/signature" android:layout_width="fill_parent"
+			android:layout_height="95dip" android:gravity="top|left" />
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<CheckBox android:id="@+id/show_signature" android:text="@string/show_signature"
+				android:layout_width="0dip" android:layout_height="wrap_content"
+				android:layout_weight="0.5" />
+			<Spinner android:id="@+id/signature_position"
+				android:layout_width="0dip" android:layout_height="wrap_content"
+				android:layout_weight="0.5" />
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>

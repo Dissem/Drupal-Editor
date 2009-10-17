@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<EditTextPreference android:key="url"
+		android:title="@string/site_url_label" android:summary="@string/site_url_summary" />
+	<EditTextPreference android:key="username"
+		android:title="@string/username" android:summary="@string/site_username_summary" />
+	<EditTextPreference android:key="password"
+		android:title="@string/password" android:summary="@string/site_password_summary"
+		android:password="true" />
+	<EditTextPreference android:key="history_size"
+		android:title="@string/history_size" android:summary="@string/history_size_summary"
+		android:digits="0123456789" android:defaultValue="10" />
+</PreferenceScreen>

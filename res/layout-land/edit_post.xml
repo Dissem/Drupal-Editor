@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:saveEnabled="true">
+
+	<TableRow>
+		<EditText android:layout_width="wrap_content"
+			android:layout_weight="0.5" android:layout_height="wrap_content"
+			android:maxLines="1" android:id="@+id/Title"></EditText>
+		<!--
+			<Spinner android:layout_height="wrap_content"
+			android:layout_weight="0.5" android:id="@+id/category"
+			android:layout_width="wrap_content"
+			android:clickable="false"></Spinner>
+		-->
+	</TableRow>
+	<EditText android:layout_width="fill_parent"
+		android:layout_height="0dip" android:layout_weight="1" android:id="@+id/Text"
+		android:gravity="top|left"></EditText>
+	<TableRow>
+		<CheckBox android:id="@+id/publish" android:text="@string/publish"
+			android:layout_weight="0.5" android:layout_width="wrap_content" />
+		<Button android:id="@+id/save_post" android:text="@string/save"
+			android:layout_weight="0.5" android:layout_width="wrap_content" />
+	</TableRow>
+</TableLayout>

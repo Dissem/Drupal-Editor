@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:padding="5dip" android:orientation="vertical" android:gravity="right"
+	android:minWidth="300dip" android:minHeight="170dip">
+	<TextView android:id="@+id/location_dialog_text"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:text="@string/location_dialog_text" android:gravity="center_horizontal" />
+	<ProgressBar android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+		android:indeterminate="true" />
+	<TextView android:id="@+id/location_dialog_info"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:text="Accuracy: unknown - Time: unknown" android:gravity="center_horizontal" />
+	<Button android:id="@+id/location_insert" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="@string/insert_location_now" />
+</LinearLayout>

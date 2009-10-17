@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- main -->
+	<string name="app_name">Drupal Editor</string>
+	<string name="new_entry">Neuer Eintrag</string>
+	<string name="recent_entries">Letzte Einträge</string>
+	<string name="settings_label">Einstellungen...</string>
+	<string name="reload_sites_label">Neu laden</string>
+	<string name="about_label">Über Drupal Editor</string>
+
+	<!-- settings -->
+	<string name="site_url_label">URL</string>
+	<string name="site_url_summary">Deine Drupal-Seite</string>
+	<string name="username">Benutzername</string>
+	<string name="password">Passwort</string>
+	<string name="history_size">Verlaufslänge</string>
+	<string name="site_username_summary">Dein Benutzername</string>
+	<string name="site_password_summary">Dein (hoffentlich) geheimes Passwort</string>
+	<string name="history_size_summary">Wie viele Einträge sollen geholt werden?
+	</string>
+	<string name="insert_location">Position Einfügen</string>
+	<string name="location_link_text">Ich bin hier!</string>
+	<string name="enable_gps">GPS erlauben</string>
+	<string name="enable_gps_summary">Position einfügen: ist genauer, kann aber länger dauern</string>
+
+	<!-- about dialog -->
+	<string name="about_title">Über Drupal Editor</string>
+	<string name="about_text_what">Der Drupal Editor lässt dich die Inhalte deiner Drupal-Seiten über die Blog API editieren.</string>
+	<string name="about_text_thanks">Vielen Dank dem Drupal Team für euer grossartiges CMS, den Leuten welche die Android xmlrpc Implementierung geschaffen haben und dem Android Team!</string>
+
+	<!-- edit post -->
+	<string name="save">Speichern</string>
+	<string name="publish">Publizieren</string>
+	<string name="xmlrpc_fault_1">Du hast keine Berechtigung diesen Beitrag als Entwurf zu speichern. Bitte publiziere ihn stattdessen.</string>
+
+	<!-- recent posts -->
+	<string name="history_empty">Es sind keine ältere Einträge verfügbar</string>
+	<string name="more">Mehr</string>
+	<string name="edit">Bearbeiten</string>
+	<string name="delete">Löschen</string>
+
+	<!-- location dialog -->
+	<string name="location_dialog_title">Standort</string>
+	<string name="location_dialog_text">Warte bitte einen Moment während die Anwendung versucht deine Position zu erfassen.</string>
+	<string name="location_dialog_info">Genauigkeit: %s Zeit: %s</string>
+	<string name="accuracy_unit">m</string>
+	<string name="insert_location_now">Jetzt einfügen</string>
+	<string name="unknown">unbekannt</string>
+</resources>

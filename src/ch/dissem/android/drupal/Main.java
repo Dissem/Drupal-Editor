@@ -62,14 +62,19 @@ public class Main extends Activity implements OnClickListener,
 		Spinner drupals = (Spinner) findViewById(R.id.drupals);
 		SiteDAO dao = new SiteDAO(this);
 		drupalList = dao.getSites();
-		if (drupalList.isEmpty() && Settings.getURL(this) != null) {
-			Site imported = new Site();
-			imported.setName("Default");
-			imported.setUrl(Settings.getURL(this));
-			imported.setUsername(Settings.getUserName(this));
-			imported.setPassword(Settings.getPassword(this));
-			dao.save(imported);
-			drupalList.add(imported);
+		if (drupalList.isEmpty()) {
+			if (Settings.getURL(this) != null) {
+				Site imported = new Site();
+				imported.setName("Default");
+				imported.setUrl(Settings.getURL(this));
+				imported.setUsername(Settings.getUserName(this));
+				imported.setPassword(Settings.getPassword(this));
+				dao.save(imported);
+				drupalList.add(imported);
+			} else {
+				startActivity(new Intent(this, Settings.class));
+				return;
+			}
 		}
 		ArrayAdapter<Site> adapter = new ArrayAdapter<Site>(this,
 				android.R.layout.simple_spinner_item, dao.getSites());
@@ -79,6 +84,7 @@ public class Main extends Activity implements OnClickListener,
 		drupals.setClickable(true);
 		if (!drupalList.isEmpty())
 			drupals.setSelection(drupalListSelection);
+
 		drupals.setOnItemSelectedListener(this);
 	}
 
@@ -180,6 +186,8 @@ public class Main extends Activity implements OnClickListener,
 			startActivity(new Intent(this, Settings.class));
 			return true;
 		case R.id.reload_sites:
+			siteList = null;
+			siteListSelection = 0;
 			fillSiteSpinner();
 			return true;
 		case R.id.about:
@@ -215,10 +223,18 @@ public class Main extends Activity implements OnClickListener,
 	@Override
 	public void onItemSelected(AdapterView<?> av, View view, int position,
 			long arg3) {
-		Settings.setSite((Site) av.getSelectedItem());
-		siteList = null;
-		siteListSelection = 0;
-		fillSiteSpinner();
+		if (Settings.setSite((Site) av.getSelectedItem())) {
+			siteList = null;
+			siteListSelection = 0;
+			fillSiteSpinner();
+		} else {
+			ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
+					Main.this, android.R.layout.simple_spinner_item, siteList);
+			adapter.setDropDownViewResource(//
+					android.R.layout.simple_spinner_dropdown_item);
+			blogs.setAdapter(adapter);
+			blogs.setSelection(siteListSelection);
+		}
 	}
 
 	@Override

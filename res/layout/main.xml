@@ -8,17 +8,15 @@
 		android:layout_gravity="center" android:layout_marginBottom="25dip"
 		android:textSize="24.5sp" />
 	<Spinner android:layout_height="wrap_content" android:id="@+id/drupals"
-		android:layout_width="fill_parent" android:clickable="false" />
+		android:layout_width="fill_parent" />
 	<Spinner android:layout_height="wrap_content" android:id="@+id/sites"
-		android:layout_width="fill_parent" android:clickable="false" />
+		android:layout_width="fill_parent" />
 	<Button android:id="@+id/new_button" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="@string/new_entry"
-		android:enabled="false" />
+		android:layout_height="wrap_content" android:text="@string/new_entry" />
 	<Button android:id="@+id/recent_button" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="@string/recent_entries"
-		android:enabled="false" />
+		android:layout_height="wrap_content" android:text="@string/recent_entries" />
 	<View android:layout_width="10dip" android:layout_height="20dip" />
 	<ProgressBar android:id="@+id/sites_loader_progress"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal" />
+		android:layout_gravity="center_horizontal" android:visibility="invisible" />
 </LinearLayout>

@@ -33,8 +33,17 @@ public class Settings extends Activity implements OnClickListener {
 	private ListView list;
 	private SiteDAO dao;
 
-	public static void setSite(Site selected) {
-		Settings.selected = selected;
+	/**
+	 * @param selected
+	 * @return <code>true</code> if settings actually changed
+	 */
+	public static boolean setSite(Site selected) {
+		try {
+			return selected == null ? Settings.selected != null : !selected
+					.equals(Settings.selected);
+		} finally {
+			Settings.selected = selected;
+		}
 	}
 
 	@Override
@@ -82,6 +91,8 @@ public class Settings extends Activity implements OnClickListener {
 		if (settingsEditor == null)
 			settingsEditor = PreferenceManager
 					.getDefaultSharedPreferences(this).edit();
+		if (list == null)
+			list = (ListView) findViewById(R.id.site_list);
 		list.setAdapter(new ArrayAdapter<Site>(this,
 				android.R.layout.simple_list_item_1, dao.getSites()));
 	}

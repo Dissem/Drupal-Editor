@@ -28,7 +28,7 @@
 	<string name="start">Start</string>
 	<string name="end">End</string>
 	<string name="add_site">Add site</string>
-	<string name="default_signature">\n&lt;a href=\"http://dissem.ch/en/node/15\"&gt;Created with Drupal Editor&lt;/a&gt;</string>
+	<string name="default_signature">\n&lt;a href=\"http://dissem.ch/en/node/16\"&gt;Created with Drupal Editor&lt;/a&gt;</string>
 
 	<!-- about dialog -->
 	<string name="about_title">About Drupal Editor</string>

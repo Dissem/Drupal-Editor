@@ -58,12 +58,11 @@ public class RecentEntries extends ListActivity {
 			@SuppressWarnings("unchecked")
 			public void run() {
 				try {
-					XMLRPCClient client = new XMLRPCClient(Settings
-							.getURL(RecentEntries.this));
+					XMLRPCClient client = new XMLRPCClient(Settings.getURL());
 					Object[] results = (Object[]) client.call(
 							"metaWeblog.getRecentPosts", blogid, //
-							Settings.getUserName(RecentEntries.this), //
-							Settings.getPassword(RecentEntries.this), //
+							Settings.getUserName(), //
+							Settings.getPassword(), //
 							Settings.getHistorySize(RecentEntries.this));
 					final Post[] posts = new Post[results.length];
 					for (int i = 0; i < results.length; i++) {
@@ -158,12 +157,11 @@ public class RecentEntries extends ListActivity {
 		new Thread() {
 			public void run() {
 				try {
-					XMLRPCClient client = new XMLRPCClient(Settings
-							.getURL(RecentEntries.this));
+					XMLRPCClient client = new XMLRPCClient(Settings.getURL());
 					client.call("blogger.deletePost", Main.BLOGGER_API_KEY, //
 							post.getPostid(), //
-							Settings.getUserName(RecentEntries.this), //
-							Settings.getPassword(RecentEntries.this), false);
+							Settings.getUserName(), //
+							Settings.getPassword(), false);
 
 					handler.post(new Runnable() {
 						public void run() {

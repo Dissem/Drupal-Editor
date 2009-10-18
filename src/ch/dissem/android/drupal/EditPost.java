@@ -39,7 +39,7 @@ public class EditPost extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_post);
 
-		client = new XMLRPCClient(Settings.getURL(this));
+		client = new XMLRPCClient(Settings.getURL());
 
 		View saveButton = findViewById(R.id.save_post);
 		saveButton.setOnClickListener(this);
@@ -51,7 +51,9 @@ public class EditPost extends Activity implements OnClickListener {
 			EditText title = (EditText) findViewById(R.id.Title);
 			title.setText(post.getTitle());
 			EditText content = (EditText) findViewById(R.id.Text);
-			content.setText(replaceLinks(post.getDescription()));
+			String text = replaceLinks(post.getDescription());
+			text = removeSignature(text);
+			content.setText(text);
 		}
 	}
 
@@ -98,16 +100,16 @@ public class EditPost extends Activity implements OnClickListener {
 		struct.put("title", String
 				.valueOf(((TextView) findViewById(R.id.Title)).getText()));
 		struct.put("link", "");
-		struct.put("description", replaceShorts(String
-				.valueOf(((TextView) findViewById(R.id.Text)).getText())));
+		struct.put("description", addSignature(replaceShorts(String
+				.valueOf(((TextView) findViewById(R.id.Text)).getText()))));
 		try {
 			if (post == null)
 				client.call("metaWeblog.newPost", blogid, Settings
-						.getUserName(this), Settings.getPassword(this), struct,
+						.getUserName(), Settings.getPassword(), struct,
 						((CheckBox) findViewById(R.id.publish)).isChecked());
 			else
 				client.call("metaWeblog.editPost", post.getPostid(), Settings
-						.getUserName(this), Settings.getPassword(this), struct,
+						.getUserName(), Settings.getPassword(), struct,
 						((CheckBox) findViewById(R.id.publish)).isChecked());
 			finish();
 		} catch (XMLRPCException e) {
@@ -184,5 +186,38 @@ public class EditPost extends Activity implements OnClickListener {
 			linkPattern[3] = linkString.substring(i0, i1);
 		}
 		return linkPattern;
+	}
+
+	private String removeSignature(String text) {
+		if (Settings.isSignatureEnabled()) {
+			String signature = Settings.getSignature();
+			switch (Settings.getSignaturePosition()) {
+			case START:
+				if (text.startsWith(signature)) {
+					text = text.substring(signature.length());
+				}
+				return text;
+			case END:
+				if (text.endsWith(signature)) {
+					text = text
+							.substring(0, text.length() - signature.length());
+				}
+				return text;
+			}
+		}
+		return text;
+	}
+
+	private String addSignature(String text) {
+		if (Settings.isSignatureEnabled()) {
+			String signature = Settings.getSignature();
+			switch (Settings.getSignaturePosition()) {
+			case START:
+				return signature + text;
+			case END:
+				return text + signature;
+			}
+		}
+		return text;
 	}
 }

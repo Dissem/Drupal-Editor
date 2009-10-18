@@ -16,8 +16,11 @@ public class Site implements Parcelable {
 	private SignaturePosition signaturePosition;
 
 	public Site() {
-		// Is needed because of the private constructor for Parcelable
-		// implementation.
+	}
+
+	public Site(Context ctx) {
+		signature = ctx.getString(R.string.default_signature);
+		signaturePosition = SignaturePosition.END;
 	}
 
 	public String getName() {

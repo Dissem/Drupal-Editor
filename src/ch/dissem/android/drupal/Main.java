@@ -63,12 +63,12 @@ public class Main extends Activity implements OnClickListener,
 		SiteDAO dao = new SiteDAO(this);
 		drupalList = dao.getSites();
 		if (drupalList.isEmpty()) {
-			if (Settings.getURL(this) != null) {
-				Site imported = new Site();
+			if (Settings.getURL() != null) {
+				Site imported = new Site(this);
 				imported.setName("Default");
-				imported.setUrl(Settings.getURL(this));
-				imported.setUsername(Settings.getUserName(this));
-				imported.setPassword(Settings.getPassword(this));
+				imported.setUrl(Settings.getURL());
+				imported.setUsername(Settings.getUserName());
+				imported.setPassword(Settings.getPassword());
 				dao.save(imported);
 				drupalList.add(imported);
 			} else {
@@ -100,7 +100,7 @@ public class Main extends Activity implements OnClickListener,
 			public void run() {
 				try {
 					if (siteList == null) {
-						String url = Settings.getURL(Main.this);
+						String url = Settings.getURL();
 						if (url == null) {
 							startActivity(new Intent(Main.this, Settings.class));
 							return;
@@ -108,8 +108,7 @@ public class Main extends Activity implements OnClickListener,
 						XMLRPCClient client = new XMLRPCClient(url);
 						Object[] result = (Object[]) client.call(
 								"blogger.getUsersBlogs", BLOGGER_API_KEY,
-								Settings.getUserName(Main.this), Settings
-										.getPassword(Main.this));
+								Settings.getUserName(), Settings.getPassword());
 						siteList = new ArrayList<UsersBlog>();
 						for (Object map : result) {
 							siteList.add(new UsersBlog((Map) map));

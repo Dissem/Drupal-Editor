@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.SiteDAO;
+import ch.dissem.android.drupal.model.Site.SignaturePosition;
 
 public class Settings extends Activity implements OnClickListener {
 	private static final String HISTORY_SIZE = "history_size";
@@ -54,7 +55,7 @@ public class Settings extends Activity implements OnClickListener {
 		dao = new SiteDAO(this);
 		List<Site> drupals = dao.getSites();
 		if (drupals.isEmpty()) {
-			editSite(new Site());
+			editSite(new Site(this));
 			return;
 		}
 
@@ -103,7 +104,7 @@ public class Settings extends Activity implements OnClickListener {
 		settingsEditor.commit();
 	}
 
-	public static String getURL(Context context) {
+	public static String getURL() {
 		if (selected == null)
 			return null;
 		String result = selected.getUrl();
@@ -120,13 +121,13 @@ public class Settings extends Activity implements OnClickListener {
 		return result;
 	}
 
-	public static String getUserName(Context context) {
+	public static String getUserName() {
 		if (selected == null)
 			return null;
 		return selected.getUsername();
 	}
 
-	public static String getPassword(Context context) {
+	public static String getPassword() {
 		if (selected == null)
 			return null;
 		return selected.getPassword();
@@ -137,9 +138,27 @@ public class Settings extends Activity implements OnClickListener {
 				context).getString(HISTORY_SIZE, "10"));
 	}
 
+	public static boolean isSignatureEnabled() {
+		if (selected == null)
+			return false;
+		return selected.isSignatureEnabled();
+	}
+
+	public static SignaturePosition getSignaturePosition() {
+		if (selected == null)
+			return null;
+		return selected.getSignaturePosition();
+	}
+
+	public static String getSignature() {
+		if (selected == null)
+			return null;
+		return selected.getSignature();
+	}
+
 	@Override
 	public void onClick(View v) {
-		editSite(new Site());
+		editSite(new Site(this));
 	}
 
 	@Override

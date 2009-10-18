@@ -7,22 +7,23 @@
 		<TextView android:text="@string/site_name"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />
 		<EditText android:id="@+id/site_name" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
+			android:layout_height="wrap_content" android:singleLine="true" />
 
 		<TextView android:text="@string/site_url_label"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />
 		<EditText android:id="@+id/site_url" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
+			android:layout_height="wrap_content" android:singleLine="true" />
 
 		<TextView android:text="@string/username"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />
 		<EditText android:id="@+id/username" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
+			android:layout_height="wrap_content" android:singleLine="true" />
 
 		<TextView android:text="@string/password"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />
 		<EditText android:id="@+id/password" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:password="true" />
+			android:layout_height="wrap_content" android:singleLine="true"
+			android:password="true" />
 
 		<TextView android:text="@string/signature"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" />

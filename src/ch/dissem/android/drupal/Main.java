@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -26,7 +27,8 @@ import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.SiteDAO;
 import ch.dissem.android.drupal.model.UsersBlog;
 
-public class Main extends Activity implements OnClickListener {
+public class Main extends Activity implements OnClickListener,
+		OnItemSelectedListener {
 	public static final String BLOGGER_API_KEY = "0123456789ABCDEF";
 	public static final String KEY_SITE_LIST = "siteList";
 	public static final String KEY_SITE_LIST_SELECTION = "siteListSelection";
@@ -36,16 +38,24 @@ public class Main extends Activity implements OnClickListener {
 	private int siteListSelection;
 	private int drupalListSelection;
 
+	private Button btnNew;
+	private Button btnRecent;
+	private Spinner blogs;
+	private ProgressBar progressBar;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		View newButton = findViewById(R.id.new_button);
-		newButton.setOnClickListener(this);
-		View recentButton = findViewById(R.id.recent_button);
-		recentButton.setOnClickListener(this);
+		btnNew = (Button) findViewById(R.id.new_button);
+		btnNew.setOnClickListener(this);
+		btnRecent = (Button) findViewById(R.id.recent_button);
+		btnRecent.setOnClickListener(this);
+
+		blogs = (Spinner) findViewById(R.id.sites);
+		progressBar = (ProgressBar) findViewById(R.id.sites_loader_progress);
 	}
 
 	protected void fillDrupalsSpinner() {
@@ -69,23 +79,15 @@ public class Main extends Activity implements OnClickListener {
 		drupals.setClickable(true);
 		if (!drupalList.isEmpty())
 			drupals.setSelection(drupalListSelection);
-		drupals.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> av, View view,
-					int position, long id) {
-				Settings.setSite((Site) av.getSelectedItem());
-				fillSiteSpinner();
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> adapterView) {
-				// Nothing to do, I presume
-			}
-		});
+		drupals.setOnItemSelectedListener(this);
 	}
 
 	protected void fillSiteSpinner() {
-		final ProgressBar progr = (ProgressBar) findViewById(R.id.sites_loader_progress);
+		blogs.setEnabled(false);
+		btnNew.setEnabled(false);
+		btnRecent.setEnabled(false);
+		progressBar.setVisibility(View.VISIBLE);
+
 		final Handler handler = new Handler();
 		new Thread() {
 			@SuppressWarnings("unchecked")
@@ -109,7 +111,6 @@ public class Main extends Activity implements OnClickListener {
 					}
 					handler.post(new Runnable() {
 						public void run() {
-							Spinner blogs = (Spinner) findViewById(R.id.sites);
 							ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
 									Main.this,
 									android.R.layout.simple_spinner_item,
@@ -119,16 +120,17 @@ public class Main extends Activity implements OnClickListener {
 							blogs.setAdapter(adapter);
 							blogs.setClickable(true);
 							blogs.setSelection(siteListSelection);
-							findViewById(R.id.new_button).setEnabled(true);
-							findViewById(R.id.recent_button).setEnabled(true);
-							progr.setVisibility(View.INVISIBLE);
+							blogs.setEnabled(true);
+							btnNew.setEnabled(true);
+							btnRecent.setEnabled(true);
+							progressBar.setVisibility(View.INVISIBLE);
 						}
 					});
 				} catch (XMLRPCException e) {
 					Log.e("xmlrpc", "XMLRPC fehlgeschlagen", e);
 					handler.post(new Runnable() {
 						public void run() {
-							progr.setVisibility(View.INVISIBLE);
+							progressBar.setVisibility(View.INVISIBLE);
 						}
 					});
 				}
@@ -160,7 +162,6 @@ public class Main extends Activity implements OnClickListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
-//		fillSiteSpinner();
 		fillDrupalsSpinner();
 	}
 
@@ -209,5 +210,19 @@ public class Main extends Activity implements OnClickListener {
 			startActivity(intentRecent);
 			break;
 		}
+	}
+
+	@Override
+	public void onItemSelected(AdapterView<?> av, View view, int position,
+			long arg3) {
+		Settings.setSite((Site) av.getSelectedItem());
+		siteList = null;
+		siteListSelection = 0;
+		fillSiteSpinner();
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// Nothing to do, I presume
 	}
 }

@@ -46,7 +46,7 @@ public class EditSite extends Activity {
 		username.setText(drupal.getUsername());
 
 		password = (EditText) findViewById(R.id.password);
-		password.setTag(drupal.getPassword());
+		password.setText(drupal.getPassword());
 
 		signature = (EditText) findViewById(R.id.signature);
 		signature.setText(drupal.getSignature());

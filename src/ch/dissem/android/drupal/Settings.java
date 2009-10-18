@@ -8,14 +8,20 @@ import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.SiteDAO;
 
@@ -23,6 +29,9 @@ public class Settings extends Activity implements OnClickListener {
 	private static final String HISTORY_SIZE = "history_size";
 	private static Site selected;
 	private static Editor settingsEditor;
+
+	private ListView list;
+	private SiteDAO dao;
 
 	public static void setSite(Site selected) {
 		Settings.selected = selected;
@@ -33,7 +42,7 @@ public class Settings extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list_sites);
 
-		SiteDAO dao = new SiteDAO(this);
+		dao = new SiteDAO(this);
 		List<Site> drupals = dao.getSites();
 		if (drupals.isEmpty()) {
 			editSite(new Site());
@@ -54,12 +63,11 @@ public class Settings extends Activity implements OnClickListener {
 			}
 		});
 
-		ListView lv = (ListView) findViewById(R.id.site_list);
-		lv.setAdapter(new ArrayAdapter<Site>(this,
-				android.R.layout.simple_list_item_1, drupals));
+		list = (ListView) findViewById(R.id.site_list);
 
 		Button btn = (Button) findViewById(R.id.add_site);
 		btn.setOnClickListener(this);
+		registerForContextMenu(list);
 	}
 
 	protected void editSite(Site drupal) {
@@ -74,6 +82,8 @@ public class Settings extends Activity implements OnClickListener {
 		if (settingsEditor == null)
 			settingsEditor = PreferenceManager
 					.getDefaultSharedPreferences(this).edit();
+		list.setAdapter(new ArrayAdapter<Site>(this,
+				android.R.layout.simple_list_item_1, dao.getSites()));
 	}
 
 	@Override
@@ -119,5 +129,41 @@ public class Settings extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		editSite(new Site());
+	}
+
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		menu.add(Menu.NONE, R.string.edit, 0, R.string.edit);
+		menu.add(Menu.NONE, R.string.delete, 1, R.string.delete);
+	}
+
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterContextMenuInfo info;
+		try {
+			info = (AdapterContextMenuInfo) item.getMenuInfo();
+		} catch (ClassCastException e) {
+			Log.e("ctxMenu", "bad menuInfo", e);
+			return false;
+		}
+		final Site site = (Site) list.getAdapter().getItem(info.position);
+
+		switch (item.getItemId()) {
+		case R.string.edit:
+			Intent intentEdit = new Intent(this, EditSite.class);
+			intentEdit.putExtra(EditSite.KEY_SITE, site);
+			startActivity(intentEdit);
+			return true;
+		case R.string.delete:
+			dao.delete(site);
+			if (site.getId() == selected.getId())
+				selected = null;
+			list.setAdapter(new ArrayAdapter<Site>(this,
+					android.R.layout.simple_list_item_1, dao.getSites()));
+			return true;
+		default:
+			return false;
+		}
 	}
 }

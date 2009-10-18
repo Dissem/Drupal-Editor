@@ -153,4 +153,77 @@ public class Site implements Parcelable {
 		out.writeString(signaturePosition == null ? null : signaturePosition
 				.toString());
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((password == null) ? 0 : password.hashCode());
+		result = prime * result
+				+ ((signature == null) ? 0 : signature.hashCode());
+		result = prime * result + (signatureEnabled ? 1231 : 1237);
+		result = prime
+				* result
+				+ ((signaturePosition == null) ? 0 : signaturePosition
+						.hashCode());
+		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		result = prime * result
+				+ ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+
+		Site other = (Site) obj;
+
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+
+		if (signature == null) {
+			if (other.signature != null)
+				return false;
+		} else if (!signature.equals(other.signature))
+			return false;
+
+		if (signatureEnabled != other.signatureEnabled)
+			return false;
+
+		if (signaturePosition == null) {
+			if (other.signaturePosition != null)
+				return false;
+		} else if (!signaturePosition.equals(other.signaturePosition))
+			return false;
+
+		if (url == null) {
+			if (other.url != null)
+				return false;
+		} else if (!url.equals(other.url))
+			return false;
+
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+
+		return true;
+	}
 }

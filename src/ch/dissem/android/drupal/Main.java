@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -63,12 +64,18 @@ public class Main extends Activity implements OnClickListener,
 		SiteDAO dao = new SiteDAO(this);
 		drupalList = dao.getSites();
 		if (drupalList.isEmpty()) {
-			if (Settings.getURL() != null) {
+			String url = PreferenceManager.getDefaultSharedPreferences(this)
+					.getString("url", null);
+			if (url != null) {
 				Site imported = new Site(this);
 				imported.setName("Default");
-				imported.setUrl(Settings.getURL());
-				imported.setUsername(Settings.getUserName());
-				imported.setPassword(Settings.getPassword());
+				imported.setUrl(url);
+				imported.setUsername(PreferenceManager
+						.getDefaultSharedPreferences(this).getString(
+								"username", null));
+				imported.setPassword(PreferenceManager
+						.getDefaultSharedPreferences(this).getString(
+								"password", null));
 				dao.save(imported);
 				drupalList.add(imported);
 			} else {

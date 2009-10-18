@@ -62,8 +62,7 @@ public class Settings extends Activity implements OnClickListener {
 		settingsEditor = PreferenceManager.getDefaultSharedPreferences(this)
 				.edit();
 		final EditText hsize = (EditText) findViewById(R.id.history_size);
-		hsize.setText(PreferenceManager.getDefaultSharedPreferences(this)
-				.getString(HISTORY_SIZE, "10"));
+		hsize.setText(String.valueOf(getHistorySize(this)));
 		hsize.setOnKeyListener(new OnKeyListener() {
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -134,8 +133,13 @@ public class Settings extends Activity implements OnClickListener {
 	}
 
 	public static int getHistorySize(Context context) {
-		return Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(
-				context).getString(HISTORY_SIZE, "10"));
+		try {
+			return Integer.valueOf(PreferenceManager
+					.getDefaultSharedPreferences(context).getString(
+							HISTORY_SIZE, "10"));
+		} catch (NumberFormatException e) {
+			return 10;
+		}
 	}
 
 	public static boolean isSignatureEnabled() {

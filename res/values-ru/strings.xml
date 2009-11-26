@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- main -->
+	<string name="app_name">Drupal Editor</string>
+	<string name="new_entry">Новая запись</string>
+	<string name="recent_entries">Недавние записи</string>
+	<string name="settings_label">Настройки...</string>
+	<string name="reload_sites_label">Обновить</string>
+	<string name="about_label">О программе</string>
+
+	<!-- settings -->
+	<string name="site_name">Название сайта</string>
+	<string name="site_url_label">URL</string>
+	<string name="site_url_summary">Адрес вашего сайта Drupal</string>
+	<string name="username">Имя пользователя</string>
+	<string name="password">Пароль</string>
+	<string name="history_size">Длина истории</string>
+	<string name="site_username_summary">Ваше имя пользователья</string>
+	<string name="site_password_summary">Ваш пароль</string>
+	<string name="history_size_summary">Сколько записей истории вы хотите получать?</string>
+	<string name="insert_location">Добавить местоположение</string>
+	<string name="location_link_text">Я здесь!</string>
+	<string name="enable_gps">Включить GPS</string>
+	<string name="enable_gps_summary">Для определения местоположения: повышенная точность, но занимает больше времени</string>
+	<string name="signature">Подпись</string>
+	<string name="show_signature">Добавить подпись</string>
+	<string name="start">Начало</string>
+	<string name="end">Конец</string>
+	<string name="add_site">Добавить сайт</string>
+	<string name="default_signature">\n&lt;a href=\"http://dissem.ch/en/node/16\"&gt;Созданно с помощью Drupal Editor&lt;/a&gt;</string>
+
+	<!-- about dialog -->
+	<string name="about_title">О Drupal Editor</string>
+	<string name="about_text_what">Drupal Editor позволяет вам редактировать содержимое вашего сайта на Drupal использую api для блогов.</string>
+	<string name="about_text_thanks">Спасибо: команде Drupal за прекрасную CMS, людям которые создали библиотеку Android xmlrpc сообществу андроид!</string>
+
+	<!-- edit -->
+	<string name="save">Сохранить</string>
+	<string name="cancel">Отменить</string>
+
+	<!-- edit post -->
+	<string name="publish">Опубликовать</string>
+	<string name="xmlrpc_fault_1">Вы не имеете полномочий на сохранение этой записи как черновика. Пожалуйста опубликуйте её.</string>
+
+	<!-- recent posts -->
+	<string name="history_empty">Старых записей нет</string>
+	<string name="more">Ещё</string>
+	<string name="edit">Редактировать</string>
+	<string name="delete">Удалить</string>
+
+	<!-- location dialog -->
+	<string name="location_dialog_title">Местоположение</string>
+	<string name="location_dialog_text">Пожалуйста подождите пока приложение пытается определить ваше местоположение.</string>
+	<string name="location_dialog_info">Точность: %s Время: %s</string>
+	<string name="accuracy_unit">м</string>
+	<string name="insert_location_now">Указать сейчас</string>
+	<string name="unknown">неизвестно</string>
+</resources>

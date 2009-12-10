@@ -1,0 +1,6 @@
+Låter dej posta och editera artiklar på webbplatser som kör Drupal. Du måste ha Blog API aktiverat för att detta ska fungera.
+Detta är inte en officiell programvara från Drupal, min enda anknytning är att jag kör det på min webbplats..
+
+Svensk översättning tack till Jesper Urdén!
+
+För versionslogg besök min sida.

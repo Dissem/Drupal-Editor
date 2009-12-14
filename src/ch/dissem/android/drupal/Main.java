@@ -123,16 +123,7 @@ public class Main extends Activity implements OnClickListener,
 					}
 					handler.post(new Runnable() {
 						public void run() {
-							ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
-									Main.this,
-									android.R.layout.simple_spinner_item,
-									siteList);
-							adapter.setDropDownViewResource(//
-									android.R.layout.simple_spinner_dropdown_item);
-							blogs.setAdapter(adapter);
-							blogs.setClickable(true);
-							blogs.setSelection(siteListSelection);
-							blogs.setEnabled(true);
+							updateBlogsSpinner();
 							btnNew.setEnabled(true);
 							btnRecent.setEnabled(true);
 							progressBar.setVisibility(View.INVISIBLE);
@@ -229,18 +220,29 @@ public class Main extends Activity implements OnClickListener,
 	@Override
 	public void onItemSelected(AdapterView<?> av, View view, int position,
 			long arg3) {
-		if (Settings.setSite((Site) av.getSelectedItem())) {
+		if (Settings.setSite((Site) av.getSelectedItem()) || siteList == null) {
 			siteList = null;
 			siteListSelection = 0;
 			fillSiteSpinner();
 		} else {
-			ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
-					Main.this, android.R.layout.simple_spinner_item, siteList);
-			adapter.setDropDownViewResource(//
-					android.R.layout.simple_spinner_dropdown_item);
-			blogs.setAdapter(adapter);
-			blogs.setSelection(siteListSelection);
+			if (!siteList.isEmpty()) {
+				updateBlogsSpinner();
+			} else {
+				blogs.setClickable(false);
+				blogs.setEnabled(false);
+			}
 		}
+	}
+
+	private void updateBlogsSpinner() {
+		ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
+				Main.this, android.R.layout.simple_spinner_item, siteList);
+		adapter.setDropDownViewResource(//
+				android.R.layout.simple_spinner_dropdown_item);
+		blogs.setAdapter(adapter);
+		blogs.setClickable(true);
+		blogs.setSelection(siteListSelection);
+		blogs.setEnabled(true);
 	}
 
 	@Override

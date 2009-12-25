@@ -18,6 +18,8 @@
 			android:theme="@android:style/Theme.Dialog">
 		</activity>
 		<activity android:name=".EditPost" android:label="@string/app_name" />
+		<activity android:name=".TagList" android:label="@string/tag_list"
+			android:theme="@android:style/Theme.Dialog" />
 		<activity android:name=".RecentEntries" android:label="@string/recent_entries" />
 		<activity android:name=".LocationDialog" android:theme="@android:style/Theme.Dialog" />
 		<activity android:name=".EditSite" android:label="@string/edit" />

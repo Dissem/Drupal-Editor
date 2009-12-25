@@ -23,7 +23,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import ch.dissem.android.drupal.model.Site;
-import ch.dissem.android.drupal.model.SiteDAO;
+import ch.dissem.android.drupal.model.DAO;
 import ch.dissem.android.drupal.model.Site.SignaturePosition;
 
 public class Settings extends Activity implements OnClickListener {
@@ -32,7 +32,7 @@ public class Settings extends Activity implements OnClickListener {
 	private static Editor settingsEditor;
 
 	private ListView list;
-	private SiteDAO dao;
+	private DAO dao;
 
 	/**
 	 * @param selected
@@ -52,7 +52,7 @@ public class Settings extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list_sites);
 
-		dao = new SiteDAO(this);
+		dao = new DAO(this);
 		List<Site> drupals = dao.getSites();
 		if (drupals.isEmpty()) {
 			editSite(new Site(this));
@@ -191,7 +191,7 @@ public class Settings extends Activity implements OnClickListener {
 			return true;
 		case R.string.delete:
 			dao.delete(site);
-			if (site.getId() == selected.getId())
+			if (site.isSame(selected))
 				selected = null;
 			list.setAdapter(new ArrayAdapter<Site>(this,
 					android.R.layout.simple_list_item_1, dao.getSites()));

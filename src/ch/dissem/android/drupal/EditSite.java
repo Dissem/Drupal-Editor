@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import ch.dissem.android.drupal.model.NamedObject;
 import ch.dissem.android.drupal.model.Site;
-import ch.dissem.android.drupal.model.SiteDAO;
+import ch.dissem.android.drupal.model.DAO;
 import ch.dissem.android.drupal.model.Site.SignaturePosition;
 
 public class EditSite extends Activity {
@@ -94,7 +94,7 @@ public class EditSite extends Activity {
 			drupal.setSignaturePosition(//
 					((NamedObject<SignaturePosition>) signaturePos
 							.getSelectedItem()).getValue());
-			new SiteDAO(this).save(drupal);
+			new DAO(this).save(drupal);
 			finish();
 			return true;
 		case R.id.site_cancel:

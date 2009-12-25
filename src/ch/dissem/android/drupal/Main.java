@@ -25,8 +25,9 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import ch.dissem.android.drupal.model.Site;
-import ch.dissem.android.drupal.model.SiteDAO;
+import ch.dissem.android.drupal.model.DAO;
 import ch.dissem.android.drupal.model.UsersBlog;
+import ch.dissem.android.utils.CustomExceptionHandler;
 
 public class Main extends Activity implements OnClickListener,
 		OnItemSelectedListener {
@@ -47,6 +48,8 @@ public class Main extends Activity implements OnClickListener,
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler(
+				this, Thread.getDefaultUncaughtExceptionHandler()));
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
@@ -57,11 +60,12 @@ public class Main extends Activity implements OnClickListener,
 
 		blogs = (Spinner) findViewById(R.id.sites);
 		progressBar = (ProgressBar) findViewById(R.id.sites_loader_progress);
+		// throw new RuntimeException("This is a test for the error handler");
 	}
 
 	protected void fillDrupalsSpinner() {
 		Spinner drupals = (Spinner) findViewById(R.id.drupals);
-		SiteDAO dao = new SiteDAO(this);
+		DAO dao = new DAO(this);
 		drupalList = dao.getSites();
 		if (drupalList.isEmpty()) {
 			String url = PreferenceManager.getDefaultSharedPreferences(this)
@@ -157,7 +161,7 @@ public class Main extends Activity implements OnClickListener,
 		super.onRestoreInstanceState(savedInstanceState);
 		siteList = savedInstanceState.getParcelableArrayList(KEY_SITE_LIST);
 		siteListSelection = savedInstanceState.getInt(KEY_SITE_LIST_SELECTION);
-		drupalList = new SiteDAO(this).getSites();
+		drupalList = new DAO(this).getSites();
 		drupalListSelection = savedInstanceState
 				.getInt(KEY_DRUPAL_LIST_SELECTION);
 	}

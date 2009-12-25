@@ -100,11 +100,11 @@ public class Site implements Parcelable {
 		}
 	}
 
-	public Integer getId() {
+	Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	void setId(int id) {
 		this.id = id;
 	}
 
@@ -228,5 +228,12 @@ public class Site implements Parcelable {
 			return false;
 
 		return true;
+	}
+
+	public boolean isSame(Site other) {
+		if (id != null)
+			return id.equals(other.id);
+
+		return false;
 	}
 }

@@ -24,6 +24,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import ch.dissem.android.drupal.model.Post;
+import ch.dissem.android.drupal.model.Tag;
 
 public class EditPost extends Activity implements OnClickListener {
 	private XMLRPCClient client;
@@ -32,6 +33,7 @@ public class EditPost extends Activity implements OnClickListener {
 	public static final String KEY_POST = "post";
 	private String blogid;
 	private Post post;
+	private EditText content;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +48,11 @@ public class EditPost extends Activity implements OnClickListener {
 
 		post = getIntent().getParcelableExtra(KEY_POST);
 		blogid = getIntent().getStringExtra(KEY_BLOG_ID);
+		content = (EditText) findViewById(R.id.Text);
 
 		if (post != null) {
 			EditText title = (EditText) findViewById(R.id.Title);
 			title.setText(post.getTitle());
-			EditText content = (EditText) findViewById(R.id.Text);
 			String text = replaceLinks(post.getDescription());
 			text = removeSignature(text);
 			content.setText(text);
@@ -72,6 +74,20 @@ public class EditPost extends Activity implements OnClickListener {
 			startActivityForResult(new Intent(this, LocationDialog.class),
 					LocationDialog.REQUEST_CODE);
 			return true;
+		case R.id.taxonomy:
+			// not yet implemented
+			return false;
+		case R.id.tag_em:
+			insertTag("<em class=\"\">", null, "</em>");
+			return true;
+		case R.id.tag_strong:
+			insertTag("<strong>", null, "</strong>");
+			return true;
+		case R.id.tag_menu:
+			// not yet implemented
+			startActivityForResult(new Intent(this, TagList.class),
+					TagList.REQUEST_CODE);
+			return true;
 		default:
 			return false;
 		}
@@ -80,19 +96,19 @@ public class EditPost extends Activity implements OnClickListener {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode != LocationDialog.REQUEST_CODE
-				|| resultCode == RESULT_CANCELED)
+		if (resultCode == RESULT_CANCELED)
 			return;
 
-		double lat = data.getDoubleExtra(LocationDialog.LATITUDE, 0);
-		double lng = data.getDoubleExtra(LocationDialog.LONGITUDE, 0);
-		EditText et = (EditText) findViewById(R.id.Text);
-		StringBuilder b = new StringBuilder();
-		b.append("[").append(lat).append(",").append(lng).append("|");
-		b.append(getResources().getString(R.string.location_link_text));
-		b.append("]");
-
-		et.append(b.toString());
+		if (requestCode == LocationDialog.REQUEST_CODE) {
+			double lat = data.getDoubleExtra(LocationDialog.LATITUDE, 0);
+			double lng = data.getDoubleExtra(LocationDialog.LONGITUDE, 0);
+			insertTag(new StringBuilder("[").append(lat).append(",")
+					.append(lng).append("|"), //
+					getResources().getString(R.string.location_link_text), "]");
+		} else if (requestCode == TagList.REQUEST_CODE) {
+			Tag tag = data.getParcelableExtra(TagList.TAG);
+			insertTag(tag.getStartTag(), tag.getDefaultText(), tag.getEndTag());
+		}
 	}
 
 	public void onClick(View v) {
@@ -219,5 +235,32 @@ public class EditPost extends Activity implements OnClickListener {
 			}
 		}
 		return text;
+	}
+
+	private void insertTag(CharSequence startTag, CharSequence text,
+			CharSequence endTag) {
+		int endTagPos = content.getSelectionEnd();
+		int startTagPos = content.getSelectionStart();
+		int selectionLength = endTagPos - startTagPos;
+		content.getText().insert(endTagPos, endTag);
+		if (endTagPos == startTagPos && text != null)
+			content.getText().insert(startTagPos, text);
+		content.getText().insert(startTagPos, startTag);
+
+		int dq = getDoubleQuote(startTag);
+		if (dq > 0)
+			content.setSelection(startTagPos + dq);
+		else {
+			startTagPos = content.getSelectionStart();
+			content.setSelection(startTagPos, startTagPos + selectionLength);
+		}
+	}
+
+	private int getDoubleQuote(CharSequence tag) {
+		for (int i = 0; i < tag.length() - 1; i++) {
+			if (tag.charAt(i) == '"' && tag.charAt(i + 1) == '"')
+				return i + 1;
+		}
+		return -1;
 	}
 }

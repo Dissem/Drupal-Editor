@@ -2,6 +2,7 @@ package ch.dissem.android.drupal;
 
 import java.util.List;
 
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class TagList extends ListActivity implements OnClickListener {
 
 	private ListView list;
 
+	private Dialog editTagDialog;
 	private Tag editTag = new Tag();
 
 	@Override
@@ -40,16 +42,11 @@ public class TagList extends ListActivity implements OnClickListener {
 
 		dao = new DAO(this);
 
-
 		list = getListView();
 		initList();
 
 		registerForContextMenu(getListView());
 		findViewById(R.id.add_tag).setOnClickListener(this);
-
-		startTag = (EditText) findViewById(R.id.start_tag);
-		defaultText = (EditText) findViewById(R.id.default_text);
-		endTag = (EditText) findViewById(R.id.end_tag);
 	}
 
 	private void initList() {
@@ -61,16 +58,43 @@ public class TagList extends ListActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if (startTag.getText().length() > 0) {
-			editTag.setStartTag(startTag.getText().toString());
-			editTag.setDefaultText(defaultText.getText().toString());
-			editTag.setEndTag(endTag.getText().toString());
-			dao.save(editTag);
-			editTag = new Tag();
-			startTag.setText("");
-			endTag.setText("");
-			initList();
+		switch (v.getId()) {
+		case R.id.add_tag:
+			openDialog();
+			break;
+		case R.id.save_tag:
+			if (startTag.getText().length() > 0) {
+				editTag.setStartTag(startTag.getText().toString());
+				editTag.setDefaultText(defaultText.getText().toString());
+				editTag.setEndTag(endTag.getText().toString());
+				dao.save(editTag);
+				editTag = new Tag();
+				startTag.setText("");
+				endTag.setText("");
+				getDialog().hide();
+				initList();
+			}
+			break;
 		}
+	}
+
+	private void openDialog() {
+		getDialog().show();
+	}
+
+	private Dialog getDialog() {
+		if (editTagDialog == null) {
+			editTagDialog = new Dialog(this);
+			editTagDialog.setContentView(R.layout.edit_tag);
+
+			startTag = (EditText) editTagDialog.findViewById(R.id.start_tag);
+			defaultText = (EditText) editTagDialog
+					.findViewById(R.id.default_text);
+			endTag = (EditText) editTagDialog.findViewById(R.id.end_tag);
+
+			editTagDialog.findViewById(R.id.save_tag).setOnClickListener(this);
+		}
+		return editTagDialog;
 	}
 
 	@Override
@@ -103,6 +127,7 @@ public class TagList extends ListActivity implements OnClickListener {
 		switch (item.getItemId()) {
 		case R.string.edit:
 			editTag = tag;
+			openDialog();
 			startTag.setText(tag.getStartTag());
 			defaultText.setText(tag.getDefaultText());
 			endTag.setText(tag.getEndTag());

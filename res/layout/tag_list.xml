@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:orientation="vertical" android:padding="10dip">
+	android:layout_height="fill_parent" android:layout_width="fill_parent"
+	android:orientation="vertical">
 	<ListView android:id="@android:id/list" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
+		android:layout_height="0dip" android:layout_weight="1.0" />
 
-	<TableLayout android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:stretchColumns="1">
-		<TableRow>
-			<TextView android:text="@string/start_tag" />
-			<EditText android:id="@+id/start_tag" android:singleLine="true" />
-		</TableRow>
-		<TableRow>
-			<TextView android:text="@string/default_text" />
-			<EditText android:id="@+id/default_text" android:singleLine="true" />
-		</TableRow>
-		<TableRow>
-			<TextView android:text="@string/end_tag" />
-			<EditText android:id="@+id/end_tag" android:singleLine="true" />
-		</TableRow>
-	</TableLayout>
 	<Button android:id="@+id/add_tag" android:text="@string/add_tag"
 		android:layout_width="fill_parent" android:layout_height="wrap_content" />
 </LinearLayout>

@@ -51,6 +51,7 @@
 	<string name="start_tag">Start tag</string>
 	<string name="default_text">Default text</string>
 	<string name="end_tag">End tag</string>
+	<string name="save_tag">Save tag</string>
 
 	<!-- recent posts -->
 	<string name="history_empty">There are no recent entries available</string>

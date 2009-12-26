@@ -33,7 +33,7 @@ public class TagList extends ListActivity implements OnClickListener {
 	private ListView list;
 
 	private Dialog editTagDialog;
-	private Tag editTag = new Tag();
+	private Tag editTag;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,7 @@ public class TagList extends ListActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.add_tag:
+			editTag = new Tag();
 			openDialog();
 			break;
 		case R.id.save_tag:
@@ -79,13 +80,18 @@ public class TagList extends ListActivity implements OnClickListener {
 	}
 
 	private void openDialog() {
-		getDialog().show();
+		Dialog dlg = getDialog();
+		startTag.setText(editTag.getStartTag());
+		defaultText.setText(editTag.getDefaultText());
+		endTag.setText(editTag.getEndTag());
+		dlg.show();
 	}
 
 	private Dialog getDialog() {
 		if (editTagDialog == null) {
 			editTagDialog = new Dialog(this);
 			editTagDialog.setContentView(R.layout.edit_tag);
+			editTagDialog.setTitle(R.string.edit_tag);
 
 			startTag = (EditText) editTagDialog.findViewById(R.id.start_tag);
 			defaultText = (EditText) editTagDialog
@@ -128,9 +134,6 @@ public class TagList extends ListActivity implements OnClickListener {
 		case R.string.edit:
 			editTag = tag;
 			openDialog();
-			startTag.setText(tag.getStartTag());
-			defaultText.setText(tag.getDefaultText());
-			endTag.setText(tag.getEndTag());
 			break;
 		case R.string.delete:
 			dao.delete(tag);

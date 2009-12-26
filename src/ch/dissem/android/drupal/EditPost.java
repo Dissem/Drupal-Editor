@@ -23,11 +23,14 @@ import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import ch.dissem.android.drupal.model.Post;
 import ch.dissem.android.drupal.model.Tag;
 
 public class EditPost extends Activity implements OnClickListener {
 	private XMLRPCClient client;
+
+	private boolean showTagWarning = true;
 
 	public static final String KEY_BLOG_ID = "blogid";
 	public static final String KEY_POST = "post";
@@ -76,15 +79,15 @@ public class EditPost extends Activity implements OnClickListener {
 			return true;
 		case R.id.taxonomy:
 			// not yet implemented
+			Toast.makeText(this, R.string.todo, Toast.LENGTH_LONG);
 			return false;
 		case R.id.tag_em:
-			insertTag("<em class=\"\">", null, "</em>");
+			insertTag("<em>", null, "</em>");
 			return true;
 		case R.id.tag_strong:
 			insertTag("<strong>", null, "</strong>");
 			return true;
 		case R.id.tag_menu:
-			// not yet implemented
 			startActivityForResult(new Intent(this, TagList.class),
 					TagList.REQUEST_CODE);
 			return true;
@@ -253,6 +256,14 @@ public class EditPost extends Activity implements OnClickListener {
 		else {
 			startTagPos = content.getSelectionStart();
 			content.setSelection(startTagPos, startTagPos + selectionLength);
+		}
+
+		if (showTagWarning && startTag.length() > 0
+				&& startTag.charAt(0) == '<') {
+			Toast toast = Toast.makeText(this, R.string.tag_warning,
+					Toast.LENGTH_LONG);
+			toast.show();
+			showTagWarning = false;
 		}
 	}
 

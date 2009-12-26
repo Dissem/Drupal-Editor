@@ -47,7 +47,7 @@
 	
 	<!-- tag list -->
 	<string name="tag_list">Tag List</string>
-	<string name="add_tag">Add</string>
+	<string name="add_tag">Add tag</string>
 	<string name="start_tag">Start tag</string>
 	<string name="default_text">Default text</string>
 	<string name="end_tag">End tag</string>

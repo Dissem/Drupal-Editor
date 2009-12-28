@@ -1,19 +1,11 @@
 package ch.dissem.android.drupal;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.xmlrpc.android.XMLRPCClient;
-import org.xmlrpc.android.XMLRPCException;
-import org.xmlrpc.android.XMLRPCFault;
-
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,12 +16,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import ch.dissem.android.drupal.model.CategoryInfo;
 import ch.dissem.android.drupal.model.Post;
 import ch.dissem.android.drupal.model.Tag;
+import ch.dissem.android.drupal.model.WDAO;
+import ch.dissem.android.utils.MultiChoice;
 
 public class EditPost extends Activity implements OnClickListener {
-	private XMLRPCClient client;
-
 	private boolean showTagWarning = true;
 
 	public static final String KEY_BLOG_ID = "blogid";
@@ -38,13 +31,13 @@ public class EditPost extends Activity implements OnClickListener {
 	private Post post;
 	private EditText content;
 
+	private WDAO wdao;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_post);
-
-		client = new XMLRPCClient(Settings.getURL());
 
 		View saveButton = findViewById(R.id.save_post);
 		saveButton.setOnClickListener(this);
@@ -60,6 +53,7 @@ public class EditPost extends Activity implements OnClickListener {
 			text = removeSignature(text);
 			content.setText(text);
 		}
+		wdao = new WDAO(this);
 	}
 
 	@Override
@@ -78,7 +72,9 @@ public class EditPost extends Activity implements OnClickListener {
 					LocationDialog.REQUEST_CODE);
 			return true;
 		case R.id.taxonomy:
-			// not yet implemented
+			MultiChoice<CategoryInfo> dlg = new MultiChoice<CategoryInfo>(this, wdao.getCategories(blogid), post.getCategories());
+			dlg.show();
+			// TODO: not yet implemented
 			Toast.makeText(this, R.string.todo, Toast.LENGTH_LONG);
 			return false;
 		case R.id.tag_em:
@@ -115,35 +111,24 @@ public class EditPost extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		Map<String, Object> struct = new HashMap<String, Object>();
-		struct.put("title", String
-				.valueOf(((TextView) findViewById(R.id.Title)).getText()));
-		struct.put("link", "");
-		struct.put("description", addSignature(replaceShorts(String
+		if (post == null)
+			post = new Post();
+		post.setTitle(String.valueOf(((TextView) findViewById(R.id.Title))
+				.getText()));
+		post.setDescription(addSignature(replaceShorts(String
 				.valueOf(((TextView) findViewById(R.id.Text)).getText()))));
-		try {
-			if (post == null)
-				client.call("metaWeblog.newPost", blogid, Settings
-						.getUserName(), Settings.getPassword(), struct,
-						((CheckBox) findViewById(R.id.publish)).isChecked());
-			else
-				client.call("metaWeblog.editPost", post.getPostid(), Settings
-						.getUserName(), Settings.getPassword(), struct,
-						((CheckBox) findViewById(R.id.publish)).isChecked());
-			finish();
-		} catch (XMLRPCException e) {
-			if (e instanceof XMLRPCFault
-					&& ((XMLRPCFault) e).getFaultCode() == 1) {
-				Builder alertBuilder = new Builder(this);
-				alertBuilder.setMessage(R.string.xmlrpc_fault_1);
-				alertBuilder.create().show();
-			} else
-				Log.e("sendPost", "Could not send post", e);
-		}
+
+		wdao.save(post, blogid, ((CheckBox) findViewById(R.id.publish))
+				.isChecked());
+		finish();
 	}
 
-	// Replacement of location links
-
+	/**
+	 * Replace links with shortcuts in text
+	 * 
+	 * @param text
+	 * @return
+	 */
 	public String replaceLinks(String text) {
 		StringBuilder result = new StringBuilder(text);
 		String link = getResources().getText(R.string.location_link).toString();
@@ -159,6 +144,10 @@ public class EditPost extends Activity implements OnClickListener {
 		return result.toString();
 	}
 
+	/**
+	 * @param link
+	 * @return shortcut string for link
+	 */
 	private String getShorts(String link) {
 		String[] p = getLinkPattern();
 		link = link.replace(p[0], "[");
@@ -168,6 +157,12 @@ public class EditPost extends Activity implements OnClickListener {
 		return link;
 	}
 
+	/**
+	 * Replace shortcuts with real links
+	 * 
+	 * @param text
+	 * @return
+	 */
 	public String replaceShorts(String text) {
 		StringBuilder result = new StringBuilder(text);
 		Pattern p = Pattern.compile("(\\[\\d*\\.?\\d*,\\d*\\.?\\d*\\|.*?\\])");
@@ -207,6 +202,12 @@ public class EditPost extends Activity implements OnClickListener {
 		return linkPattern;
 	}
 
+	/**
+	 * Remove signature to save space on screen.
+	 * 
+	 * @param text
+	 * @return
+	 */
 	private String removeSignature(String text) {
 		if (Settings.isSignatureEnabled()) {
 			String signature = Settings.getSignature();
@@ -227,6 +228,12 @@ public class EditPost extends Activity implements OnClickListener {
 		return text;
 	}
 
+	/**
+	 * Add the signature
+	 * 
+	 * @param text
+	 * @return
+	 */
 	private String addSignature(String text) {
 		if (Settings.isSignatureEnabled()) {
 			String signature = Settings.getSignature();
@@ -267,6 +274,10 @@ public class EditPost extends Activity implements OnClickListener {
 		}
 	}
 
+	/**
+	 * @param tag
+	 * @return the first position in a "", or -1 if there is no occurence
+	 */
 	private int getDoubleQuote(CharSequence tag) {
 		for (int i = 0; i < tag.length() - 1; i++) {
 			if (tag.charAt(i) == '"' && tag.charAt(i + 1) == '"')

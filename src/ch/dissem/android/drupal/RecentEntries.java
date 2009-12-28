@@ -1,7 +1,6 @@
 package ch.dissem.android.drupal;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import org.xmlrpc.android.XMLRPCClient;
 import org.xmlrpc.android.XMLRPCException;
@@ -25,10 +24,12 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemSelectedListener;
 import ch.dissem.android.drupal.model.Post;
 import ch.dissem.android.drupal.model.UsersBlog;
+import ch.dissem.android.drupal.model.WDAO;
 
 public class RecentEntries extends ListActivity {
 	private String blogid;
 	private ArrayList<UsersBlog> siteList;
+	private WDAO wdao;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -42,6 +43,7 @@ public class RecentEntries extends ListActivity {
 		registerForContextMenu(getListView());
 
 		blogid = getIntent().getStringExtra(EditPost.KEY_BLOG_ID);
+		wdao = new WDAO(this);
 		fillSiteSpinner();
 	}
 
@@ -55,39 +57,19 @@ public class RecentEntries extends ListActivity {
 		final Handler handler = new Handler();
 		setProgressBarIndeterminateVisibility(true);
 		new Thread() {
-			@SuppressWarnings("unchecked")
 			public void run() {
-				try {
-					XMLRPCClient client = new XMLRPCClient(Settings.getURL());
-					Object[] results = (Object[]) client.call(
-							"metaWeblog.getRecentPosts", blogid, //
-							Settings.getUserName(), //
-							Settings.getPassword(), //
-							Settings.getHistorySize(RecentEntries.this));
-					final Post[] posts = new Post[results.length];
-					for (int i = 0; i < results.length; i++) {
-						posts[i] = new Post((Map) results[i]);
+				final Post[] posts = wdao.getPosts(blogid);
+
+				handler.post(new Runnable() {
+					public void run() {
+						ListView list = getListView();
+						list.setAdapter(new PostAdapter(RecentEntries.this,
+								posts));
+
+						RecentEntries.this
+								.setProgressBarIndeterminateVisibility(false);
 					}
-
-					handler.post(new Runnable() {
-						public void run() {
-							ListView list = getListView();
-							list.setAdapter(new PostAdapter(RecentEntries.this,
-									posts));
-
-							RecentEntries.this
-									.setProgressBarIndeterminateVisibility(false);
-						}
-					});
-				} catch (XMLRPCException e) {
-					Log.e("xmlrpc", "XMLRPC fehlgeschlagen", e);
-					handler.post(new Runnable() {
-						public void run() {
-							RecentEntries.this
-									.setProgressBarIndeterminateVisibility(false);
-						}
-					});
-				}
+				});
 			}
 		}.start();
 	}

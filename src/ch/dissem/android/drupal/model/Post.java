@@ -1,7 +1,10 @@
 package ch.dissem.android.drupal.model;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -13,6 +16,11 @@ public class Post implements Parcelable {
 	private String permaLink;
 	private String postid;
 	private String description;
+	private Set<CategoryInfo> categories = new HashSet<CategoryInfo>();
+
+	public Post() {
+		// empty constructor
+	}
 
 	public Post(Map<String, Object> struct) {
 		title = (String) struct.get("title");
@@ -36,8 +44,16 @@ public class Post implements Parcelable {
 		return title;
 	}
 
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public String getLink() {
 		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 	public Date getDateCreated() {
@@ -56,6 +72,44 @@ public class Post implements Parcelable {
 		return description;
 	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Set<CategoryInfo> getCategories() {
+		return categories;
+	}
+
+	public void addCategory(CategoryInfo category) {
+		categories.add(category);
+	}
+
+	@SuppressWarnings("unchecked")
+	public void setCategories(Object[] categories) {
+		this.categories = new HashSet<CategoryInfo>();
+		for (Object c : categories)
+			this.categories.add(new CategoryInfo((Map<String, Object>) c));
+	}
+
+	public Map<String, Object> getMap() {
+		Map<String, Object> struct = new HashMap<String, Object>();
+		struct.put("title", title);
+		struct.put("link", link == null ? "" : link);
+		struct.put("description", description);
+
+		return struct;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Map<String, Object>[] getCategoriesAsMap() {
+		Set<CategoryInfo> categories = getCategories();
+		Map<String, Object>[] result = new Map[categories.size()];
+		int i = 0;
+		for (CategoryInfo c : categories)
+			result[i++] = c.getMap();
+		return result;
+	}
+
 	// Parcelable implementation
 	private Post(Parcel in) {
 		title = in.readString();
@@ -64,6 +118,11 @@ public class Post implements Parcelable {
 		permaLink = in.readString();
 		postid = in.readString();
 		description = in.readString();
+		Object[] cats = in.readParcelableArray(CategoryInfo.class
+				.getClassLoader());
+		if (cats != null)
+			for (Object o : cats)
+				categories.add((CategoryInfo) o);
 	}
 
 	public static final Parcelable.Creator<Post> CREATOR = new Parcelable.Creator<Post>() {
@@ -87,5 +146,7 @@ public class Post implements Parcelable {
 		out.writeString(permaLink);
 		out.writeString(postid);
 		out.writeString(description);
+		out.writeParcelableArray(categories.toArray(new CategoryInfo[categories
+				.size()]), 0);
 	}
 }

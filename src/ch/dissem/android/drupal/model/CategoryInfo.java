@@ -25,16 +25,49 @@ public class CategoryInfo implements Parcelable {
 		return categoryId;
 	}
 
-	public Map<String, String> getCategoryMap() {
-		Map<String, String> result = new HashMap<String, String>();
-		result.put("categoryId", getCategoryId());
-		result.put("categoryName", getCategoryName());
+	public Map<String, Object> getMap() {
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("categoryId", categoryId);
+		result.put("categoryName", categoryName);
 		return result;
 	}
 
 	@Override
 	public String toString() {
 		return categoryName;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((categoryId == null) ? 0 : categoryId.hashCode());
+		result = prime * result
+				+ ((categoryName == null) ? 0 : categoryName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CategoryInfo other = (CategoryInfo) obj;
+		if (categoryId == null) {
+			if (other.categoryId != null)
+				return false;
+		} else if (!categoryId.equals(other.categoryId))
+			return false;
+		if (categoryName == null) {
+			if (other.categoryName != null)
+				return false;
+		} else if (!categoryName.equals(other.categoryName))
+			return false;
+		return true;
 	}
 
 	// Parcelable

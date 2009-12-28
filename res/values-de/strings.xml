@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="todo">Entschuldigung, diese Funktion muss zuerst noch fertiggestellt werden.</string>
+
 	<!-- main -->
 	<string name="app_name">Drupal Editor</string>
 	<string name="new_entry">Neuer Eintrag</string>
@@ -41,6 +43,18 @@
 	<!-- edit post -->
 	<string name="publish">Publizieren</string>
 	<string name="xmlrpc_fault_1">Du hast keine Berechtigung diesen Beitrag als Entwurf zu speichern. Bitte publiziere ihn stattdessen.</string>
+	<string name="taxonomy">Klassifizierung</string>
+	<string name="insert_tag">Tag einfügen</string>
+	
+	<!-- tag list -->
+	<string name="tag_list">Tag Liste</string>
+	<string name="add_tag">Tag hinzufügen</string>
+	<string name="start_tag">Starttag</string>
+	<string name="default_text">Standardtext</string>
+	<string name="end_tag">Schlusstag</string>
+	<string name="edit_tag">Tag bearbeiten</string>
+	<string name="save_tag">Tag speichern</string>
+	<string name="tag_warning">Beachte bitte dass Drupal deine Tags möglicherweise rausfiltert.</string>
 
 	<!-- recent posts -->
 	<string name="history_empty">Es sind keine ältere Einträge verfügbar</string>

@@ -40,7 +40,6 @@
 
 	<!-- edit post -->
 	<string name="publish">Publisera</string>
-	<string name="xmlrpc_fault_1">Du har inte behörighet att spara detta inlägg som utkast. Publisera det istället.</string>
 
 	<!-- recent posts -->
 	<string name="history_empty">Det finns inga tidigare inlägg</string>
@@ -55,4 +54,7 @@
 	<string name="accuracy_unit">m</string>
 	<string name="insert_location_now">Lägg till plats nu</string>
 	<string name="unknown">okänd</string>
+
+	<!-- WDAO -->
+	<string name="xmlrpc_fault_1">Du har inte behörighet att spara detta inlägg som utkast. Publisera det istället.</string>
 </resources>

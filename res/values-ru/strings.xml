@@ -40,7 +40,6 @@
 
 	<!-- edit post -->
 	<string name="publish">Опубликовать</string>
-	<string name="xmlrpc_fault_1">Вы не имеете полномочий на сохранение этой записи как черновика. Пожалуйста опубликуйте её.</string>
 
 	<!-- recent posts -->
 	<string name="history_empty">Старых записей нет</string>
@@ -55,4 +54,7 @@
 	<string name="accuracy_unit">м</string>
 	<string name="insert_location_now">Указать сейчас</string>
 	<string name="unknown">неизвестно</string>
+
+	<!-- WDAO -->
+	<string name="xmlrpc_fault_1">Вы не имеете полномочий на сохранение этой записи как черновика. Пожалуйста опубликуйте её.</string>
 </resources>

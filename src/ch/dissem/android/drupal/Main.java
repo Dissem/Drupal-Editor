@@ -2,17 +2,12 @@ package ch.dissem.android.drupal;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
-import org.xmlrpc.android.XMLRPCClient;
-import org.xmlrpc.android.XMLRPCException;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,14 +19,14 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
-import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.DAO;
+import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.UsersBlog;
+import ch.dissem.android.drupal.model.WDAO;
 import ch.dissem.android.utils.CustomExceptionHandler;
 
 public class Main extends Activity implements OnClickListener,
 		OnItemSelectedListener {
-	public static final String BLOGGER_API_KEY = "0123456789ABCDEF";
 	public static final String KEY_SITE_LIST = "siteList";
 	public static final String KEY_SITE_LIST_SELECTION = "siteListSelection";
 	public static final String KEY_DRUPAL_LIST_SELECTION = "drupalListSelection";
@@ -45,6 +40,8 @@ public class Main extends Activity implements OnClickListener,
 	private Spinner blogs;
 	private ProgressBar progressBar;
 
+	private WDAO wdao;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +49,8 @@ public class Main extends Activity implements OnClickListener,
 				this, Thread.getDefaultUncaughtExceptionHandler()));
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+
+		wdao = new WDAO(this);
 
 		btnNew = (Button) findViewById(R.id.new_button);
 		btnNew.setOnClickListener(this);
@@ -107,24 +106,17 @@ public class Main extends Activity implements OnClickListener,
 
 		final Handler handler = new Handler();
 		new Thread() {
-			@SuppressWarnings("unchecked")
 			public void run() {
-				try {
-					if (siteList == null) {
-						String url = Settings.getURL();
-						if (url == null) {
-							startActivity(new Intent(Main.this, Settings.class));
-							return;
-						}
-						XMLRPCClient client = new XMLRPCClient(url);
-						Object[] result = (Object[]) client.call(
-								"blogger.getUsersBlogs", BLOGGER_API_KEY,
-								Settings.getUserName(), Settings.getPassword());
-						siteList = new ArrayList<UsersBlog>();
-						for (Object map : result) {
-							siteList.add(new UsersBlog((Map) map));
-						}
+				if (siteList == null) {
+					if (Settings.getURL() == null) {
+						startActivity(new Intent(Main.this, Settings.class));
+						return;
 					}
+					siteList = wdao.getUsersBlogs();
+					for (UsersBlog blog : siteList)
+						wdao.initCategories(blog.getBlogid());
+				}
+				if (!siteList.isEmpty())
 					handler.post(new Runnable() {
 						public void run() {
 							updateBlogsSpinner();
@@ -133,14 +125,12 @@ public class Main extends Activity implements OnClickListener,
 							progressBar.setVisibility(View.INVISIBLE);
 						}
 					});
-				} catch (XMLRPCException e) {
-					Log.e("xmlrpc", "XMLRPC fehlgeschlagen", e);
+				else
 					handler.post(new Runnable() {
 						public void run() {
 							progressBar.setVisibility(View.INVISIBLE);
 						}
 					});
-				}
 			}
 		}.start();
 	}

@@ -41,7 +41,6 @@
 
 	<!-- edit post -->
 	<string name="publish">發佈</string>
-	<string name="xmlrpc_fault_1">您沒有儲存檔案此帖子為附件的授權權。請把它發佈。</string>
 
 	<!-- recent posts -->
 	<string name="history_empty">沒有可用的最近條目</string>
@@ -56,4 +55,7 @@
 	<string name="accuracy_unit">m</string>
 	<string name="insert_location_now">現在插入</string>
 	<string name="unknown">未知</string>
+
+	<!-- WDAO -->
+	<string name="xmlrpc_fault_1">您沒有儲存檔案此帖子為附件的授權權。請把它發佈。</string>
 </resources>

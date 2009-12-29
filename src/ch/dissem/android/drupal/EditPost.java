@@ -52,7 +52,8 @@ public class EditPost extends Activity implements OnClickListener {
 			String text = replaceLinks(post.getDescription());
 			text = removeSignature(text);
 			content.setText(text);
-		}
+		} else
+			post = new Post();
 		wdao = new WDAO(this);
 	}
 
@@ -72,7 +73,8 @@ public class EditPost extends Activity implements OnClickListener {
 					LocationDialog.REQUEST_CODE);
 			return true;
 		case R.id.taxonomy:
-			MultiChoice<CategoryInfo> dlg = new MultiChoice<CategoryInfo>(this, wdao.getCategories(blogid), post.getCategories());
+			MultiChoice<CategoryInfo> dlg = new MultiChoice<CategoryInfo>(this,
+					wdao.getCategories(blogid), post.getCategories());
 			dlg.show();
 			// TODO: not yet implemented
 			Toast.makeText(this, R.string.todo, Toast.LENGTH_LONG);

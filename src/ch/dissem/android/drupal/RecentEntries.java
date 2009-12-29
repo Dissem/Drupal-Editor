@@ -2,9 +2,6 @@ package ch.dissem.android.drupal;
 
 import java.util.ArrayList;
 
-import org.xmlrpc.android.XMLRPCClient;
-import org.xmlrpc.android.XMLRPCException;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -116,6 +113,7 @@ public class RecentEntries extends ListActivity {
 		}
 		final Post post = (Post) getListView().getAdapter().getItem(
 				info.position);
+		wdao.setCategories(post);
 
 		switch (item.getItemId()) {
 		case R.string.edit:
@@ -138,27 +136,19 @@ public class RecentEntries extends ListActivity {
 		setProgressBarIndeterminateVisibility(true);
 		new Thread() {
 			public void run() {
-				try {
-					XMLRPCClient client = new XMLRPCClient(Settings.getURL());
-					client.call("blogger.deletePost", Main.BLOGGER_API_KEY, //
-							post.getPostid(), //
-							Settings.getUserName(), //
-							Settings.getPassword(), false);
-
+				if (wdao.delete(post))
 					handler.post(new Runnable() {
 						public void run() {
 							loadRecentEntries();
 						}
 					});
-				} catch (XMLRPCException e) {
-					Log.e("xmlrpc", "XMLRPC fehlgeschlagen", e);
+				else
 					handler.post(new Runnable() {
 						public void run() {
 							RecentEntries.this
 									.setProgressBarIndeterminateVisibility(false);
 						}
 					});
-				}
 			}
 		}.start();
 	}

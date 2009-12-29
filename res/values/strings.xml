@@ -43,7 +43,6 @@
 
 	<!-- edit post -->
 	<string name="publish">Publish</string>
-	<string name="xmlrpc_fault_1">You do not have permission to save this post as a draft. Please publish it instead.</string>
 	<string name="taxonomy">Taxonomy</string>
 	<string name="insert_tag">Insert tag</string>
 	
@@ -70,4 +69,8 @@
 	<string name="accuracy_unit">m</string>
 	<string name="insert_location_now">Insert now</string>
 	<string name="unknown">unknown</string>
+
+	<!-- WDAO -->
+	<string name="wdao_fault">There was an error while talking with your Drupal, please try again later.</string>	
+	<string name="xmlrpc_fault_1">You do not have permission to save this post as a draft. Please publish it instead.</string>
 </resources>

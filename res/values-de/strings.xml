@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="todo">Entschuldigung, diese Funktion muss zuerst noch fertiggestellt werden.</string>
-
 	<!-- main -->
 	<string name="app_name">Drupal Editor</string>
 	<string name="new_entry">Neuer Eintrag</string>

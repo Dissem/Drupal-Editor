@@ -75,10 +75,9 @@ public class EditPost extends Activity implements OnClickListener {
 		case R.id.taxonomy:
 			MultiChoice<CategoryInfo> dlg = new MultiChoice<CategoryInfo>(this,
 					wdao.getCategories(blogid), post.getCategories());
+			dlg.setTitle(R.string.taxonomy);
 			dlg.show();
-			// TODO: not yet implemented
-			Toast.makeText(this, R.string.todo, Toast.LENGTH_LONG);
-			return false;
+			return true;
 		case R.id.tag_em:
 			insertTag("<em>", null, "</em>");
 			return true;

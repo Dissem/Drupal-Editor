@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="todo">Sorry, this function has yet to be implemented.</string>
-
 	<!-- main -->
 	<string name="app_name">Drupal Editor</string>
 	<string name="new_entry">New Entry</string>

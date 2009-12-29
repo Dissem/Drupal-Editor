@@ -40,6 +40,18 @@
 
 	<!-- edit post -->
 	<string name="publish">Publisera</string>
+	<string name="taxonomy">Taxonomi</string>
+	<string name="insert_tag">Lägg till tagg</string>
+	
+	<!-- tag list -->
+	<string name="tag_list">Lista taggar</string>
+	<string name="add_tag">Lägg till tagg</string>
+	<string name="start_tag">Starttagg</string>
+	<string name="default_text">Standardtext</string>
+	<string name="end_tag">Sluttagg</string>
+	<string name="edit_tag">Ändra tagg</string>
+	<string name="save_tag">Spara tagg</string>
+	<string name="tag_warning">Notera att Drupal kan filtrera bort din tagg.</string>
 
 	<!-- recent posts -->
 	<string name="history_empty">Det finns inga tidigare inlägg</string>
@@ -56,5 +68,6 @@
 	<string name="unknown">okänd</string>
 
 	<!-- WDAO -->
+	<string name="wdao_fault">Ett kommunikationsfel uppstod med din Drupalsida. Försök igen.</string>
 	<string name="xmlrpc_fault_1">Du har inte behörighet att spara detta inlägg som utkast. Publisera det istället.</string>
 </resources>

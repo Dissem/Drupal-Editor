@@ -41,6 +41,18 @@
 
 	<!-- edit post -->
 	<string name="publish">发布</string>
+	<string name="taxonomy">分类方法</string>
+	<string name="insert_tag">插入标签</string>
+
+	<!-- tag list -->
+	<string name="tag_list">标签列表</string>
+	<string name="add_tag">添加标签</string>
+	<string name="start_tag">开启标签</string>
+	<string name="default_text">默认文本</string>
+	<string name="end_tag">结束标签</string>
+	<string name="edit_tag">编辑标签</string>
+	<string name="save_tag">保存标签</string>
+	<string name="tag_warning">请注意：Drupal可能会将您的表情过滤掉。</string>
 
 	<!-- recent posts -->
 	<string name="history_empty">没有可用的最近条目</string>

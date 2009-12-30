@@ -13,6 +13,7 @@ import org.xmlrpc.android.XMLRPCFault;
 
 import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 import ch.dissem.android.drupal.R;
@@ -24,9 +25,11 @@ public class WDAO {
 	private Map<String, List<CategoryInfo>> categoryInfo;
 
 	private Context ctx;
+	private Handler handler;
 
 	public WDAO(Context context) {
 		ctx = context;
+		handler = new Handler();
 		categoryInfo = new HashMap<String, List<CategoryInfo>>();
 	}
 
@@ -173,7 +176,13 @@ public class WDAO {
 			alertBuilder.create().show();
 		} else {
 			Log.e("WDAO", msg, e);
-			Toast.makeText(ctx, R.string.wdao_fault, Toast.LENGTH_LONG);
+			handler.post(new Runnable() {
+				@Override
+				public void run() {
+					Toast.makeText(ctx, R.string.wdao_fault, Toast.LENGTH_LONG)
+							.show();
+				}
+			});
 		}
 	}
 }

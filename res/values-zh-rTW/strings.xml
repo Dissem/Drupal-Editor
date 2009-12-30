@@ -69,5 +69,6 @@
 	<string name="unknown">未知</string>
 
 	<!-- WDAO -->
+	<string name="wdao_fault">與 Drupal 對話時發生錯誤, 請稍候重試.</string>
 	<string name="xmlrpc_fault_1">您沒有儲存檔案此帖子為附件的授權權。請把它發佈。</string>
 </resources>

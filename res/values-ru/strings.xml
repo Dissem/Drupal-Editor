@@ -40,6 +40,18 @@
 
 	<!-- edit post -->
 	<string name="publish">Опубликовать</string>
+	<string name="taxonomy">Таксономия</string>
+	<string name="insert_tag">Вставить тэг</string>
+
+	<!-- tag list -->
+	<string name="tag_list">Список тэгов</string>
+	<string name="add_tag">Добавить тэг</string>
+	<string name="start_tag">Начало тэга</string>
+	<string name="default_text">Текст по умолчанию</string>
+	<string name="end_tag">Окончание тэга</string>
+	<string name="edit_tag">Редактировать тэг</string>
+	<string name="save_tag">Сохранить тэг</string>
+	<string name="tag_warning">Учтите, что Друпал может фильтровать ваши тэги.</string>
 
 	<!-- recent posts -->
 	<string name="history_empty">Старых записей нет</string>
@@ -56,5 +68,6 @@
 	<string name="unknown">неизвестно</string>
 
 	<!-- WDAO -->
+	<string name="wdao_fault">Произошла ошибка при соединение с вашим сервером. Попробуйте ещё раз</string>
 	<string name="xmlrpc_fault_1">Вы не имеете полномочий на сохранение этой записи как черновика. Пожалуйста опубликуйте её.</string>
 </resources>

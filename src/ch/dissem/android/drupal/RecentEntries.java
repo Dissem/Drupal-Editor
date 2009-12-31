@@ -113,7 +113,6 @@ public class RecentEntries extends ListActivity {
 		}
 		final Post post = (Post) getListView().getAdapter().getItem(
 				info.position);
-		wdao.setCategories(post);
 
 		switch (item.getItemId()) {
 		case R.string.edit:

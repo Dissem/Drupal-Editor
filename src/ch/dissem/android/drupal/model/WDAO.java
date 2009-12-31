@@ -66,7 +66,7 @@ public class WDAO {
 		} catch (XMLRPCException e) {
 			handleException(e, "Could not load categories for post "
 					+ post.getPostid());
-			categories = new Object[0];
+			categories = null;
 		}
 		post.setCategories(categories);
 	}
@@ -82,7 +82,7 @@ public class WDAO {
 				client.call("metaWeblog.editPost", post.getPostid(), //
 						Settings.getUserName(), Settings.getPassword(), //
 						post.getMap(), publish);
-			if (post.getCategories() != null)
+			if (post.isCategoriesSet())
 				client.call("mt.setPostCategories", post.getPostid(), //
 						Settings.getUserName(), Settings.getPassword(), //
 						post.getCategoriesAsMap());

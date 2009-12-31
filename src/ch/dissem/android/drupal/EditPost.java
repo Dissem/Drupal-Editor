@@ -4,6 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -42,6 +45,8 @@ public class EditPost extends Activity implements OnClickListener {
 		View saveButton = findViewById(R.id.save_post);
 		saveButton.setOnClickListener(this);
 
+		wdao = new WDAO(this);
+
 		post = getIntent().getParcelableExtra(KEY_POST);
 		blogid = getIntent().getStringExtra(KEY_BLOG_ID);
 		content = (EditText) findViewById(R.id.Text);
@@ -52,9 +57,15 @@ public class EditPost extends Activity implements OnClickListener {
 			String text = replaceLinks(post.getDescription());
 			text = removeSignature(text);
 			content.setText(text);
+			if (!post.isCategoriesSet()) {
+				new Thread() {
+					public void run() {
+						wdao.setCategories(post);
+					};
+				}.start();
+			}
 		} else
 			post = new Post();
-		wdao = new WDAO(this);
 	}
 
 	@Override
@@ -73,10 +84,24 @@ public class EditPost extends Activity implements OnClickListener {
 					LocationDialog.REQUEST_CODE);
 			return true;
 		case R.id.taxonomy:
-			MultiChoice<CategoryInfo> dlg = new MultiChoice<CategoryInfo>(this,
-					wdao.getCategories(blogid), post.getCategories());
-			dlg.setTitle(R.string.taxonomy);
-			dlg.show();
+			if (post.getPostid() != null && !post.isCategoriesSet()) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle(android.R.string.dialog_alert_title);
+				builder.setIcon(android.R.drawable.ic_dialog_alert);
+				builder.setMessage(R.string.taxonomy_warning);
+				builder.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								showTaxonomyDialog();
+							}
+						});
+				builder.setCancelable(true);
+				Dialog warning = builder.create();
+				warning.show();
+			} else
+				showTaxonomyDialog();
 			return true;
 		case R.id.tag_em:
 			insertTag("<em>", null, "</em>");
@@ -91,6 +116,14 @@ public class EditPost extends Activity implements OnClickListener {
 		default:
 			return false;
 		}
+	}
+
+	private void showTaxonomyDialog() {
+		MultiChoice<CategoryInfo> dlg = new MultiChoice<CategoryInfo>(this,
+				wdao.getCategories(blogid), post.getCategories());
+		dlg.setTitle(R.string.taxonomy);
+		post.setCategoriesSet(true);
+		dlg.show();
 	}
 
 	@Override

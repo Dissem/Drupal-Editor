@@ -42,6 +42,7 @@
 	<string name="publish">Опубликовать</string>
 	<string name="taxonomy">Таксономия</string>
 	<string name="insert_tag">Вставить тэг</string>
+	<string name="taxonomy_warning">Сейчас не удалось загрузить таксономию, она может быть потеряна при сохранение.</string>
 
 	<!-- tag list -->
 	<string name="tag_list">Список тэгов</string>

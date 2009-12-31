@@ -18,6 +18,8 @@ public class Post implements Parcelable {
 	private String description;
 	private Set<CategoryInfo> categories = new HashSet<CategoryInfo>();
 
+	private boolean categoriesSet;
+
 	public Post() {
 		// empty constructor
 	}
@@ -82,13 +84,17 @@ public class Post implements Parcelable {
 
 	public void addCategory(CategoryInfo category) {
 		categories.add(category);
+		categoriesSet = true;
 	}
 
 	@SuppressWarnings("unchecked")
 	public void setCategories(Object[] categories) {
+		if (categories == null)
+			return;
 		this.categories = new HashSet<CategoryInfo>();
 		for (Object c : categories)
 			this.categories.add(new CategoryInfo((Map<String, Object>) c));
+		categoriesSet = true;
 	}
 
 	public Map<String, Object> getMap() {
@@ -118,6 +124,7 @@ public class Post implements Parcelable {
 		permaLink = in.readString();
 		postid = in.readString();
 		description = in.readString();
+		categoriesSet = in.readByte() == 1;
 		Object[] cats = in.readParcelableArray(CategoryInfo.class
 				.getClassLoader());
 		if (cats != null)
@@ -146,7 +153,16 @@ public class Post implements Parcelable {
 		out.writeString(permaLink);
 		out.writeString(postid);
 		out.writeString(description);
+		out.writeByte(categoriesSet ? (byte) 1 : (byte) 0);
 		out.writeParcelableArray(categories.toArray(new CategoryInfo[categories
 				.size()]), 0);
+	}
+
+	public void setCategoriesSet(boolean categoriesSet) {
+		this.categoriesSet = categoriesSet;
+	}
+
+	public boolean isCategoriesSet() {
+		return categoriesSet;
 	}
 }

@@ -42,6 +42,7 @@
 	<string name="publish">Publizieren</string>
 	<string name="taxonomy">Klassifizierung</string>
 	<string name="insert_tag">Tag einfügen</string>
+	<string name="taxonomy_warning">Die Tags konnten nicht rechtzeitig geladen werden, sie könnten beim speichern durcheinander geraten.</string>
 	
 	<!-- tag list -->
 	<string name="tag_list">Tag Liste</string>

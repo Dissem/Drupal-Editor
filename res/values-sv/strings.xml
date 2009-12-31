@@ -42,7 +42,8 @@
 	<string name="publish">Publisera</string>
 	<string name="taxonomy">Taxonomi</string>
 	<string name="insert_tag">Lägg till tagg</string>
-	
+	<string name="taxonomy_warning">Kunde inte ladda taxonomin i rimlig tid,  det kan betyda att dina ändringar inte sparas.</string>
+
 	<!-- tag list -->
 	<string name="tag_list">Lista taggar</string>
 	<string name="add_tag">Lägg till tagg</string>

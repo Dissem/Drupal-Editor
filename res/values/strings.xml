@@ -43,6 +43,7 @@
 	<string name="publish">Publish</string>
 	<string name="taxonomy">Taxonomy</string>
 	<string name="insert_tag">Insert tag</string>
+	<string name="taxonomy_warning">Could not load taxonomy in time, it might get lost when you save.</string>
 
 	<!-- tag list -->
 	<string name="tag_list">Tag List</string>

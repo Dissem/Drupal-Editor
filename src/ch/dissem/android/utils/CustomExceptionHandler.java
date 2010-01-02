@@ -6,6 +6,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.Date;
+import java.util.Locale;
 
 import android.content.Context;
 import android.content.Intent;
@@ -44,6 +45,7 @@ public class CustomExceptionHandler implements UncaughtExceptionHandler {
 	}
 
 	private void addInformation(StringBuilder message) {
+		message.append("Locale: ").append(Locale.getDefault()).append('\n');
 		try {
 			PackageManager pm = context.getPackageManager();
 			PackageInfo pi;
@@ -55,8 +57,6 @@ public class CustomExceptionHandler implements UncaughtExceptionHandler {
 			message.append("Could not get Version information for ").append(
 					context.getPackageName());
 		}
-		// message.append("FilePath: ").append(
-		// context.getFilesDir().getAbsolutePath()).append('\n');
 		message.append("Phone Model: ").append(android.os.Build.MODEL).append(
 				'\n');
 		message.append("Android Version: ").append(
@@ -64,20 +64,12 @@ public class CustomExceptionHandler implements UncaughtExceptionHandler {
 		message.append("Board: ").append(android.os.Build.BOARD).append('\n');
 		message.append("Brand: ").append(android.os.Build.BRAND).append('\n');
 		message.append("Device: ").append(android.os.Build.DEVICE).append('\n');
-		// message.append("Display: ").append(android.os.Build.DISPLAY).append(
-		// '\n');
-		// message.append("Finger Print: ").append(android.os.Build.FINGERPRINT)
-		// .append('\n');
 		message.append("Host: ").append(android.os.Build.HOST).append('\n');
 		message.append("ID: ").append(android.os.Build.ID).append('\n');
 		message.append("Model: ").append(android.os.Build.MODEL).append('\n');
 		message.append("Product: ").append(android.os.Build.PRODUCT).append(
 				'\n');
-		// message.append("Tags: ").append(android.os.Build.TAGS).append('\n');
-		// message.append("Time: ").append(new
-		// Date(android.os.Build.TIME).toGMTString()).append('\n');
 		message.append("Type: ").append(android.os.Build.TYPE).append('\n');
-		// message.append("User: ").append(android.os.Build.USER).append('\n');
 		StatFs stat = getStatFs();
 		message.append("Total Internal memory: ").append(
 				getTotalInternalMemorySize(stat)).append('\n');
@@ -124,7 +116,7 @@ public class CustomExceptionHandler implements UncaughtExceptionHandler {
 		body.append('\n').append('\n');
 		body.append(errorContent).append('\n').append('\n');
 		sendIntent.putExtra(Intent.EXTRA_EMAIL,
-				new String[] { "ch_meyer@gmx.net" });
+				new String[] { "chrigu.meyer@gmail.com" });
 		sendIntent.putExtra(Intent.EXTRA_TEXT, body.toString());
 		sendIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
 		sendIntent.setType("message/rfc822");

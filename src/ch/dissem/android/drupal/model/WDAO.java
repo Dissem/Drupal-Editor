@@ -15,7 +15,6 @@ import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
-import android.widget.Toast;
 import ch.dissem.android.drupal.R;
 import ch.dissem.android.drupal.Settings;
 
@@ -169,20 +168,20 @@ public class WDAO {
 		}
 	}
 
-	protected void handleException(Throwable e, String msg) {
-		if (e instanceof XMLRPCFault && ((XMLRPCFault) e).getFaultCode() == 1) {
-			Builder alertBuilder = new Builder(ctx);
-			alertBuilder.setMessage(R.string.xmlrpc_fault_1);
-			alertBuilder.create().show();
-		} else {
-			Log.e("WDAO", msg, e);
-			handler.post(new Runnable() {
-				@Override
-				public void run() {
-					Toast.makeText(ctx, R.string.wdao_fault, Toast.LENGTH_LONG)
-							.show();
+	protected void handleException(final Throwable e, String msg) {
+		Log.e("WDAO", msg, e);
+		handler.post(new Runnable() {
+			@Override
+			public void run() {
+				Builder alertBuilder = new Builder(ctx);
+				if (e instanceof XMLRPCFault
+						&& ((XMLRPCFault) e).getFaultCode() == 1) {
+					alertBuilder.setMessage(R.string.xmlrpc_fault_1);
+				} else {
+					alertBuilder.setMessage(R.string.wdao_fault);
 				}
-			});
-		}
+				alertBuilder.create().show();
+			}
+		});
 	}
 }

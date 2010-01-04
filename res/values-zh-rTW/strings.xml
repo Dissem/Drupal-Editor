@@ -43,6 +43,7 @@
 	<string name="publish">發佈</string>
 	<string name="taxonomy">分類方法</string>
 	<string name="insert_tag">插入標籤</string>
+	<string name="taxonomy_warning">無法及時獲取分類方法, 可能會導致您儲存時發生混亂. </string>
 
 	<!-- tag list -->
 	<string name="tag_list">標籤清單</string>

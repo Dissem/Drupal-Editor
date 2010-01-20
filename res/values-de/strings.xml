@@ -70,5 +70,5 @@
 
 	<!-- WDAO -->
 	<string name="wdao_fault">Beim kommunizieren mit Drupal ist ein Feher aufgetreten; versuch es bitte später nochmals.</string>	
-	<string name="xmlrpc_fault_1">Du hast keine Berechtigung diesen Beitrag als Entwurf zu speichern. Bitte publiziere ihn stattdessen.</string>
+	<string name="xmlrpc_fault_1">Es ist ein Berechtigungsfehler aufgetreten. Möglicherweise ist der Benutzername oder das Passwort falsch, oder du hast keine Berechtigung einen Beitrag als Entwurf zu speichern.</string>
 </resources>

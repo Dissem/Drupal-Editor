@@ -35,7 +35,7 @@ public class WDAO {
 	@SuppressWarnings("unchecked")
 	public Post[] getPosts(String blogid) {
 		try {
-			XMLRPCClient client = new XMLRPCClient(Settings.getURL());
+			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 			Object[] results = (Object[]) client.call(
 					"metaWeblog.getRecentPosts", blogid, //
 					Settings.getUserName(), //
@@ -56,7 +56,7 @@ public class WDAO {
 		if (post == null || post.getPostid() == null)
 			return;
 
-		XMLRPCClient client = new XMLRPCClient(Settings.getURL());
+		XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 		Object[] categories;
 		try {
 			categories = (Object[]) client.call("mt.getPostCategories", post
@@ -72,7 +72,7 @@ public class WDAO {
 
 	public void save(Post post, String blogid, boolean publish) {
 		try {
-			XMLRPCClient client = new XMLRPCClient(Settings.getURL());
+			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 			if (post.getPostid() == null)
 				client.call("metaWeblog.newPost", blogid, Settings
 						.getUserName(), Settings.getPassword(), post.getMap(),
@@ -111,7 +111,7 @@ public class WDAO {
 	protected ArrayList<CategoryInfo> loadCategory(String blogid) {
 		ArrayList<CategoryInfo> availableCategories;
 		try {
-			XMLRPCClient client = new XMLRPCClient(Settings.getURL());
+			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 			Object[] res = (Object[]) client.call("mt.getCategoryList", blogid, //
 					Settings.getUserName(), Settings.getPassword());
 			Arrays.sort(res, new Comparator<Object>() {
@@ -139,7 +139,7 @@ public class WDAO {
 	public ArrayList<UsersBlog> getUsersBlogs() {
 		try {
 			ArrayList<UsersBlog> usersBlogs;
-			XMLRPCClient client = new XMLRPCClient(Settings.getURL());
+			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 			Object[] result = (Object[]) client.call("blogger.getUsersBlogs",
 					BLOGGER_API_KEY, Settings.getUserName(), Settings
 							.getPassword());
@@ -155,7 +155,7 @@ public class WDAO {
 	}
 
 	public boolean delete(Post post) {
-		XMLRPCClient client = new XMLRPCClient(Settings.getURL());
+		XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 		try {
 			client.call("blogger.deletePost", BLOGGER_API_KEY, //
 					post.getPostid(), //

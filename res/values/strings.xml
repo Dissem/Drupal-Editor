@@ -71,5 +71,5 @@
 
 	<!-- WDAO -->
 	<string name="wdao_fault">There was an error while talking with your Drupal, please try again later.</string>	
-	<string name="xmlrpc_fault_1">You do not have permission to save this post as a draft. Please publish it instead.</string>
+	<string name="xmlrpc_fault_1">A permission error occurred. Your username or passwort might be wrong, or you do not have permission to save a post as a draft.</string>
 </resources>

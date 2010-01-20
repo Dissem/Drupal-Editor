@@ -18,6 +18,7 @@ import ch.dissem.android.drupal.model.Site.SignaturePosition;
 
 public class EditSite extends Activity {
 	public static final String KEY_SITE = "drupalsite";
+	public static final String KEY_URI_ERROR = "uriError";
 
 	private Site drupal;
 
@@ -41,6 +42,10 @@ public class EditSite extends Activity {
 
 		url = (EditText) findViewById(R.id.site_url);
 		url.setText(drupal.getUrl());
+		if (getIntent().getBooleanExtra(KEY_URI_ERROR, false)) {
+			url.requestFocus();
+			url.selectAll();
+		}
 
 		username = (EditText) findViewById(R.id.username);
 		username.setText(drupal.getUsername());

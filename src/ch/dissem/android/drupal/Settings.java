@@ -1,5 +1,6 @@
 package ch.dissem.android.drupal;
 
+import java.net.URI;
 import java.util.List;
 
 import android.app.Activity;
@@ -103,21 +104,25 @@ public class Settings extends Activity implements OnClickListener {
 		settingsEditor.commit();
 	}
 
-	public static String getURL() {
-		if (selected == null)
+	public static URI getURI() {
+		try {
+			if (selected == null)
+				return null;
+			String result = selected.getUrl();
+			if (result == null)
+				return null;
+			if (!result.contains("://"))
+				result = "http://" + result;
+			if (!result.matches(".*[a-zA-Z0-9]/[a-zA-Z0-9].*\\.[a-zA-Z]+$")) {
+				if (result.endsWith("/"))
+					return URI.create(result + "xmlrpc.php");
+				else
+					return URI.create(result + "/xmlrpc.php");
+			}
+			return URI.create(result);
+		} catch (IllegalArgumentException e) {
 			return null;
-		String result = selected.getUrl();
-		if (result == null)
-			return null;
-		if (!result.contains("://"))
-			result = "http://" + result;
-		if (!result.matches(".*[a-zA-Z0-9]/[a-zA-Z0-9].*\\.[a-zA-Z]+$")) {
-			if (result.endsWith("/"))
-				return result + "xmlrpc.php";
-			else
-				return result + "/xmlrpc.php";
 		}
-		return result;
 	}
 
 	public static String getUserName() {

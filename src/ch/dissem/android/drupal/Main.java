@@ -37,6 +37,7 @@ public class Main extends Activity implements OnClickListener,
 
 	private Button btnNew;
 	private Button btnRecent;
+	private Spinner drupalInstallations;
 	private Spinner blogs;
 	private ProgressBar progressBar;
 
@@ -63,7 +64,7 @@ public class Main extends Activity implements OnClickListener,
 	}
 
 	protected void fillDrupalsSpinner() {
-		Spinner drupals = (Spinner) findViewById(R.id.drupals);
+		drupalInstallations = (Spinner) findViewById(R.id.drupals);
 		DAO dao = new DAO(this);
 		drupalList = dao.getSites();
 		if (drupalList.isEmpty()) {
@@ -90,12 +91,12 @@ public class Main extends Activity implements OnClickListener,
 				android.R.layout.simple_spinner_item, dao.getSites());
 		adapter.setDropDownViewResource(//
 				android.R.layout.simple_spinner_dropdown_item);
-		drupals.setAdapter(adapter);
-		drupals.setClickable(true);
+		drupalInstallations.setAdapter(adapter);
+		drupalInstallations.setClickable(true);
 		if (!drupalList.isEmpty())
-			drupals.setSelection(drupalListSelection);
+			drupalInstallations.setSelection(drupalListSelection);
 
-		drupals.setOnItemSelectedListener(this);
+		drupalInstallations.setOnItemSelectedListener(this);
 	}
 
 	protected void fillSiteSpinner() {
@@ -108,8 +109,18 @@ public class Main extends Activity implements OnClickListener,
 		new Thread() {
 			public void run() {
 				if (siteList == null) {
-					if (Settings.getURL() == null) {
-						startActivity(new Intent(Main.this, Settings.class));
+					if (Settings.getURI() == null) {
+						if (drupalInstallations.getAdapter().isEmpty())
+							startActivity(new Intent(Main.this, Settings.class));
+						else {
+							Intent intentEdit = new Intent(Main.this,
+									EditSite.class);
+							intentEdit.putExtra(EditSite.KEY_SITE,
+									(Site) drupalInstallations
+											.getSelectedItem());
+							intentEdit.putExtra(EditSite.KEY_URI_ERROR, true);
+							startActivity(intentEdit);
+						}
 						return;
 					}
 					siteList = wdao.getUsersBlogs();
@@ -229,14 +240,19 @@ public class Main extends Activity implements OnClickListener,
 	}
 
 	private void updateBlogsSpinner() {
-		ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
-				Main.this, android.R.layout.simple_spinner_item, siteList);
-		adapter.setDropDownViewResource(//
-				android.R.layout.simple_spinner_dropdown_item);
-		blogs.setAdapter(adapter);
-		blogs.setClickable(true);
-		blogs.setSelection(siteListSelection);
-		blogs.setEnabled(true);
+		try {
+			ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
+					Main.this, android.R.layout.simple_spinner_item, siteList);
+			adapter.setDropDownViewResource(//
+					android.R.layout.simple_spinner_dropdown_item);
+			blogs.setAdapter(adapter);
+			blogs.setClickable(true);
+			blogs.setSelection(siteListSelection);
+			blogs.setEnabled(true);
+		} catch (NullPointerException ignore) {
+			// If the user selects another site while loading, there can be a
+			// NPE - just ignore it.
+		}
 	}
 
 	@Override

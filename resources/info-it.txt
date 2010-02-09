@@ -1,0 +1,6 @@
+Ti permette di pubblicare e modificare contenuti sui siti in Drupal. L'amministratore del sito deve attivare il modulo BlogAPI affinché sia possibile comunicare.
+Non è una applicazione ufficiale, soddisfa appena richieste di un blog o semplici siti.
+
+Le informazioni sulle versioni sono disponibili nel changelog.
+
+Traduzione italiana a cura di Tassoman!

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Common -->
+	<string name="help">Aiuto</string>
+
+	<!-- main -->
+	<string name="app_name">Drupal Editor</string>
+	<string name="new_entry">Scrivi nuovo</string>
+	<string name="recent_entries">Ultimi scritti</string>
+	<string name="settings_label">Impostazioni...</string>
+	<string name="reload_sites_label">Aggiorna</string>
+	<string name="about_label">Informazioni</string>
+
+	<!-- settings -->
+	<string name="site_name">Nome del sito</string>
+	<string name="site_url_label">URL</string>
+	<string name="site_url_summary">La tua pagina Drupal</string>
+	<string name="username">Username</string>
+	<string name="password">Password</string>
+	<string name="history_size">Lunghezza dello storico</string>
+	<string name="site_username_summary">Username</string>
+	<string name="site_password_summary">Password (speriamo) segreta</string>
+	<string name="history_size_summary">Quanti scritti scaricare?</string>
+	<string name="insert_location">Inserisci coordinate</string>
+	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%s&amp;mlon=%s&amp;zoom=16&amp;layers=B00FTT</string>
+	<string name="location_link_text">Sono quì</string>
+	<string name="enable_gps">Attiva il GPS</string>
+	<string name="enable_gps_summary">Inserimento coordinate: più preciso, ma forse più lento</string>
+	<string name="signature">Firma</string>
+	<string name="show_signature">Aggiungi firma</string>
+	<string name="start">Prima</string>
+	<string name="end">Dopo</string>
+	<string name="add_site">Aggiungi sito</string>
+	<string name="default_signature">\n&lt;a href=\"http://dissem.ch/en/node/16\"&gt;Creato con Drupal Editor&lt;/a&gt;</string>
+
+	<!-- about dialog -->
+	<string name="about_title">Informazioni su Drupal Editor</string>
+	<string name="about_text_what">Drupal Editor ti permette di modificare i contenuti dei tuoi siti in Drupal sfruttando il modulo blogAPI.</string>
+	<string name="about_text_thanks">Ringraziamo: il team di sviluppo di Drupal per aver liberato questo grande CMS, i creatori della libreria XMLRPC per Android e il team di sviluppo di Android!</string>
+
+	<!-- edit -->
+	<string name="save">Salva</string>
+	<string name="cancel">Annulla</string>
+
+	<!-- edit post -->
+	<string name="publish">Pubblica</string>
+	<string name="taxonomy">Tassonomia</string>
+	<string name="insert_tag">Inserisci un tag</string>
+	<string name="taxonomy_warning">Non è stata caricata la tassonomia, potrebbe perdersi quando salvi.</string>
+
+	<!-- tag list -->
+	<string name="tag_list">Lista di tag</string>
+	<string name="add_tag">Aggiungi tag</string>
+	<string name="start_tag">Tag in apertura</string>
+	<string name="default_text">Testo predefinito</string>
+	<string name="end_tag">Tag in chiusura</string>
+	<string name="edit_tag">Modifica tag</string>
+	<string name="save_tag">Salva tag</string>
+	<string name="tag_warning">NB: Drupal potrebbe filtrare i tuoi tag.</string>
+
+	<!-- recent posts -->
+	<string name="history_empty">Non è disponibile alcuno scritto recente</string>
+	<string name="more">Continua</string>
+	<string name="edit">Modifica</string>
+	<string name="delete">Elimina</string>
+
+	<!-- location dialog -->
+	<string name="location_dialog_title">Coordinate</string>
+	<string name="location_dialog_text">Attendere prego, l'applicazione sta provando ad ottenere le coordinate geografiche.</string>
+	<string name="location_dialog_info">Precisione: %s Orario: %s</string>
+	<string name="accuracy_unit">m</string>
+	<string name="insert_location_now">Inserisci subito</string>
+	<string name="unknown">sconosciuto</string>
+
+	<!-- WDAO -->
+	<string name="wdao_fault">Si è verificato un errore di comunicazione con Drupal, controlla la configurazione e poi riprova in seguito.</string>
+	<string name="xmlrpc_fault_1">Si è verificato un errore di acquisizione privilegi. Puoi aver sbagliato username/password, oppure questo username non ha abbastanza privilegi per salvare gli scritti.</string>
+</resources>

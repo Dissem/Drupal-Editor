@@ -1,0 +1,5 @@
+Allows you to post and edit articles on sites that use Drupal. You (or your Admin) have to enable the Blog API for this to work.
+This is very unofficial, my only ties to Drupal is me using it for my webpage.
+
+{Language} translation thanks to {Translator}!
+For a changelog visit the webpage.

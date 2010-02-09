@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- Common -->
+	<string name="help">Help</string>
+
 	<!-- main -->
 	<string name="app_name">Drupal Editor</string>
 	<string name="new_entry">New Entry</string>

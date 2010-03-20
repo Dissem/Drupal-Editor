@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 11.0, SVG Export Plug-In . SVG Version: 6.0.0 Build 78)  -->
+
 <svg:svg
    xmlns:xapGImg="http://ns.adobe.com/xap/1.0/g/img/"
    xmlns:xap="http://ns.adobe.com/xap/1.0/"
@@ -24,14 +25,14 @@
    xml:space="preserve"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.46"
+   inkscape:version="0.47pre4 r22446"
    sodipodi:docname="druplicon.vector.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
    style="overflow:visible"
-   inkscape:export-filename="/Users/christian/Workspaces/Eclipse 3.5 Java/Drupal Editor/res/drawable/icon.png"
-   inkscape:export-xdpi="5.5485625"
-   inkscape:export-ydpi="5.5485625"><svg:defs
+   inkscape:export-filename="/Users/christian/Documents/workspace/Drupal Editor/res/drawable-hdpi/icon.png"
+   inkscape:export-xdpi="8.3199997"
+   inkscape:export-ydpi="8.3199997"><svg:defs
    id="defs27"><inkscape:perspective
    sodipodi:type="inkscape:persp3d"
    inkscape:vp_x="0 : 389.2915 : 1"
@@ -68,16 +69,17 @@
    guidetolerance="10"
    inkscape:pageopacity="0"
    inkscape:pageshadow="2"
-   inkscape:window-width="1920"
-   inkscape:window-height="1138"
+   inkscape:window-width="1440"
+   inkscape:window-height="878"
    id="namedview25"
    showgrid="false"
    inkscape:zoom="0.41958864"
    inkscape:cx="406.03259"
    inkscape:cy="123.35305"
    inkscape:window-x="-8"
-   inkscape:window-y="-8"
-   inkscape:current-layer="svg2" />
+   inkscape:window-y="0"
+   inkscape:current-layer="svg2"
+   inkscape:window-maximized="0" />
 	<svg:metadata
    id="metadata4">
 		<ns:variableSets>
@@ -347,7 +349,7 @@ AP/Z</xapGImg:image>
 
 <cc:Work
    rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-     rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></svg:metadata></x:xmpmeta>
+     rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></svg:metadata></x:xmpmeta>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <xpacket />
 			</svg:metadata>
 		

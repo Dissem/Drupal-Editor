@@ -1,9 +1,12 @@
 This is still a license stub and should be replaced with something more complete.
 
-* The drupal logo (druplicon) is being released under the GPL-2
+* The drupal logo (druplicon) is being released under the GPL-2. Therefore the same
+  applies to my slightly adapted version.
+
 * The XML-RPC library (everything under org.xmlrpc.*) is licensed under the Apache 2.0 License
   (See android-xmlrpc.googlecode.com)
   * Except the Base64Coder, which is licensed under the LGPL (see notice in source)
+
 * Everything else is under the GPL-2 or later, see http://www.gnu.org/licenses/gpl.html
 
-If there are any questions try to contact me under chrigu.meyer@gmail.com.
+If there are any questions try to contact me at chrigu.meyer@gmail.com.

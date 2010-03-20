@@ -34,7 +34,7 @@ import android.widget.ListView;
  * 
  * @author christian
  * @param <T>
- *            filetype for this dialog. Should have some useful toString()
+ *            Type for this dialog. Should have some useful toString()
  *            implementation.
  */
 public class MultiChoice<T> extends Dialog {

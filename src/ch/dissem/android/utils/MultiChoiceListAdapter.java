@@ -35,7 +35,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
  * 
  * @author christian
  * @param <T>
- *            filetype this Adapter contains. Should have some useful toString()
+ *            Type this Adapter contains. Should have some useful toString()
  *            implementation.
  */
 public class MultiChoiceListAdapter<T> extends BaseAdapter {

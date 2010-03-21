@@ -19,8 +19,7 @@ package ch.dissem.android.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.List;
 
 import android.content.Context;
 import android.view.View;
@@ -39,36 +38,31 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
  *            implementation.
  */
 public class MultiChoiceListAdapter<T> extends BaseAdapter {
+	private Context ctx;
 
-	private ArrayList<ChoiceView> views;
-	private Map<T, Boolean> optionsWithSelection;
+	private Collection<T> options;
 	private Collection<T> selection;
-
-	public MultiChoiceListAdapter(Context context, Map<T, Boolean> options) {
-		views = new ArrayList<ChoiceView>();
-		this.optionsWithSelection = options;
-
-		for (Entry<T, Boolean> e : options.entrySet())
-			views.add(new ChoiceView(context, e.getKey(), e.getValue()));
-	}
+	private List<T> filteredOptions;
 
 	public MultiChoiceListAdapter(Context context, Collection<T> options,
 			Collection<T> selection) {
-		views = new ArrayList<ChoiceView>();
+		this.ctx = context;
+
+		this.options = options;
 		this.selection = selection;
 
-		for (T o : options)
-			views.add(new ChoiceView(context, o, selection.contains(o)));
+		this.filteredOptions = new ArrayList<T>(options.size());
+		setFilter(null);
 	}
 
 	@Override
 	public int getCount() {
-		return views.size();
+		return filteredOptions.size();
 	}
 
 	@Override
-	public Object getItem(int position) {
-		return views.get(position).object;
+	public T getItem(int position) {
+		return filteredOptions.get(position);
 	}
 
 	@Override
@@ -78,7 +72,30 @@ public class MultiChoiceListAdapter<T> extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		return views.get(position);
+		ChoiceView view;
+		T item = getItem(position);
+		boolean selected = selection.contains(item);
+		if (convertView == null) {
+			view = new ChoiceView(ctx, item, selected);
+		} else {
+			view = (ChoiceView) convertView;
+			view.setItem(item, selected);
+		}
+		return view;
+	}
+
+	public void setFilter(String filter) {
+		if (filter != null)
+			filter = filter.toLowerCase();
+
+		filteredOptions.clear();
+		for (T item : selection)
+			filteredOptions.add(item);
+		for (T item : options)
+			if (!selection.contains(item)
+					&& (filter == null || item.toString().toLowerCase()
+							.contains(filter)))
+				filteredOptions.add(item);
 	}
 
 	public class ChoiceView extends CheckBox implements OnCheckedChangeListener {
@@ -87,16 +104,13 @@ public class MultiChoiceListAdapter<T> extends BaseAdapter {
 		public ChoiceView(Context context, T object, Boolean selected) {
 			super(context);
 			this.object = object;
-			setChecked(selected);
 			setOnCheckedChangeListener(this);
-			setText(object.toString());
+			setItem(object, selected);
 		}
 
 		@Override
 		public void onCheckedChanged(CompoundButton buttonView,
 				boolean isChecked) {
-			if (optionsWithSelection != null)
-				optionsWithSelection.put(object, Boolean.valueOf(isChecked));
 			if (selection != null) {
 				if (isChecked && !selection.contains(object))
 					selection.add(object);
@@ -104,6 +118,12 @@ public class MultiChoiceListAdapter<T> extends BaseAdapter {
 					selection.remove(object);
 			}
 			notifyDataSetChanged();
+		}
+
+		public void setItem(T object, Boolean selected) {
+			this.object = object;
+			setChecked(selected);
+			setText(object.toString());
 		}
 	}
 }

@@ -35,12 +35,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import ch.dissem.android.drupal.model.Post;
 import ch.dissem.android.drupal.model.UsersBlog;
 import ch.dissem.android.drupal.model.WDAO;
 
-public class RecentEntries extends ListActivity {
+public class RecentEntries extends ListActivity implements OnItemClickListener {
 	private String blogid;
 	private ArrayList<UsersBlog> siteList;
 	private WDAO wdao;
@@ -59,6 +60,7 @@ public class RecentEntries extends ListActivity {
 		blogid = getIntent().getStringExtra(EditPost.KEY_BLOG_ID);
 		wdao = new WDAO(this);
 		fillSiteSpinner();
+		getListView().setOnItemClickListener(this);
 	}
 
 	@Override
@@ -133,10 +135,7 @@ public class RecentEntries extends ListActivity {
 
 		switch (item.getItemId()) {
 		case R.string.edit:
-			Intent intentEdit = new Intent(this, EditPost.class);
-			intentEdit.putExtra(EditPost.KEY_POST, post);
-			intentEdit.putExtra(EditPost.KEY_BLOG_ID, blogid);
-			startActivity(intentEdit);
+			editPost(post);
 			break;
 		case R.string.delete:
 			deletePost(post);
@@ -145,6 +144,13 @@ public class RecentEntries extends ListActivity {
 			return false;
 		}
 		return true;
+	}
+
+	protected void editPost(Post post) {
+		Intent intentEdit = new Intent(this, EditPost.class);
+		intentEdit.putExtra(EditPost.KEY_POST, post);
+		intentEdit.putExtra(EditPost.KEY_BLOG_ID, blogid);
+		startActivity(intentEdit);
 	}
 
 	protected void deletePost(final Post post) {
@@ -179,5 +185,12 @@ public class RecentEntries extends ListActivity {
 
 		public void onNothingSelected(AdapterView<?> parent) {
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> adapterView, View view, int pos,
+			long arg3) {
+		Post post = (Post) getListView().getItemAtPosition(pos);
+		editPost(post);
 	}
 }

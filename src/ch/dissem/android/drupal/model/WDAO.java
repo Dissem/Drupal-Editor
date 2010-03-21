@@ -23,6 +23,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.xmlrpc.android.XMLRPCClient;
 import org.xmlrpc.android.XMLRPCException;
@@ -39,6 +41,7 @@ public class WDAO {
 	public static final String BLOGGER_API_KEY = "0123456789ABCDEF";
 
 	private Map<String, List<CategoryInfo>> categoryInfo;
+	private Map<String, Lock> categoryInfoPreloadLocks = new HashMap<String, Lock>();
 
 	private Context ctx;
 	private Handler handler;
@@ -70,6 +73,7 @@ public class WDAO {
 	}
 
 	public void setCategories(Post post) {
+		Log.d(getClass().getSimpleName(), "setCategories started");
 		if (post == null || post.getPostid() == null)
 			return;
 
@@ -85,6 +89,7 @@ public class WDAO {
 			categories = null;
 		}
 		post.setCategories(categories);
+		Log.d(getClass().getSimpleName(), "setCategories finished");
 	}
 
 	public void save(Post post, String blogid, boolean publish) {
@@ -116,16 +121,23 @@ public class WDAO {
 			}.start();
 	}
 
-	public synchronized List<CategoryInfo> getCategories(String blogid) {
+	public List<CategoryInfo> getCategories(String blogid) {
+		Lock lock = getLock(blogid);
+		lock.lock();
+
 		List<CategoryInfo> availableCategories = categoryInfo.get(blogid);
 		if (availableCategories == null) {
 			return loadCategory(blogid);
 		}
+
+		lock.unlock();
 		return availableCategories;
 	}
 
 	@SuppressWarnings("unchecked")
 	protected ArrayList<CategoryInfo> loadCategory(String blogid) {
+		Lock lock = getLock(blogid);
+		lock.lock();
 		ArrayList<CategoryInfo> availableCategories;
 		try {
 			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
@@ -142,13 +154,12 @@ public class WDAO {
 				availableCategories.add(new CategoryInfo(
 						(Map<String, Object>) c));
 
-			synchronized (categoryInfo) {
-				categoryInfo.put(blogid, availableCategories);
-			}
+			categoryInfo.put(blogid, availableCategories);
 		} catch (XMLRPCException e) {
 			handleException(e, "Could not get category list");
 			availableCategories = new ArrayList<CategoryInfo>();
 		}
+		lock.unlock();
 		return availableCategories;
 	}
 
@@ -200,5 +211,15 @@ public class WDAO {
 				alertBuilder.create().show();
 			}
 		});
+	}
+
+	private synchronized Lock getLock(String blogid) {
+		Lock lock = categoryInfoPreloadLocks.get(blogid);
+		if (lock == null) {
+			lock = new ReentrantLock();
+			categoryInfoPreloadLocks.put(blogid, lock);
+		}
+		return lock;
+
 	}
 }

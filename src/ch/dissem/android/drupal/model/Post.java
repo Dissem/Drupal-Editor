@@ -137,7 +137,8 @@ public class Post implements Parcelable {
 	private Post(Parcel in) {
 		title = in.readString();
 		link = in.readString();
-		dateCreated = new Date(in.readLong());
+		long d = in.readLong();
+		dateCreated = (d == 0L ? null : new Date(d));
 		permaLink = in.readString();
 		postid = in.readString();
 		description = in.readString();
@@ -166,7 +167,7 @@ public class Post implements Parcelable {
 	public void writeToParcel(Parcel out, int flags) {
 		out.writeString(title);
 		out.writeString(link);
-		out.writeLong(dateCreated.getTime());
+		out.writeLong(dateCreated == null ? 0L : dateCreated.getTime());
 		out.writeString(permaLink);
 		out.writeString(postid);
 		out.writeString(description);

@@ -62,5 +62,6 @@ public class ShareReceiver extends SiteSelector implements OnClickListener {
 						.getSelectedItem()).getBlogid());
 		intentEdit.putExtra(EditPost.KEY_POST, post);
 		startActivity(intentEdit);
+		finish();
 	}
 }

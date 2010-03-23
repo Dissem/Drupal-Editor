@@ -8,6 +8,9 @@
 	<string name="reload_sites_label">Neu laden</string>
 	<string name="about_label">Über Drupal Editor</string>
 
+	<!-- share receiver -->
+	<string name="create_entry">Eintrag erstellen</string>
+
 	<!-- settings -->
 	<string name="site_name">Name der Seite</string>
 	<string name="site_url_label">URL</string>

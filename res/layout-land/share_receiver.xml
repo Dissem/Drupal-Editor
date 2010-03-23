@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:padding="30dip"
+	android:layout_gravity="center" android:saveEnabled="true">
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="0dip" android:layout_height="wrap_content"
+		android:layout_weight="0.3" android:layout_gravity="center_horizontal">
+		<TextView android:text="@string/app_name"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:layout_gravity="top|left" android:layout_marginBottom="25dip"
+			android:textSize="24.5sp" />
+		<ProgressBar android:id="@+id/sites_loader_progress"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal" android:visibility="invisible" />
+	</LinearLayout>
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="0dip" android:layout_height="wrap_content"
+		android:layout_weight="0.7" android:layout_gravity="center">
+		<Spinner android:layout_height="wrap_content" android:id="@+id/drupals"
+			android:layout_width="fill_parent" />
+		<Spinner android:layout_height="wrap_content" android:id="@+id/sites"
+			android:layout_width="fill_parent" />
+		<Button android:id="@+id/new_button" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="@string/create_entry" />
+		<View android:layout_width="10dip" android:layout_height="20dip" />
+	</LinearLayout>
+</LinearLayout>

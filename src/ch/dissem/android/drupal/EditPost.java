@@ -23,9 +23,11 @@ import java.util.regex.Pattern;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -41,6 +43,7 @@ import ch.dissem.android.drupal.model.Post;
 import ch.dissem.android.drupal.model.Tag;
 import ch.dissem.android.drupal.model.WDAO;
 import ch.dissem.android.utils.MultiChoice;
+import ch.dissem.android.utils.ThreadingUtils;
 
 public class EditPost extends Activity implements OnClickListener {
 	private boolean showTagWarning = true;
@@ -52,9 +55,11 @@ public class EditPost extends Activity implements OnClickListener {
 	private EditText content;
 
 	private WDAO wdao;
+	private Handler handler;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		handler = new Handler();
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_post);
@@ -162,16 +167,29 @@ public class EditPost extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		if (post == null)
-			post = new Post();
-		post.setTitle(String.valueOf(((TextView) findViewById(R.id.Title))
-				.getText()));
-		post.setDescription(addSignature(replaceShorts(String
-				.valueOf(((TextView) findViewById(R.id.Text)).getText()))));
+		final ProgressDialog progress = ProgressDialog.show(EditPost.this,
+				null, EditPost.this.getString(R.string.saving_post), false);
+		new Thread() {
+			@Override
+			public void run() {
+				if (post == null)
+					post = new Post();
+				post.setTitle(String.valueOf(//
+						((TextView) findViewById(R.id.Title)).getText()));
 
-		wdao.save(post, blogid, ((CheckBox) findViewById(R.id.publish))
-				.isChecked());
-		finish();
+				String text = String.valueOf(//
+						((TextView) findViewById(R.id.Text)).getText());
+				post.setDescription(addSignature(replaceShorts(text)));
+
+				if (wdao.save(post, blogid,
+						((CheckBox) findViewById(R.id.publish)).isChecked())) {
+					ThreadingUtils.showToast(handler, EditPost.this,
+							R.string.post_saved, Toast.LENGTH_LONG);
+					finish();
+				}
+				progress.dismiss();
+			}
+		}.start();
 	}
 
 	/**
@@ -327,7 +345,7 @@ public class EditPost extends Activity implements OnClickListener {
 
 	/**
 	 * @param tag
-	 * @return the first position in a "", or -1 if there is no occurence
+	 * @return the first position in a "", or -1 if there is no occurrence
 	 */
 	private int getDoubleQuote(CharSequence tag) {
 		for (int i = 0; i < tag.length() - 1; i++) {

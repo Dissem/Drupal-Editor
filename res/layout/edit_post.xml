@@ -11,11 +11,12 @@
 
 	<EditText android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:maxLines="1" android:id="@+id/Title"
-		android:singleLine="true" />
+		android:singleLine="true" android:inputType="textAutoCorrect" />
 
 	<EditText android:layout_width="fill_parent"
 		android:layout_height="0dip" android:layout_weight="1" android:id="@+id/Text"
-		android:gravity="top|left" />
+		android:gravity="top|left" android:autoText="true"
+		android:inputType="textAutoCorrect|textCapSentences" />
 
 	<TableRow>
 		<CheckBox android:id="@+id/publish" android:text="@string/publish"

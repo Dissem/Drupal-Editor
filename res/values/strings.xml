@@ -11,6 +11,9 @@
 	<string name="reload_sites_label">Reload</string>
 	<string name="about_label">About</string>
 
+	<!-- share receiver -->
+	<string name="create_entry">Create Entry</string>
+
 	<!-- settings -->
 	<string name="site_name">Site name</string>
 	<string name="site_url_label">URL</string>
@@ -47,6 +50,8 @@
 	<string name="taxonomy">Taxonomy</string>
 	<string name="insert_tag">Insert tag</string>
 	<string name="taxonomy_warning">Could not load taxonomy in time, it might get lost when you save.</string>
+	<string name="saving_post">Saving post</string>
+	<string name="post_saved">Post has successfully been saved.</string>
 
 	<!-- tag list -->
 	<string name="tag_list">Tag List</string>

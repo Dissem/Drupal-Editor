@@ -92,7 +92,7 @@ public class WDAO {
 		Log.d(getClass().getSimpleName(), "setCategories finished");
 	}
 
-	public void save(Post post, String blogid, boolean publish) {
+	public boolean save(Post post, String blogid, boolean publish) {
 		try {
 			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 			if (post.getPostid() == null)
@@ -107,8 +107,10 @@ public class WDAO {
 				client.call("mt.setPostCategories", post.getPostid(), //
 						Settings.getUserName(), Settings.getPassword(), //
 						post.getCategoriesAsMap());
+			return true;
 		} catch (XMLRPCException e) {
 			handleException(e, "Could not send post");
+			return false;
 		}
 	}
 

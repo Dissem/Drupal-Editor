@@ -167,15 +167,18 @@ public class EditPost extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
+		final String title = String.valueOf(//
+				((TextView) findViewById(R.id.Title)).getText());
+
 		final ProgressDialog progress = ProgressDialog.show(EditPost.this,
-				null, EditPost.this.getString(R.string.saving_post), false);
+				EditPost.this.getString(R.string.saving_post), title, false);
+
 		new Thread() {
 			@Override
 			public void run() {
 				if (post == null)
 					post = new Post();
-				post.setTitle(String.valueOf(//
-						((TextView) findViewById(R.id.Title)).getText()));
+				post.setTitle(title);
 
 				String text = String.valueOf(//
 						((TextView) findViewById(R.id.Text)).getText());

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- Common -->
+	<string name="help">Hilfe</string>
+
 	<!-- main -->
 	<string name="app_name">Drupal Editor</string>
 	<string name="new_entry">Neuer Eintrag</string>
@@ -46,7 +49,9 @@
 	<string name="taxonomy">Klassifizierung</string>
 	<string name="insert_tag">Tag einfügen</string>
 	<string name="taxonomy_warning">Die Tags konnten nicht rechtzeitig geladen werden, sie könnten beim speichern durcheinander geraten.</string>
-	
+	<string name="saving_post">Eintrag wird gespeichert</string>
+	<string name="post_saved">Der Eintrag wurde gespeichert.</string>
+
 	<!-- tag list -->
 	<string name="tag_list">Tag Liste</string>
 	<string name="add_tag">Tag hinzufügen</string>

@@ -11,6 +11,9 @@
 	<string name="reload_sites_label">Aggiorna</string>
 	<string name="about_label">Informazioni</string>
 
+	<!-- share receiver -->
+	<string name="create_entry">Crea contenuto</string>
+
 	<!-- settings -->
 	<string name="site_name">Nome del sito</string>
 	<string name="site_url_label">URL</string>
@@ -22,7 +25,6 @@
 	<string name="site_password_summary">Password (speriamo) segreta</string>
 	<string name="history_size_summary">Quanti scritti scaricare?</string>
 	<string name="insert_location">Inserisci coordinate</string>
-	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%s&amp;mlon=%s&amp;zoom=16&amp;layers=B00FTT</string>
 	<string name="location_link_text">Sono quì</string>
 	<string name="enable_gps">Attiva il GPS</string>
 	<string name="enable_gps_summary">Inserimento coordinate: più preciso, ma forse più lento</string>
@@ -47,6 +49,8 @@
 	<string name="taxonomy">Tassonomia</string>
 	<string name="insert_tag">Inserisci un tag</string>
 	<string name="taxonomy_warning">Non è stata caricata la tassonomia, potrebbe perdersi quando salvi.</string>
+	<string name="saving_post">Salvataggio in corso ...</string>
+	<string name="post_saved">Il contenuto è stato salvato correttamente</string> 
 
 	<!-- tag list -->
 	<string name="tag_list">Lista di tag</string>

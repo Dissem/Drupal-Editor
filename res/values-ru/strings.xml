@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- common -->
+	<string name="help">Помощь</string>
+
 	<!-- main -->
 	<string name="app_name">Drupal Editor</string>
 	<string name="new_entry">Новая запись</string>
@@ -7,6 +10,9 @@
 	<string name="settings_label">Настройки...</string>
 	<string name="reload_sites_label">Обновить</string>
 	<string name="about_label">О программе</string>
+
+	<!-- share receiver -->
+	<string name="create_entry">Создать запись</string>
 
 	<!-- settings -->
 	<string name="site_name">Название сайта</string>
@@ -43,6 +49,8 @@
 	<string name="taxonomy">Таксономия</string>
 	<string name="insert_tag">Вставить тэг</string>
 	<string name="taxonomy_warning">Сейчас не удалось загрузить таксономию, она может быть потеряна при сохранение.</string>
+	<string name="saving_post">Сохранение записи</string>
+	<string name="post_saved">Запись успешно сохранена.</string>
 
 	<!-- tag list -->
 	<string name="tag_list">Список тэгов</string>
@@ -70,5 +78,4 @@
 
 	<!-- WDAO -->
 	<string name="wdao_fault">Произошла ошибка при соединение с вашим сервером. Попробуйте ещё раз</string>
-	<string name="xmlrpc_fault_1">Вы не имеете полномочий на сохранение этой записи как черновика. Пожалуйста опубликуйте её.</string>
-</resources>
+	<string name="xmlrpc_fault_1">Ошибка прав доступа. Ваше имя пользователя или пароль не верны, или вы не имеете прав на сохранение записи как черновика.</string></resources>

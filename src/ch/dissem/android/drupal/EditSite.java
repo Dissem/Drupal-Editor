@@ -20,7 +20,10 @@ package ch.dissem.android.drupal;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,9 +31,9 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import ch.dissem.android.drupal.model.DAO;
 import ch.dissem.android.drupal.model.NamedObject;
 import ch.dissem.android.drupal.model.Site;
-import ch.dissem.android.drupal.model.DAO;
 import ch.dissem.android.drupal.model.Site.SignaturePosition;
 
 public class EditSite extends Activity {
@@ -103,20 +106,10 @@ public class EditSite extends Activity {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.site_save:
-			drupal.setName(name.getText().toString());
-			drupal.setUrl(url.getText().toString());
-			drupal.setUsername(username.getText().toString());
-			drupal.setPassword(password.getText().toString());
-			drupal.setSignature(signature.getText().toString());
-			drupal.setSignatureEnabled(useSignature.isChecked());
-			drupal.setSignaturePosition(//
-					((NamedObject<SignaturePosition>) signaturePos
-							.getSelectedItem()).getValue());
-			new DAO(this).save(drupal);
+			save();
 			finish();
 			return true;
 		case R.id.site_cancel:
@@ -125,5 +118,50 @@ public class EditSite extends Activity {
 		default:
 			return false;
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private void save() {
+		drupal.setName(name.getText().toString());
+		drupal.setUrl(url.getText().toString());
+		drupal.setUsername(username.getText().toString());
+		drupal.setPassword(password.getText().toString());
+		drupal.setSignature(signature.getText().toString());
+		drupal.setSignatureEnabled(useSignature.isChecked());
+		drupal.setSignaturePosition(//
+				((NamedObject<SignaturePosition>) signaturePos
+						.getSelectedItem()).getValue());
+		new DAO(this).save(drupal);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
+	 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("                             ");
+			builder.setPositiveButton(R.string.save,
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							save();
+							EditSite.this.finish();
+						}
+					});
+			builder.setNegativeButton(R.string.cancel,
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							EditSite.this.finish();
+						}
+					});
+			AlertDialog alert = builder.create();
+			alert.show();
+
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }

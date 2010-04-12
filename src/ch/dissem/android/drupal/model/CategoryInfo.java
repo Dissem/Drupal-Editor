@@ -30,8 +30,8 @@ public class CategoryInfo implements Parcelable {
 
 	public CategoryInfo(Map<String, Object> struct) {
 		Log.d("CategoryInfo", struct.toString());
-		categoryName = (String) struct.get("categoryName");
-		categoryId = (String) struct.get("categoryId");
+		categoryName = String.valueOf(struct.get("categoryName"));
+		categoryId = String.valueOf(struct.get("categoryId"));
 	}
 
 	public String getCategoryName() {

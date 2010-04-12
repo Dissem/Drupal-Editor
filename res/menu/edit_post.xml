@@ -7,5 +7,4 @@
 	<item android:id="@+id/tag_em" android:title="&lt;em&gt;" android:icon="@drawable/menu_em" />
 	<item android:id="@+id/tag_strong" android:title="&lt;strong&gt;" android:icon="@drawable/menu_strong" />
 	<item android:id="@+id/tag_menu" android:title="@string/insert_tag" android:icon="@drawable/menu_tag" />
-	<item android:id="@+id/help" android:title="@string/help" android:icon="@android:drawable/ic_menu_help" />
 </menu>

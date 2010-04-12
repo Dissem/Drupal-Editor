@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- common -->
+	<string name="help">Hjälp</string>
+
 	<!-- main -->
 	<string name="app_name">Drupal Editor</string>
 	<string name="new_entry">Nytt inlägg</string>
@@ -7,6 +10,9 @@
 	<string name="settings_label">Inställningar</string>
 	<string name="reload_sites_label">Läs om</string>
 	<string name="about_label">Om</string>
+
+	<!-- share receiver -->
+	<string name="create_entry">Skapa inlägg</string>
 
 	<!-- settings -->
 	<string name="site_name">Webbplatsnamn</string>
@@ -43,6 +49,8 @@
 	<string name="taxonomy">Taxonomi</string>
 	<string name="insert_tag">Lägg till tagg</string>
 	<string name="taxonomy_warning">Kunde inte ladda taxonomin i rimlig tid,  det kan betyda att dina ändringar inte sparas.</string>
+	<string name="saving_post">Spara inlägg</string>
+	<string name="post_saved">Inlägget sparades.</string>
 
 	<!-- tag list -->
 	<string name="tag_list">Lista taggar</string>
@@ -70,5 +78,5 @@
 
 	<!-- WDAO -->
 	<string name="wdao_fault">Ett kommunikationsfel uppstod med din Drupalsida. Försök igen.</string>
-	<string name="xmlrpc_fault_1">Du har inte behörighet att spara detta inlägg som utkast. Publisera det istället.</string>
+	<string name="xmlrpc_fault_1">Ett fel uppstod. Antingen är ditt användarnamn eller lösenord felaktigt, eller så har du inte behörighet att spara inlägg som utkast.</string>
 </resources>

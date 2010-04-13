@@ -70,12 +70,12 @@
 
 	<!-- location dialog -->
 	<string name="location_dialog_title">Местоположение</string>
-	<string name="location_dialog_text">Пожалуйста подождите пока приложение пытается определить ваше местоположение.</string>
+	<string name="location_dialog_text">Пожалуйста подождите пока приложение пытается определить ваше текущее местоположение.</string>
 	<string name="location_dialog_info">Точность: %s Время: %s</string>
 	<string name="accuracy_unit">м</string>
 	<string name="insert_location_now">Указать сейчас</string>
 	<string name="unknown">неизвестно</string>
 
 	<!-- WDAO -->
-	<string name="wdao_fault">Произошла ошибка при соединение с вашим сервером. Попробуйте ещё раз</string>
-	<string name="xmlrpc_fault_1">Ошибка прав доступа. Ваше имя пользователя или пароль не верны, или вы не имеете прав на сохранение записи как черновика.</string></resources>
+	<string name="wdao_fault">Произошла ошибка при соединение с сервером. Попробуйте ещё раз</string>
+	<string name="xmlrpc_fault_1">Ошибка прав доступа. Ваше имя пользователя или пароль не верны, или Вы не имеете прав на сохранение записи как черновика.</string></resources>

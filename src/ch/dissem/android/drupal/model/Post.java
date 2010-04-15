@@ -46,7 +46,7 @@ public class Post implements Parcelable {
 		link = (String) struct.get("link");
 		dateCreated = (Date) struct.get("dateCreated");
 		permaLink = (String) struct.get("permaLink");
-		postid = (String) struct.get("postid");
+		postid = String.valueOf(struct.get("postid"));
 		description = (String) struct.get("description");
 	}
 

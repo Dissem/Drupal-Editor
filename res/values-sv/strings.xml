@@ -27,7 +27,7 @@
 	<string name="insert_location">Lägg till plats</string>
 	<string name="location_link_text">Jag är här!</string>
 	<string name="enable_gps">Aktivera GPS</string>
-	<string name="enable_gps_summary">För att lägga till plats: högre noggrannhet, men kan ta längre tid</string>
+	<string name="enable_gps_summary">För att lägga till plats: högre noggrannhet, men det kan ta längre tid</string>
 	<string name="signature">Signatur</string>
 	<string name="show_signature">Lägg till signatur</string>
 	<string name="start">I början</string>
@@ -37,7 +37,7 @@
 
 	<!-- about dialog -->
 	<string name="about_title">Om Drupal Editor</string>
-	<string name="about_text_what">Drupal Editor tillåter dej att ändra och lägga till innehåll på din Drupalbaserade sajt genom Drupals Blog API.</string>
+	<string name="about_text_what">Drupal Editor tillåter dej att ändra och lägga till innehåll genom Drupals Blog API.</string>
 	<string name="about_text_thanks">Tack till: Drupalteamet för deras fantastiska CMS, personerna bakom Android's xmlrpc biblioteket och Android-teamet!</string>
 
 	<!-- edit -->
@@ -54,10 +54,10 @@
 
 	<!-- tag list -->
 	<string name="tag_list">Lista taggar</string>
-	<string name="add_tag">Lägg till tagg</string>
-	<string name="start_tag">Starttagg</string>
+	<string name="add_tag">Lägg till HTML-tagg</string>
+	<string name="start_tag">Start-tagg</string>
 	<string name="default_text">Standardtext</string>
-	<string name="end_tag">Sluttagg</string>
+	<string name="end_tag">Slut-tagg</string>
 	<string name="edit_tag">Ändra tagg</string>
 	<string name="save_tag">Spara tagg</string>
 	<string name="tag_warning">Notera att Drupal kan filtrera bort din tagg.</string>
@@ -77,6 +77,6 @@
 	<string name="unknown">okänd</string>
 
 	<!-- WDAO -->
-	<string name="wdao_fault">Ett kommunikationsfel uppstod med din Drupalsida. Försök igen.</string>
+	<string name="wdao_fault">Ett kommunikationsfel uppstod med din server. Försök igen.</string>
 	<string name="xmlrpc_fault_1">Ett fel uppstod. Antingen är ditt användarnamn eller lösenord felaktigt, eller så har du inte behörighet att spara inlägg som utkast.</string>
 </resources>

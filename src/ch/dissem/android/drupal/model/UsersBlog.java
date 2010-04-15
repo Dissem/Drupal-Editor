@@ -27,10 +27,10 @@ public class UsersBlog implements Parcelable {
 	private String blogid;
 	private String url;
 
-	public UsersBlog(Map<String, String> map) {
-		blogName = map.get("blogName");
-		blogid = map.get("blogid");
-		url = map.get("url");
+	public UsersBlog(Map<String, Object> map) {
+		blogName = String.valueOf(map.get("blogName"));
+		blogid = String.valueOf(map.get("blogid"));
+		url = String.valueOf(map.get("url"));
 	}
 
 	public String getBlogName() {

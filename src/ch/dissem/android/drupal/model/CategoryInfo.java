@@ -25,13 +25,16 @@ import android.os.Parcelable;
 import android.util.Log;
 
 public class CategoryInfo implements Parcelable {
-	String categoryName;
-	String categoryId;
+	private static boolean intId = false;
+	private String categoryName;
+	private String categoryId;
 
 	public CategoryInfo(Map<String, Object> struct) {
 		Log.d("CategoryInfo", struct.toString());
 		categoryName = String.valueOf(struct.get("categoryName"));
-		categoryId = String.valueOf(struct.get("categoryId"));
+		Object id = struct.get("categoryId");
+		intId = id instanceof Integer;
+		categoryId = String.valueOf(id);
 	}
 
 	public String getCategoryName() {
@@ -44,7 +47,10 @@ public class CategoryInfo implements Parcelable {
 
 	public Map<String, Object> getMap() {
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("categoryId", categoryId);
+		if (intId)
+			result.put("categoryId", Integer.parseInt(categoryId));
+		else
+			result.put("categoryId", categoryId);
 		result.put("categoryName", categoryName);
 		return result;
 	}

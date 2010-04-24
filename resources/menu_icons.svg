@@ -575,6 +575,13 @@
        y1="456.80219"
        x2="383.62341"
        y2="428.69241" />
+    <inkscape:perspective
+       id="perspective3003"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -585,7 +592,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="7.9999996"
      inkscape:cx="-3.1094206"
-     inkscape:cy="28.706478"
+     inkscape:cy="14.216563"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -602,7 +609,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -611,8 +618,22 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-193.47656,-462.40832)">
+    <image
+       y="508.19174"
+       x="141.49214"
+       id="image3005"
+       height="48"
+       width="48"
+       xlink:href="file:///Users/christian/Desktop/ic_menu_add.png" />
+    <rect
+       style="opacity:0.30779993;fill:#d40000;fill-opacity:1"
+       id="rect2913"
+       width="39.999844"
+       height="39.999844"
+       x="141.85164"
+       y="479.40842" />
     <g
-       transform="matrix(1.5316829,0,-0.41684354,1.5912318,-185.13202,-217.98028)"
+       transform="matrix(1.199529,0,-0.32644873,1.2461644,-98.422029,-65.952639)"
        style="font-size:40.77014923px;font-style:normal;font-weight:normal;line-height:125%;fill:url(#linearGradient4082);fill-opacity:1;stroke:none;filter:url(#filter3722-9);font-family:Bitstream Vera Sans"
        id="text2820">
       <path
@@ -630,7 +651,7 @@
        x="196.65862"
        y="491.117"
        id="text2816-0"
-       transform="matrix(1.5338301,0,0,1.5338301,-169.64183,-202.79778)"><tspan
+       transform="matrix(1.2194668,0,0,1.2194668,13.11459,-89.346644)"><tspan
          sodipodi:role="line"
          id="tspan2818-2"
          x="196.65862"
@@ -670,12 +691,5 @@
         </g>
       </g>
     </g>
-    <rect
-       style="opacity:0.30779993;fill:#d40000;fill-opacity:1"
-       id="rect2913"
-       width="39.999844"
-       height="39.999844"
-       x="197.47664"
-       y="466.40842" />
   </g>
 </svg>

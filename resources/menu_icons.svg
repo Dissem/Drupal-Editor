@@ -16,9 +16,9 @@
    version="1.1"
    inkscape:version="0.47pre4 r22446"
    sodipodi:docname="menu_icons.svg"
-   inkscape:export-filename="/Users/christian/Documents/workspace/Drupal Editor/res/drawable-hdpi/menu_tag.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-filename="/Users/christian/Documents/workspace/Drupal Editor/res/drawable-ldpi/menu_em.png"
+   inkscape:export-xdpi="67.5"
+   inkscape:export-ydpi="67.5">
   <defs
      id="defs4">
     <linearGradient
@@ -583,9 +583,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.9999998"
-     inkscape:cx="-48.478505"
-     inkscape:cy="27.548314"
+     inkscape:zoom="7.9999996"
+     inkscape:cx="-3.1094206"
+     inkscape:cy="28.706478"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -593,7 +593,7 @@
      inkscape:window-height="801"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -602,7 +602,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -612,7 +612,7 @@
      id="layer1"
      transform="translate(-193.47656,-462.40832)">
     <g
-       transform="matrix(1.6393188,0,-0.44613637,1.7030524,-177.5583,-200.61353)"
+       transform="matrix(1.5316829,0,-0.41684354,1.5912318,-185.13202,-217.98028)"
        style="font-size:40.77014923px;font-style:normal;font-weight:normal;line-height:125%;fill:url(#linearGradient4082);fill-opacity:1;stroke:none;filter:url(#filter3722-9);font-family:Bitstream Vera Sans"
        id="text2820">
       <path
@@ -630,7 +630,7 @@
        x="196.65862"
        y="491.117"
        id="text2816-0"
-       transform="matrix(1.6712526,0,0,1.6712526,-181.97581,-242.44592)"><tspan
+       transform="matrix(1.5338301,0,0,1.5338301,-169.64183,-202.79778)"><tspan
          sodipodi:role="line"
          id="tspan2818-2"
          x="196.65862"
@@ -639,7 +639,7 @@
     <g
        style="font-size:40px;font-style:normal;font-weight:normal;fill:url(#linearGradient3022);fill-opacity:1;stroke:none;filter:url(#filter3722-0);font-family:Bitstream Vera Sans"
        id="text2816-0-9"
-       transform="matrix(1.4603913,0,0,1.4603913,-114.53708,-305.10666)">
+       transform="matrix(1.4603913,0,0,1.4603913,-181.41208,-306.98166)">
       <g
          id="g3090"
          inkscape:export-filename="/Users/christian/menu_tag.png"
@@ -670,5 +670,12 @@
         </g>
       </g>
     </g>
+    <rect
+       style="opacity:0.30779993;fill:#d40000;fill-opacity:1"
+       id="rect2913"
+       width="39.999844"
+       height="39.999844"
+       x="197.47664"
+       y="466.40842" />
   </g>
 </svg>

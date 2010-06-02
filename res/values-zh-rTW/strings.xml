@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- Common -->
+	<string name="help">幫助</string>
+
 	<!-- main -->
 	<string name="app_name">Drupal 編輯器</string>
 	<string name="new_entry">新條目</string>
@@ -7,6 +10,9 @@
 	<string name="settings_label">設定...</string>
 	<string name="reload_sites_label">重新載入</string>
 	<string name="about_label">關於</string>
+
+	<!-- share receiver -->
+	<string name="create_entry">創建條目</string>
 
 	<!-- settings -->
 	<string name="site_name">網站名稱</string>
@@ -44,6 +50,8 @@
 	<string name="taxonomy">分類方法</string>
 	<string name="insert_tag">插入標籤</string>
 	<string name="taxonomy_warning">無法及時獲取分類方法, 可能會導致您儲存時發生混亂. </string>
+	<string name="saving_post">正在保存帖子</string>
+	<string name="post_saved">帖子已成功保存.</string>
 
 	<!-- tag list -->
 	<string name="tag_list">標籤清單</string>
@@ -71,5 +79,5 @@
 
 	<!-- WDAO -->
 	<string name="wdao_fault">與 Drupal 對話時發生錯誤, 請稍候重試.</string>
-	<string name="xmlrpc_fault_1">您沒有儲存檔案此帖子為附件的授權權。請把它發佈。</string>
+	<string name="xmlrpc_fault_1">登錄驗證出錯. 您的用戶名和密碼可能有誤, 或您無權限將帖子保存為草稿.</string>
 </resources>

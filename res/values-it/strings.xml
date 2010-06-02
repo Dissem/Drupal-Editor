@@ -70,7 +70,7 @@
 
 	<!-- location dialog -->
 	<string name="location_dialog_title">Coordinate</string>
-	<string name="location_dialog_text">Attendere prego, l'applicazione sta provando ad ottenere le coordinate geografiche.</string>
+	<string name="location_dialog_text">Attendere prego, l\'applicazione sta provando ad ottenere le coordinate geografiche.</string>
 	<string name="location_dialog_info">Precisione: %s Orario: %s</string>
 	<string name="accuracy_unit">m</string>
 	<string name="insert_location_now">Inserisci subito</string>

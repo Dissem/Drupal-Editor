@@ -22,9 +22,11 @@
 		<Spinner android:layout_height="wrap_content" android:id="@+id/sites"
 			android:layout_width="fill_parent" />
 		<Button android:id="@+id/new_button" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:text="@string/new_entry" />
+			android:layout_height="wrap_content" android:text="@string/new_entry"
+			android:enabled="false" />
 		<Button android:id="@+id/recent_button" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:text="@string/recent_entries" />
+			android:layout_height="wrap_content" android:text="@string/recent_entries"
+			android:enabled="false" />
 		<View android:layout_width="10dip" android:layout_height="20dip" />
 	</LinearLayout>
 </LinearLayout>

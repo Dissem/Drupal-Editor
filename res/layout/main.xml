@@ -10,7 +10,7 @@
 	<Spinner android:layout_height="wrap_content" android:id="@+id/drupals"
 		android:layout_width="fill_parent" />
 	<Spinner android:layout_height="wrap_content" android:id="@+id/sites"
-		android:layout_width="fill_parent" enabled="false" />
+		android:layout_width="fill_parent" />
 	<Button android:id="@+id/new_button" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:text="@string/new_entry"
 		android:enabled="false" />

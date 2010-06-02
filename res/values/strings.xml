@@ -26,7 +26,7 @@
 	<string name="history_size_summary">How many entries should be fetched?</string>
 	<string name="insert_location">Insert Location</string>
 	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%s&amp;mlon=%s&amp;zoom=16&amp;layers=B00FTT</string>
-	<string name="location_link_text">I'm here!</string>
+	<string name="location_link_text">I\'m here!</string>
 	<string name="enable_gps">Enable GPS</string>
 	<string name="enable_gps_summary">For inserting location: higher accuracy, but might take longer</string>
 	<string name="signature">Signature</string>

@@ -38,7 +38,7 @@
 	<!-- about dialog -->
 	<string name="about_title">Om Drupal Editor</string>
 	<string name="about_text_what">Drupal Editor tillåter dej att ändra och lägga till innehåll genom Drupals Blog API.</string>
-	<string name="about_text_thanks">Tack till: Drupalteamet för deras fantastiska CMS, personerna bakom Android's xmlrpc biblioteket och Android-teamet!</string>
+	<string name="about_text_thanks">Tack till: Drupalteamet för deras fantastiska CMS, personerna bakom Android\'s xmlrpc biblioteket och Android-teamet!</string>
 
 	<!-- edit -->
 	<string name="save">Spara</string>

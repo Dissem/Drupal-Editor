@@ -56,12 +56,9 @@ public class Main extends SiteSelector implements OnClickListener {
 			break;
 		case R.id.recent_button:
 			Intent intentRecent = new Intent(this, RecentEntries.class);
-			Spinner sites = (Spinner) findViewById(R.id.sites);
-			intentRecent.putExtra(EditPost.KEY_BLOG_ID, ((UsersBlog) sites
-					.getSelectedItem()).getBlogid());
-			intentRecent.putExtra(KEY_SITE_LIST, siteList);
-			intentRecent.putExtra(KEY_SITE_LIST_SELECTION, sites
-					.getSelectedItemPosition());
+			intentRecent.putExtra(EditPost.KEY_BLOG_ID,
+					((UsersBlog) contentTypes.getSelectedItem()).getBlogid());
+			intentRecent.putExtra(KEY_CONTENT_TYPE_LIST, contentTypeList);
 			startActivity(intentRecent);
 			break;
 		}

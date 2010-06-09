@@ -22,6 +22,8 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -42,23 +44,22 @@ import ch.dissem.android.drupal.model.WDAO;
 
 /**
  * @author christian
- * 
  */
 public abstract class SiteSelector extends Activity implements
 		OnItemSelectedListener {
-	public static final String KEY_SITE_LIST = "siteList";
-	public static final String KEY_SITE_LIST_SELECTION = "siteListSelection";
-	public static final String KEY_DRUPAL_LIST_SELECTION = "drupalListSelection";
+	public static final String KEY_CONTENT_TYPE_LIST = "contentTypeList";
 
-	protected ArrayList<UsersBlog> siteList;
-	private List<Site> drupalList;
-	private int siteListSelection;
-	private int drupalListSelection;
+	protected ArrayList<UsersBlog> contentTypeList;
+	private List<Site> drupalSiteList;
 
-	private Spinner drupalInstallations;
-	private Spinner blogs;
+	private Spinner drupalSites;
+	protected Spinner contentTypes;
 	private ProgressBar progressBar;
 
+	private int selectedSite;
+	private int selectedType;
+
+	private DAO dao;
 	private WDAO wdao;
 
 	@Override
@@ -66,34 +67,44 @@ public abstract class SiteSelector extends Activity implements
 		super.onCreate(savedInstanceState);
 		wdao = new WDAO(this);
 
-		blogs = (Spinner) findViewById(R.id.sites);
+		drupalSites = (Spinner) findViewById(R.id.drupals);
+		dao = new DAO(this);
+		contentTypes = (Spinner) findViewById(R.id.sites);
+		contentTypes.setEnabled(false);
 		progressBar = (ProgressBar) findViewById(R.id.sites_loader_progress);
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-		outState.putParcelableArrayList(KEY_SITE_LIST, siteList);
-		outState.putInt(KEY_SITE_LIST_SELECTION,
-				((Spinner) findViewById(R.id.sites)).getSelectedItemPosition());
-		outState.putInt(KEY_DRUPAL_LIST_SELECTION,
-				((Spinner) findViewById(R.id.drupals))
-						.getSelectedItemPosition());
+		outState.putParcelableArrayList(KEY_CONTENT_TYPE_LIST, contentTypeList);
 		super.onSaveInstanceState(outState);
 	}
 
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
-		siteList = savedInstanceState.getParcelableArrayList(KEY_SITE_LIST);
-		siteListSelection = savedInstanceState.getInt(KEY_SITE_LIST_SELECTION);
-		drupalList = new DAO(this).getSites();
-		drupalListSelection = savedInstanceState
-				.getInt(KEY_DRUPAL_LIST_SELECTION);
+		contentTypeList = savedInstanceState
+				.getParcelableArrayList(KEY_CONTENT_TYPE_LIST);
+		drupalSiteList = new DAO(this).getSites();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Editor editor = PreferenceManager.getDefaultSharedPreferences(this)
+				.edit();
+		editor.putInt("selectedSite", drupalSites.getSelectedItemPosition());
+		editor.putInt("selectedType", contentTypes.getSelectedItemPosition());
+		editor.commit();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		selectedSite = preferences.getInt("selectedSite", 0);
+		selectedType = preferences.getInt("selectedType", 0);
 		fillDrupalsSpinner();
 	}
 
@@ -112,8 +123,7 @@ public abstract class SiteSelector extends Activity implements
 			startActivity(new Intent(this, Settings.class));
 			return true;
 		case R.id.reload_sites:
-			siteList = null;
-			siteListSelection = 0;
+			contentTypeList = null;
 			fillSiteSpinner();
 			return true;
 		case R.id.about:
@@ -125,24 +135,19 @@ public abstract class SiteSelector extends Activity implements
 	}
 
 	protected void fillDrupalsSpinner() {
-		drupalInstallations = (Spinner) findViewById(R.id.drupals);
-		DAO dao = new DAO(this);
-		drupalList = dao.getSites();
-		if (drupalList.isEmpty()) {
-			String url = PreferenceManager.getDefaultSharedPreferences(this)
-					.getString("url", null);
+		drupalSiteList = dao.getSites();
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		if (drupalSiteList.isEmpty()) {
+			String url = preferences.getString("url", null);
 			if (url != null) {
 				Site imported = new Site(this);
 				imported.setName("Default");
 				imported.setUrl(url);
-				imported.setUsername(PreferenceManager
-						.getDefaultSharedPreferences(this).getString(
-								"username", null));
-				imported.setPassword(PreferenceManager
-						.getDefaultSharedPreferences(this).getString(
-								"password", null));
+				imported.setUsername(preferences.getString(DAO.USERNAME, null));
+				imported.setPassword(preferences.getString(DAO.PASSWORD, null));
 				dao.save(imported);
-				drupalList.add(imported);
+				drupalSiteList.add(imported);
 			} else {
 				startActivity(new Intent(this, Settings.class));
 				return;
@@ -152,33 +157,37 @@ public abstract class SiteSelector extends Activity implements
 				android.R.layout.simple_spinner_item, dao.getSites());
 		adapter.setDropDownViewResource(//
 				android.R.layout.simple_spinner_dropdown_item);
-		drupalInstallations.setAdapter(adapter);
-		drupalInstallations.setClickable(true);
-		if (!drupalList.isEmpty())
-			drupalInstallations.setSelection(drupalListSelection);
+		drupalSites.setAdapter(adapter);
+		if (selectedSite >= 0 && selectedSite < drupalSites.getCount())
+			drupalSites.setSelection(selectedSite);
+		drupalSites.setClickable(true);
 
-		drupalInstallations.setOnItemSelectedListener(this);
+		drupalSites.setOnItemSelectedListener(this);
 	}
 
 	@Override
 	public void onItemSelected(AdapterView<?> av, View view, int position,
 			long arg3) {
-		if (Settings.setSite((Site) av.getSelectedItem()) || siteList == null) {
-			siteList = null;
-			siteListSelection = 0;
+		if (position != selectedSite) {
+			selectedSite = position;
+			selectedType = 0;
+		}
+		if (Settings.setSite((Site) av.getSelectedItem())
+				|| contentTypeList == null) {
+			contentTypeList = null;
 			fillSiteSpinner();
 		} else {
-			if (!siteList.isEmpty()) {
-				updateBlogsSpinner();
+			if (!contentTypeList.isEmpty()) {
+				updateContentTypeSpinner();
 			} else {
-				blogs.setClickable(false);
-				blogs.setEnabled(false);
+				contentTypes.setClickable(false);
+				contentTypes.setEnabled(false);
 			}
 		}
 	}
 
 	protected void fillSiteSpinner() {
-		blogs.setEnabled(false);
+		contentTypes.setEnabled(false);
 		for (Button btn : getButtons())
 			btn.setEnabled(false);
 		progressBar.setVisibility(View.VISIBLE);
@@ -186,30 +195,29 @@ public abstract class SiteSelector extends Activity implements
 		final Handler handler = new Handler();
 		new Thread() {
 			public void run() {
-				if (siteList == null) {
+				if (contentTypeList == null) {
 					if (Settings.getURI() == null) {
-						if (drupalInstallations.getAdapter().isEmpty())
+						if (drupalSites.getAdapter().isEmpty())
 							startActivity(new Intent(SiteSelector.this,
 									Settings.class));
 						else {
 							Intent intentEdit = new Intent(SiteSelector.this,
 									EditSite.class);
 							intentEdit.putExtra(EditSite.KEY_SITE,
-									(Site) drupalInstallations
-											.getSelectedItem());
+									(Site) drupalSites.getSelectedItem());
 							intentEdit.putExtra(EditSite.KEY_URI_ERROR, true);
 							startActivity(intentEdit);
 						}
 						return;
 					}
-					siteList = wdao.getUsersBlogs();
-					for (UsersBlog blog : siteList)
+					contentTypeList = wdao.getUsersBlogs();
+					for (UsersBlog blog : contentTypeList)
 						wdao.initCategories(blog.getBlogid());
 				}
-				if (!siteList.isEmpty())
+				if (!contentTypeList.isEmpty())
 					handler.post(new Runnable() {
 						public void run() {
-							updateBlogsSpinner();
+							updateContentTypeSpinner();
 							for (Button btn : getButtons())
 								btn.setEnabled(true);
 							progressBar.setVisibility(View.INVISIBLE);
@@ -225,17 +233,20 @@ public abstract class SiteSelector extends Activity implements
 		}.start();
 	}
 
-	private void updateBlogsSpinner() {
+	private void updateContentTypeSpinner() {
 		try {
 			ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
 					SiteSelector.this, android.R.layout.simple_spinner_item,
-					siteList);
+					contentTypeList);
 			adapter.setDropDownViewResource(//
 					android.R.layout.simple_spinner_dropdown_item);
-			blogs.setAdapter(adapter);
-			blogs.setClickable(true);
-			blogs.setSelection(siteListSelection);
-			blogs.setEnabled(true);
+			contentTypes.setAdapter(adapter);
+
+			if (selectedType >= 0 && selectedType < contentTypes.getCount())
+				contentTypes.setSelection(selectedType);
+
+			contentTypes.setClickable(true);
+			contentTypes.setEnabled(true);
 		} catch (NullPointerException ignore) {
 			// If the user selects another site while loading, there can be a
 			// NPE - just ignore it.

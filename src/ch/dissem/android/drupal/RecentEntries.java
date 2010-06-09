@@ -21,8 +21,11 @@ import java.util.ArrayList;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -43,8 +46,10 @@ import ch.dissem.android.drupal.model.WDAO;
 
 public class RecentEntries extends ListActivity implements OnItemClickListener {
 	private String blogid;
-	private ArrayList<UsersBlog> siteList;
+	private ArrayList<UsersBlog> contentTypeList;
 	private WDAO wdao;
+
+	private int selectedType;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -53,7 +58,8 @@ public class RecentEntries extends ListActivity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recent_entries);
 
-		siteList = getIntent().getParcelableArrayListExtra(Main.KEY_SITE_LIST);
+		contentTypeList = getIntent().getParcelableArrayListExtra(
+				SiteSelector.KEY_CONTENT_TYPE_LIST);
 
 		registerForContextMenu(getListView());
 
@@ -64,7 +70,20 @@ public class RecentEntries extends ListActivity implements OnItemClickListener {
 	}
 
 	@Override
+	protected void onPause() {
+		super.onPause();
+		Editor editor = PreferenceManager.getDefaultSharedPreferences(this)
+				.edit();
+		editor.putInt("selectedType", //
+				((Spinner) findViewById(R.id.sites)).getSelectedItemPosition());
+		editor.commit();
+	}
+
+	@Override
 	protected void onResume() {
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		selectedType = preferences.getInt("selectedType", 0);
 		loadRecentEntries();
 		super.onResume();
 	}
@@ -99,13 +118,13 @@ public class RecentEntries extends ListActivity implements OnItemClickListener {
 						Spinner blogs = (Spinner) findViewById(R.id.sites);
 						ArrayAdapter<UsersBlog> adapter = new ArrayAdapter<UsersBlog>(
 								RecentEntries.this,
-								android.R.layout.simple_spinner_item, siteList);
-						adapter
-								.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+								android.R.layout.simple_spinner_item,
+								contentTypeList);
+						adapter.setDropDownViewResource(//
+								android.R.layout.simple_spinner_dropdown_item);
 						blogs.setAdapter(adapter);
 						blogs.setClickable(true);
-						blogs.setSelection(getIntent().getIntExtra(
-								Main.KEY_SITE_LIST_SELECTION, 0));
+						blogs.setSelection(selectedType);
 						blogs
 								.setOnItemSelectedListener(new SiteSelectedListener());
 					}

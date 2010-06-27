@@ -206,9 +206,14 @@ public class WDAO {
 				Builder alertBuilder = new Builder(ctx);
 				if (e instanceof XMLRPCFault
 						&& ((XMLRPCFault) e).getFaultCode() == 1) {
-					alertBuilder.setMessage(R.string.xmlrpc_fault_1);
+					String xmlrpcFault = ctx.getResources().getString(
+							R.string.xmlrpc_fault_1);
+					alertBuilder
+							.setMessage(xmlrpcFault + "\n" + e.getMessage());
 				} else {
-					alertBuilder.setMessage(R.string.wdao_fault);
+					String wdaoFault = ctx.getResources().getString(
+							R.string.wdao_fault);
+					alertBuilder.setMessage(wdaoFault + "\n" + e.getMessage());
 				}
 				alertBuilder.create().show();
 			}

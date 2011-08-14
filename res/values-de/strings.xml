@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 	<!-- Common -->
 	<string name="help">Hilfe</string>
@@ -33,7 +33,7 @@
 	<string name="start">Anfang</string>
 	<string name="end">Ende</string>
 	<string name="add_site">Site hinzufügen</string>
-	<string name="default_signature">\n&lt;a href=\"http://dissem.ch/de/node/15\"&gt;Erstellt mit Drupal Editor&lt;/a&gt;</string>
+	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/de/node/15\"&amp;gt;Erstellt mit Drupal Editor&amp;lt;/a&amp;gt;</string>
 
 	<!-- about dialog -->
 	<string name="about_title">Über Drupal Editor</string>
@@ -71,7 +71,7 @@
 	<!-- location dialog -->
 	<string name="location_dialog_title">Standort</string>
 	<string name="location_dialog_text">Warte bitte einen Moment während die Anwendung versucht deine Position zu erfassen.</string>
-	<string name="location_dialog_info">Genauigkeit: %s Zeit: %s</string>
+	<string name="location_dialog_info">Genauigkeit: %1$s Zeit: %2$s</string>
 	<string name="accuracy_unit">m</string>
 	<string name="insert_location_now">Jetzt einfügen</string>
 	<string name="unknown">unbekannt</string>

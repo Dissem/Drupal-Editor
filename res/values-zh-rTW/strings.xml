@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 	<!-- Common -->
 	<string name="help">幫助</string>
@@ -25,7 +25,7 @@
 	<string name="site_password_summary">您 (希望的) 私密密碼</string>
 	<string name="history_size_summary">要調取多少條歷史?</string>
 	<string name="insert_location">插入位置</string>
-	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%s&amp;mlon=%s&amp;zoom=16&amp;layers=B00FTT</string>
+	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
 	<string name="location_link_text">我在這裡!</string>
 	<string name="enable_gps">啟用 GPS</string>
 	<string name="enable_gps_summary">對於插入位置: 更高的精度, 但可能需要更長的時間。</string>
@@ -34,7 +34,7 @@
 	<string name="start">開始</string>
 	<string name="end">結束</string>
 	<string name="add_site">新增站台</string>
-	<string name="default_signature">\n&lt;a href=\"http://dissem.ch/en/node/16\"&gt;Created with Drupal Editor&lt;/a&gt;</string>
+	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Created with Drupal Editor&amp;lt;/a&amp;gt;</string>
 
 	<!-- about dialog -->
 	<string name="about_title">關於 Drupal Editor</string>
@@ -72,7 +72,7 @@
 	<!-- location dialog -->
 	<string name="location_dialog_title">位置</string>
 	<string name="location_dialog_text">請等待程式獲取當前位置。</string>
-	<string name="location_dialog_info">精確度: %s 時間: %s</string>
+	<string name="location_dialog_info">精確度: %1$s 時間: %2$s</string>
 	<string name="accuracy_unit">m</string>
 	<string name="insert_location_now">現在插入</string>
 	<string name="unknown">未知</string>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 	<!-- common -->
 	<string name="help">Hjälp</string>
@@ -33,7 +33,7 @@
 	<string name="start">I början</string>
 	<string name="end">I slutet</string>
 	<string name="add_site">Lägg till sajt</string>
-	<string name="default_signature">\n&lt;a href=\"http://dissem.ch/en/node/16\"&gt;Postad med Drupal Editor&lt;/a&gt;</string>
+	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Postad med Drupal Editor&amp;lt;/a&amp;gt;</string>
 
 	<!-- about dialog -->
 	<string name="about_title">Om Drupal Editor</string>
@@ -71,7 +71,7 @@
 	<!-- location dialog -->
 	<string name="location_dialog_title">Plats</string>
 	<string name="location_dialog_text">Vänligen vänta medan programmet lokaliserar dej.</string>
-	<string name="location_dialog_info">Noggrannhet: %s Tid: %s</string>
+	<string name="location_dialog_info">Noggrannhet: %1$s Tid: %2$s</string>
 	<string name="accuracy_unit">m</string>
 	<string name="insert_location_now">Lägg till plats nu</string>
 	<string name="unknown">okänd</string>

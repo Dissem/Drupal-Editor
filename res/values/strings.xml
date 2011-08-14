@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 	<!-- Common -->
 	<string name="help">Help</string>
@@ -25,7 +25,7 @@
 	<string name="site_password_summary">Your (hopefully) secret password</string>
 	<string name="history_size_summary">How many entries should be fetched?</string>
 	<string name="insert_location">Insert Location</string>
-	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%s&amp;mlon=%s&amp;zoom=16&amp;layers=B00FTT</string>
+	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
 	<string name="location_link_text">I\'m here!</string>
 	<string name="enable_gps">Enable GPS</string>
 	<string name="enable_gps_summary">For inserting location: higher accuracy, but might take longer</string>
@@ -34,7 +34,7 @@
 	<string name="start">Start</string>
 	<string name="end">End</string>
 	<string name="add_site">Add site</string>
-	<string name="default_signature">\n&lt;a href=\"http://dissem.ch/en/node/16\"&gt;Created with Drupal Editor&lt;/a&gt;</string>
+	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Created with Drupal Editor&amp;lt;/a&amp;gt;</string>
 
 	<!-- about dialog -->
 	<string name="about_title">About Drupal Editor</string>
@@ -72,7 +72,7 @@
 	<!-- location dialog -->
 	<string name="location_dialog_title">Location</string>
 	<string name="location_dialog_text">Please wait while the Application is trying to get the current location.</string>
-	<string name="location_dialog_info">Accuracy: %s Time: %s</string>
+	<string name="location_dialog_info">Accuracy: %1$s Time: %2$s</string>
 	<string name="accuracy_unit">m</string>
 	<string name="insert_location_now">Insert now</string>
 	<string name="unknown">unknown</string>

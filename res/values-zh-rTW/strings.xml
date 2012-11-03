@@ -1,83 +1,85 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-	<!-- Common -->
-	<string name="help">幫助</string>
 
-	<!-- main -->
-	<string name="app_name">Drupal 編輯器</string>
-	<string name="new_entry">新條目</string>
-	<string name="recent_entries">最近條目</string>
-	<string name="settings_label">設定...</string>
-	<string name="reload_sites_label">重新載入</string>
-	<string name="about_label">關於</string>
+    <!-- Common -->
+    <string name="help">幫助</string>
 
-	<!-- share receiver -->
-	<string name="create_entry">創建條目</string>
+    <!-- main -->
+    <string name="app_name">Drupal 編輯器</string>
+    <string name="new_entry">新條目</string>
+    <string name="recent_entries">最近條目</string>
+    <string name="settings_label">設定…</string>
+    <string name="reload_sites_label">重新載入</string>
+    <string name="about_label">關於</string>
 
-	<!-- settings -->
-	<string name="site_name">網站名稱</string>
-	<string name="site_url_label">URL</string>
-	<string name="site_url_summary">您的 Drupal 頁</string>
-	<string name="username">使用者名稱</string>
-	<string name="password">密碼</string>
-	<string name="history_size">歷史長度</string>
-	<string name="site_username_summary">您的登入名</string>
-	<string name="site_password_summary">您 (希望的) 私密密碼</string>
-	<string name="history_size_summary">要調取多少條歷史?</string>
-	<string name="insert_location">插入位置</string>
-	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
-	<string name="location_link_text">我在這裡!</string>
-	<string name="enable_gps">啟用 GPS</string>
-	<string name="enable_gps_summary">對於插入位置: 更高的精度, 但可能需要更長的時間。</string>
-	<string name="signature">簽名</string>
-	<string name="show_signature">新增簽名</string>
-	<string name="start">開始</string>
-	<string name="end">結束</string>
-	<string name="add_site">新增站台</string>
-	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Created with Drupal Editor&amp;lt;/a&amp;gt;</string>
+    <!-- share receiver -->
+    <string name="create_entry">創建條目</string>
 
-	<!-- about dialog -->
-	<string name="about_title">關於 Drupal Editor</string>
-	<string name="about_text_what">Drupal Editor 可以讓您使用網誌 API 來在您基於 Drupal 站台上編輯內容。</string>
-	<string name="about_text_thanks">感謝: Drupal 團隊的偉大的 CMS, 建立 Android xmlrpc 程式庫的人和 Android 團隊!</string>
+    <!-- settings -->
+    <string name="site_name">網站名稱</string>
+    <string name="site_url_label">URL</string>
+    <string name="site_url_summary">您的 Drupal 頁</string>
+    <string name="username">使用者名稱</string>
+    <string name="password">密碼</string>
+    <string name="history_size">歷史長度</string>
+    <string name="site_username_summary">您的登入名</string>
+    <string name="site_password_summary">您 (希望的) 私密密碼</string>
+    <string name="history_size_summary">要調取多少條歷史?</string>
+    <string name="insert_location">插入位置</string>
+    <string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
+    <string name="location_link_text">我在這裡!</string>
+    <string name="enable_gps">啟用 GPS</string>
+    <string name="enable_gps_summary">對於插入位置: 更高的精度, 但可能需要更長的時間。</string>
+    <string name="signature">簽名</string>
+    <string name="show_signature">新增簽名</string>
+    <string name="start">開始</string>
+    <string name="end">結束</string>
+    <string name="add_site">新增站台</string>
+    <string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Created with Drupal Editor&amp;lt;/a&amp;gt;</string>
 
-	<!-- edit -->
-	<string name="save">儲存檔案</string>
-	<string name="cancel">取消</string>
+    <!-- about dialog -->
+    <string name="about_title">關於 Drupal Editor</string>
+    <string name="about_text_what">Drupal Editor 可以讓您使用網誌 API 來在您基於 Drupal 站台上編輯內容。</string>
+    <string name="about_text_thanks">感謝: Drupal 團隊的偉大的 CMS, 建立 Android xmlrpc 程式庫的人和 Android 團隊!</string>
 
-	<!-- edit post -->
-	<string name="publish">發佈</string>
-	<string name="taxonomy">分類方法</string>
-	<string name="insert_tag">插入標籤</string>
-	<string name="taxonomy_warning">無法及時獲取分類方法, 可能會導致您儲存時發生混亂. </string>
-	<string name="saving_post">正在保存帖子</string>
-	<string name="post_saved">帖子已成功保存.</string>
+    <!-- edit -->
+    <string name="save">儲存檔案</string>
+    <string name="cancel">取消</string>
 
-	<!-- tag list -->
-	<string name="tag_list">標籤清單</string>
-	<string name="add_tag">新增標籤</string>
-	<string name="start_tag">開啟標籤</string>
-	<string name="default_text">預設文字</string>
-	<string name="end_tag">結束標籤</string>
-	<string name="edit_tag">編輯標籤</string>
-	<string name="save_tag">儲存檔案標籤</string>
-	<string name="tag_warning">請注意：Drupal可能會將您的表情篩選掉。</string>
+    <!-- edit post -->
+    <string name="publish">發佈</string>
+    <string name="taxonomy">分類方法</string>
+    <string name="insert_tag">插入標籤</string>
+    <string name="taxonomy_warning">無法及時獲取分類方法, 可能會導致您儲存時發生混亂. </string>
+    <string name="saving_post">正在保存帖子</string>
+    <string name="post_saved">帖子已成功保存.</string>
 
-	<!-- recent posts -->
-	<string name="history_empty">沒有可用的最近條目</string>
-	<string name="more">更多</string>
-	<string name="edit">編輯</string>
-	<string name="delete">移除</string>
+    <!-- tag list -->
+    <string name="tag_list">標籤清單</string>
+    <string name="add_tag">新增標籤</string>
+    <string name="start_tag">開啟標籤</string>
+    <string name="default_text">預設文字</string>
+    <string name="end_tag">結束標籤</string>
+    <string name="edit_tag">編輯標籤</string>
+    <string name="save_tag">儲存檔案標籤</string>
+    <string name="tag_warning">請注意：Drupal可能會將您的表情篩選掉。</string>
 
-	<!-- location dialog -->
-	<string name="location_dialog_title">位置</string>
-	<string name="location_dialog_text">請等待程式獲取當前位置。</string>
-	<string name="location_dialog_info">精確度: %1$s 時間: %2$s</string>
-	<string name="accuracy_unit">m</string>
-	<string name="insert_location_now">現在插入</string>
-	<string name="unknown">未知</string>
+    <!-- recent posts -->
+    <string name="history_empty">沒有可用的最近條目</string>
+    <string name="more">更多</string>
+    <string name="edit">編輯</string>
+    <string name="delete">移除</string>
 
-	<!-- WDAO -->
-	<string name="wdao_fault">與 Drupal 對話時發生錯誤, 請稍候重試.</string>
-	<string name="xmlrpc_fault_1">登錄驗證出錯. 您的用戶名和密碼可能有誤, 或您無權限將帖子保存為草稿.</string>
+    <!-- location dialog -->
+    <string name="location_dialog_title">位置</string>
+    <string name="location_dialog_text">請等待程式獲取當前位置。</string>
+    <string name="location_dialog_info">精確度: %1$s 時間: %2$s</string>
+    <string name="accuracy_unit">m</string>
+    <string name="insert_location_now">現在插入</string>
+    <string name="unknown">未知</string>
+
+    <!-- WDAO -->
+    <string name="wdao_fault">與 Drupal 對話時發生錯誤, 請稍候重試.</string>
+    <string name="xmlrpc_fault_1">登錄驗證出錯. 您的用戶名和密碼可能有誤, 或您無權限將帖子保存為草稿.</string>
+
 </resources>

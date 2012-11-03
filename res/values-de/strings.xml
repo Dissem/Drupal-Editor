@@ -1,82 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-	<!-- Common -->
-	<string name="help">Hilfe</string>
 
-	<!-- main -->
-	<string name="app_name">Drupal Editor</string>
-	<string name="new_entry">Neuer Eintrag</string>
-	<string name="recent_entries">Letzte Einträge</string>
-	<string name="settings_label">Einstellungen...</string>
-	<string name="reload_sites_label">Neu laden</string>
-	<string name="about_label">Über Drupal Editor</string>
+    <!-- Common -->
+    <string name="help">Hilfe</string>
 
-	<!-- share receiver -->
-	<string name="create_entry">Eintrag erstellen</string>
+    <!-- main -->
+    <string name="app_name">Drupal Editor</string>
+    <string name="new_entry">Neuer Eintrag</string>
+    <string name="recent_entries">Letzte Einträge</string>
+    <string name="settings_label">Einstellungen…</string>
+    <string name="reload_sites_label">Neu laden</string>
+    <string name="about_label">Über Drupal Editor</string>
 
-	<!-- settings -->
-	<string name="site_name">Name der Seite</string>
-	<string name="site_url_label">URL</string>
-	<string name="site_url_summary">Deine Drupal-Seite</string>
-	<string name="username">Benutzername</string>
-	<string name="password">Passwort</string>
-	<string name="history_size">Verlaufslänge</string>
-	<string name="site_username_summary">Dein Benutzername</string>
-	<string name="site_password_summary">Dein (hoffentlich) geheimes Passwort</string>
-	<string name="history_size_summary">Wie viele Einträge sollen geholt werden?</string>
-	<string name="insert_location">Position Einfügen</string>
-	<string name="location_link_text">Ich bin hier!</string>
-	<string name="enable_gps">GPS erlauben</string>
-	<string name="enable_gps_summary">Position einfügen: ist genauer, kann aber länger dauern</string>
-	<string name="signature">Signatur</string>
-	<string name="show_signature">Signatur anhängen</string>
-	<string name="start">Anfang</string>
-	<string name="end">Ende</string>
-	<string name="add_site">Site hinzufügen</string>
-	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/de/node/15\"&amp;gt;Erstellt mit Drupal Editor&amp;lt;/a&amp;gt;</string>
+    <!-- share receiver -->
+    <string name="create_entry">Eintrag erstellen</string>
 
-	<!-- about dialog -->
-	<string name="about_title">Über Drupal Editor</string>
-	<string name="about_text_what">Der Drupal Editor lässt dich die Inhalte deiner Drupal-Seiten über die Blog API editieren.</string>
-	<string name="about_text_thanks">Vielen Dank dem Drupal Team für euer grossartiges CMS, den Leuten welche die Android xmlrpc Implementierung geschaffen haben und dem Android Team!</string>
+    <!-- settings -->
+    <string name="site_name">Name der Seite</string>
+    <string name="site_url_label">URL</string>
+    <string name="site_url_summary">Deine Drupal-Seite</string>
+    <string name="username">Benutzername</string>
+    <string name="password">Passwort</string>
+    <string name="history_size">Verlaufslänge</string>
+    <string name="site_username_summary">Dein Benutzername</string>
+    <string name="site_password_summary">Dein (hoffentlich) geheimes Passwort</string>
+    <string name="history_size_summary">Wie viele Einträge sollen geholt werden?</string>
+    <string name="insert_location">Position Einfügen</string>
+    <string name="location_link_text">Ich bin hier!</string>
+    <string name="enable_gps">GPS erlauben</string>
+    <string name="enable_gps_summary">Position einfügen: ist genauer, kann aber länger dauern</string>
+    <string name="signature">Signatur</string>
+    <string name="show_signature">Signatur anhängen</string>
+    <string name="start">Anfang</string>
+    <string name="end">Ende</string>
+    <string name="add_site">Site hinzufügen</string>
+    <string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/de/node/15\"&amp;gt;Erstellt mit Drupal Editor&amp;lt;/a&amp;gt;</string>
 
-	<!-- edit -->
-	<string name="save">Speichern</string>
-	<string name="cancel">Abbrechen</string>
+    <!-- about dialog -->
+    <string name="about_title">Über Drupal Editor</string>
+    <string name="about_text_what">Der Drupal Editor lässt dich die Inhalte deiner Drupal-Seiten über die Blog API editieren.</string>
+    <string name="about_text_thanks">Vielen Dank dem Drupal Team für euer grossartiges CMS, den Leuten welche die Android xmlrpc Implementierung geschaffen haben und dem Android Team!</string>
 
-	<!-- edit post -->
-	<string name="publish">Publizieren</string>
-	<string name="taxonomy">Klassifizierung</string>
-	<string name="insert_tag">Tag einfügen</string>
-	<string name="taxonomy_warning">Die Tags konnten nicht rechtzeitig geladen werden, sie könnten beim speichern durcheinander geraten.</string>
-	<string name="saving_post">Eintrag wird gespeichert</string>
-	<string name="post_saved">Der Eintrag wurde gespeichert.</string>
+    <!-- edit -->
+    <string name="save">Speichern</string>
+    <string name="cancel">Abbrechen</string>
 
-	<!-- tag list -->
-	<string name="tag_list">Tag Liste</string>
-	<string name="add_tag">Tag hinzufügen</string>
-	<string name="start_tag">Starttag</string>
-	<string name="default_text">Standardtext</string>
-	<string name="end_tag">Schlusstag</string>
-	<string name="edit_tag">Tag bearbeiten</string>
-	<string name="save_tag">Tag speichern</string>
-	<string name="tag_warning">Beachte bitte dass Drupal deine Tags möglicherweise rausfiltert.</string>
+    <!-- edit post -->
+    <string name="publish">Publizieren</string>
+    <string name="taxonomy">Klassifizierung</string>
+    <string name="insert_tag">Tag einfügen</string>
+    <string name="taxonomy_warning">Die Tags konnten nicht rechtzeitig geladen werden, sie könnten beim speichern durcheinander geraten.</string>
+    <string name="saving_post">Eintrag wird gespeichert</string>
+    <string name="post_saved">Der Eintrag wurde gespeichert.</string>
 
-	<!-- recent posts -->
-	<string name="history_empty">Es sind keine ältere Einträge verfügbar</string>
-	<string name="more">Mehr</string>
-	<string name="edit">Bearbeiten</string>
-	<string name="delete">Löschen</string>
+    <!-- tag list -->
+    <string name="tag_list">Tag Liste</string>
+    <string name="add_tag">Tag hinzufügen</string>
+    <string name="start_tag">Starttag</string>
+    <string name="default_text">Standardtext</string>
+    <string name="end_tag">Schlusstag</string>
+    <string name="edit_tag">Tag bearbeiten</string>
+    <string name="save_tag">Tag speichern</string>
+    <string name="tag_warning">Beachte bitte dass Drupal deine Tags möglicherweise rausfiltert.</string>
 
-	<!-- location dialog -->
-	<string name="location_dialog_title">Standort</string>
-	<string name="location_dialog_text">Warte bitte einen Moment während die Anwendung versucht deine Position zu erfassen.</string>
-	<string name="location_dialog_info">Genauigkeit: %1$s Zeit: %2$s</string>
-	<string name="accuracy_unit">m</string>
-	<string name="insert_location_now">Jetzt einfügen</string>
-	<string name="unknown">unbekannt</string>
+    <!-- recent posts -->
+    <string name="history_empty">Es sind keine ältere Einträge verfügbar</string>
+    <string name="more">Mehr</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="delete">Löschen</string>
 
-	<!-- WDAO -->
-	<string name="wdao_fault">Beim kommunizieren mit Drupal ist ein Feher aufgetreten; versuch es bitte später nochmals.</string>	
-	<string name="xmlrpc_fault_1">Es ist ein Berechtigungsfehler aufgetreten. Möglicherweise ist der Benutzername oder das Passwort falsch, oder du hast keine Berechtigung einen Beitrag als Entwurf zu speichern.</string>
+    <!-- location dialog -->
+    <string name="location_dialog_title">Standort</string>
+    <string name="location_dialog_text">Warte bitte einen Moment während die Anwendung versucht deine Position zu erfassen.</string>
+    <string name="location_dialog_info">Genauigkeit: %1$s Zeit: %2$s</string>
+    <string name="accuracy_unit">m</string>
+    <string name="insert_location_now">Jetzt einfügen</string>
+    <string name="unknown">unbekannt</string>
+
+    <!-- WDAO -->
+    <string name="wdao_fault">Beim kommunizieren mit Drupal ist ein Feher aufgetreten; versuch es bitte später nochmals.</string>
+    <string name="xmlrpc_fault_1">Es ist ein Berechtigungsfehler aufgetreten. Möglicherweise ist der Benutzername oder das Passwort falsch, oder du hast keine Berechtigung einen Beitrag als Entwurf zu speichern.</string>
+
 </resources>

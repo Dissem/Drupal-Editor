@@ -1,27 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:saveEnabled="true">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:saveEnabled="true" >
 
-	<!--
+    <!--
 		<Spinner android:layout_height="wrap_content"
 		android:id="@+id/category" android:layout_width="fill_parent"
 		android:clickable="false"></Spinner>
-	-->
+    -->
 
-	<EditText android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:maxLines="1" android:id="@+id/Title"
-		android:singleLine="true" android:inputType="textAutoCorrect" />
+    <EditText
+        android:id="@+id/Title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoCorrect"
+        android:maxLines="1"
+        android:singleLine="true" />
 
-	<EditText android:layout_width="fill_parent"
-		android:layout_height="0dip" android:layout_weight="1" android:id="@+id/Text"
-		android:gravity="top|left" android:autoText="true"
-		android:inputType="textAutoCorrect|textMultiLine|textCapSentences" />
+    <EditText
+        android:id="@+id/Text"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:autoText="true"
+        android:gravity="top|left"
+        android:inputType="textAutoCorrect|textMultiLine|textCapSentences" />
 
-	<TableRow>
-		<CheckBox android:id="@+id/publish" android:text="@string/publish"
-			android:layout_weight="0.5" android:layout_width="wrap_content" />
-		<Button android:id="@+id/save_post" android:text="@string/save"
-			android:layout_weight="0.5" android:layout_width="wrap_content" />
-	</TableRow>
+    <TableRow>
+
+        <CheckBox
+            android:id="@+id/publish"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/publish" />
+
+        <Button
+            android:id="@+id/save_post"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/save" />
+    </TableRow>
+
 </TableLayout>

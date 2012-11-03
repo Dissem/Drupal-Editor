@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Common -->
     <string name="help">Help</string>
@@ -26,7 +26,7 @@
     <string name="site_password_summary">Your (hopefully) secret password</string>
     <string name="history_size_summary">How many entries should be fetched?</string>
     <string name="insert_location">Insert Location</string>
-    <string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
+    <string name="location_link" tools:ignore="MissingTranslation">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
     <string name="location_link_text">I\'m here!</string>
     <string name="enable_gps">Enable GPS</string>
     <string name="enable_gps_summary">For inserting location: higher accuracy, but might take longer</string>

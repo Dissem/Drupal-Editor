@@ -24,7 +24,6 @@
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
-        android:autoText="true"
         android:gravity="top|left"
         android:inputType="textAutoCorrect|textMultiLine|textCapSentences" />
 

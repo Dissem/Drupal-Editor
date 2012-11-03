@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="horizontal" android:layout_width="fill_parent"
-	android:layout_height="wrap_content" android:padding="30dip"
-	android:layout_gravity="center" android:saveEnabled="true">
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:padding="30dip"
+    android:saveEnabled="true" >
+
 	<LinearLayout android:orientation="vertical"
 		android:layout_width="0dip" android:layout_height="wrap_content"
 		android:layout_weight="0.3" android:layout_gravity="center_horizontal">

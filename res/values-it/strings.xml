@@ -50,7 +50,7 @@
     <string name="taxonomy">Tassonomia</string>
     <string name="insert_tag">Inserisci un tag</string>
     <string name="taxonomy_warning">Non è stata caricata la tassonomia, potrebbe perdersi quando salvi.</string>
-    <string name="saving_post">Salvataggio in corso ...</string>
+    <string name="saving_post">Salvataggio in corso …</string>
     <string name="post_saved">Il contenuto è stato salvato correttamente</string>
 
     <!-- tag list -->

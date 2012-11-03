@@ -15,6 +15,7 @@
 
             <EditText
                 android:id="@+id/start_tag"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true" />
         </TableRow>
 
@@ -24,6 +25,7 @@
 
             <EditText
                 android:id="@+id/default_text"
+                android:inputType="text"
                 android:singleLine="true" />
         </TableRow>
 
@@ -33,6 +35,7 @@
 
             <EditText
                 android:id="@+id/end_tag"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true" />
         </TableRow>
     </TableLayout>

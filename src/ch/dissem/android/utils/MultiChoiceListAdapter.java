@@ -71,6 +71,7 @@ public class MultiChoiceListAdapter<T> extends BaseAdapter {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ChoiceView view;
 		T item = getItem(position);

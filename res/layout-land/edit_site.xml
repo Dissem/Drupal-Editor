@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <TextView
@@ -19,6 +19,7 @@
             android:id="@+id/site_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:singleLine="true" />
 
         <TextView
@@ -36,6 +37,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal" >
 
             <LinearLayout
@@ -53,6 +55,7 @@
                     android:id="@+id/username"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textNoSuggestions"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -72,7 +75,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:password="true"
                     android:singleLine="true" />
             </LinearLayout>
         </LinearLayout>
@@ -85,9 +87,10 @@
         <EditText
             android:id="@+id/signature"
             android:layout_width="fill_parent"
-            android:layout_height="65dip"
+            android:layout_height="0dp"
             android:layout_weight="1.0"
-            android:gravity="top|left" />
+            android:gravity="top|left"
+            android:inputType="text" />
 
         <LinearLayout
             android:layout_width="fill_parent"

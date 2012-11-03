@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/insert_location"
+        android:icon="@android:drawable/ic_menu_mylocation"
+        android:showAsAction="ifRoom"
+        android:title="@string/insert_location"/>
+    <item
+        android:id="@+id/taxonomy"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:showAsAction="ifRoom"
+        android:title="@string/taxonomy"/>
+    <item
+        android:id="@+id/tag_em"
+        android:icon="@drawable/menu_em"
+        android:showAsAction="ifRoom"
+        android:title="&lt;em>"/>
+    <item
+        android:id="@+id/tag_strong"
+        android:icon="@drawable/menu_strong"
+        android:showAsAction="ifRoom"
+        android:title="&lt;strong>"/>
+    <item
+        android:id="@+id/tag_menu"
+        android:icon="@drawable/menu_tag"
+        android:showAsAction="ifRoom"
+        android:title="@string/insert_tag"/>
+
+</menu>

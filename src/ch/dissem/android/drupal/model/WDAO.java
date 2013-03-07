@@ -72,6 +72,20 @@ public class WDAO {
 		return new Post[0];
 	}
 
+	public void updateContent(Post post) {
+		try {
+			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
+			@SuppressWarnings("unchecked")
+			Map<String, Object> results = (Map<String, Object>) client.call(
+					"metaWeblog.getPost", post.getPostid(), //
+					Settings.getUserName(), //
+					Settings.getPassword());
+			post.setDescription(String.valueOf(results.get("description")));
+		} catch (XMLRPCException e) {
+			handleException(e, "Could not get post categories");
+		}
+	}
+
 	public void setCategories(Post post) {
 		Log.d(getClass().getSimpleName(), "setCategories started");
 		if (post == null || post.getPostid() == null)
@@ -126,14 +140,15 @@ public class WDAO {
 	public List<CategoryInfo> getCategories(String blogid) {
 		Lock lock = getLock(blogid);
 		lock.lock();
+		try {
+			List<CategoryInfo> availableCategories = categoryInfo.get(blogid);
+			if (availableCategories == null)
+				return loadCategory(blogid);
 
-		List<CategoryInfo> availableCategories = categoryInfo.get(blogid);
-		if (availableCategories == null) {
-			return loadCategory(blogid);
+			return availableCategories;
+		} finally {
+			lock.unlock();
 		}
-
-		lock.unlock();
-		return availableCategories;
 	}
 
 	@SuppressWarnings("unchecked")

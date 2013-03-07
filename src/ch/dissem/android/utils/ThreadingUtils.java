@@ -17,6 +17,7 @@
  */
 package ch.dissem.android.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
@@ -31,6 +32,22 @@ public class ThreadingUtils {
 		handler.post(new Runnable() {
 			public void run() {
 				Toast.makeText(context, resId, duration).show();
+			}
+		});
+	}
+
+	public static void startProgress(Handler handler, final Activity activity) {
+		handler.post(new Runnable() {
+			public void run() {
+				activity.setProgressBarIndeterminateVisibility(true);
+			}
+		});
+	}
+
+	public static void stopProgress(Handler handler, final Activity activity) {
+		handler.post(new Runnable() {
+			public void run() {
+				activity.setProgressBarIndeterminateVisibility(false);
 			}
 		});
 	}

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 
-    <!-- common -->
-    <string name="help">Hjälp</string>
-
     <!-- main -->
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">Nytt inlägg</string>
@@ -18,17 +15,11 @@
     <!-- settings -->
     <string name="site_name">Webbplatsnamn</string>
     <string name="site_url_label">Adress</string>
-    <string name="site_url_summary">Din Drupalsajt</string>
     <string name="username">Användarnamn</string>
     <string name="password">Lösenord</string>
     <string name="history_size">Antal gamla inlägg</string>
-    <string name="site_username_summary">Ditt loginnamn</string>
-    <string name="site_password_summary">Ditt (förhoppningsvis hemliga) lösenord</string>
-    <string name="history_size_summary">Hur många inlägg skall hämtas?</string>
     <string name="insert_location">Lägg till plats</string>
     <string name="location_link_text">Jag är här!</string>
-    <string name="enable_gps">Aktivera GPS</string>
-    <string name="enable_gps_summary">För att lägga till plats: högre noggrannhet, men det kan ta längre tid</string>
     <string name="signature">Signatur</string>
     <string name="show_signature">Lägg till signatur</string>
     <string name="start">I början</string>
@@ -65,7 +56,6 @@
 
     <!-- recent posts -->
     <string name="history_empty">Det finns inga tidigare inlägg</string>
-    <string name="more">Mer</string>
     <string name="edit">Editera</string>
     <string name="delete">Ta bort</string>
 

@@ -20,6 +20,7 @@ package ch.dissem.android.utils;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 
 import android.content.Context;
 import android.view.View;
@@ -87,15 +88,15 @@ public class MultiChoiceListAdapter<T> extends BaseAdapter {
 
 	public void setFilter(String filter) {
 		if (filter != null)
-			filter = filter.toLowerCase();
+			filter = filter.toLowerCase(Locale.getDefault());
 
 		filteredOptions.clear();
 		for (T item : selection)
 			filteredOptions.add(item);
 		for (T item : options)
 			if (!selection.contains(item)
-					&& (filter == null || item.toString().toLowerCase()
-							.contains(filter)))
+					&& (filter == null || item.toString()
+							.toLowerCase(Locale.getDefault()).contains(filter)))
 				filteredOptions.add(item);
 	}
 

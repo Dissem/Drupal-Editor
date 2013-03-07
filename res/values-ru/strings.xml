@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 
-    <!-- common -->
-    <string name="help">Помощь</string>
-
     <!-- main -->
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">Новая запись</string>
@@ -18,17 +15,11 @@
     <!-- settings -->
     <string name="site_name">Название сайта</string>
     <string name="site_url_label">URL</string>
-    <string name="site_url_summary">Адрес вашего сайта Drupal</string>
     <string name="username">Имя пользователя</string>
     <string name="password">Пароль</string>
     <string name="history_size">Длина истории</string>
-    <string name="site_username_summary">Ваше имя пользователья</string>
-    <string name="site_password_summary">Ваш пароль</string>
-    <string name="history_size_summary">Сколько записей истории вы хотите получать?</string>
     <string name="insert_location">Добавить местоположение</string>
     <string name="location_link_text">Я здесь!</string>
-    <string name="enable_gps">Включить GPS</string>
-    <string name="enable_gps_summary">Для определения местоположения: повышенная точность, но занимает больше времени</string>
     <string name="signature">Подпись</string>
     <string name="show_signature">Добавить подпись</string>
     <string name="start">Начало</string>
@@ -65,7 +56,6 @@
 
     <!-- recent posts -->
     <string name="history_empty">Старых записей нет</string>
-    <string name="more">Ещё</string>
     <string name="edit">Редактировать</string>
     <string name="delete">Удалить</string>
 

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 
-    <!-- Common -->
-    <string name="help">幫助</string>
-
     <!-- main -->
     <string name="app_name">Drupal 編輯器</string>
     <string name="new_entry">新條目</string>
@@ -18,18 +15,12 @@
     <!-- settings -->
     <string name="site_name">網站名稱</string>
     <string name="site_url_label">URL</string>
-    <string name="site_url_summary">您的 Drupal 頁</string>
     <string name="username">使用者名稱</string>
     <string name="password">密碼</string>
     <string name="history_size">歷史長度</string>
-    <string name="site_username_summary">您的登入名</string>
-    <string name="site_password_summary">您 (希望的) 私密密碼</string>
-    <string name="history_size_summary">要調取多少條歷史?</string>
     <string name="insert_location">插入位置</string>
     <string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
     <string name="location_link_text">我在這裡!</string>
-    <string name="enable_gps">啟用 GPS</string>
-    <string name="enable_gps_summary">對於插入位置: 更高的精度, 但可能需要更長的時間。</string>
     <string name="signature">簽名</string>
     <string name="show_signature">新增簽名</string>
     <string name="start">開始</string>
@@ -66,7 +57,6 @@
 
     <!-- recent posts -->
     <string name="history_empty">沒有可用的最近條目</string>
-    <string name="more">更多</string>
     <string name="edit">編輯</string>
     <string name="delete">移除</string>
 

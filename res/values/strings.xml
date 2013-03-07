@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Common -->
-    <string name="help">Help</string>
-
     <!-- main -->
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">New Entry</string>
@@ -18,18 +15,12 @@
     <!-- settings -->
     <string name="site_name">Site name</string>
     <string name="site_url_label">URL</string>
-    <string name="site_url_summary">Your Drupal page</string>
     <string name="username">User name</string>
     <string name="password">Password</string>
     <string name="history_size">History length</string>
-    <string name="site_username_summary">Your login name</string>
-    <string name="site_password_summary">Your (hopefully) secret password</string>
-    <string name="history_size_summary">How many entries should be fetched?</string>
     <string name="insert_location">Insert Location</string>
     <string name="location_link" tools:ignore="MissingTranslation">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
     <string name="location_link_text">I\'m here!</string>
-    <string name="enable_gps">Enable GPS</string>
-    <string name="enable_gps_summary">For inserting location: higher accuracy, but might take longer</string>
     <string name="signature">Signature</string>
     <string name="show_signature">Add signature</string>
     <string name="start">Start</string>
@@ -66,7 +57,6 @@
 
     <!-- recent posts -->
     <string name="history_empty">There are no recent entries available</string>
-    <string name="more">More</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
 

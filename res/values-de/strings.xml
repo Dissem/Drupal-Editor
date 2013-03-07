@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 
-    <!-- Common -->
-    <string name="help">Hilfe</string>
-
     <!-- main -->
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">Neuer Eintrag</string>
@@ -18,17 +15,11 @@
     <!-- settings -->
     <string name="site_name">Name der Seite</string>
     <string name="site_url_label">URL</string>
-    <string name="site_url_summary">Deine Drupal-Seite</string>
     <string name="username">Benutzername</string>
     <string name="password">Passwort</string>
     <string name="history_size">Verlaufslänge</string>
-    <string name="site_username_summary">Dein Benutzername</string>
-    <string name="site_password_summary">Dein (hoffentlich) geheimes Passwort</string>
-    <string name="history_size_summary">Wie viele Einträge sollen geholt werden?</string>
     <string name="insert_location">Position Einfügen</string>
     <string name="location_link_text">Ich bin hier!</string>
-    <string name="enable_gps">GPS erlauben</string>
-    <string name="enable_gps_summary">Position einfügen: ist genauer, kann aber länger dauern</string>
     <string name="signature">Signatur</string>
     <string name="show_signature">Signatur anhängen</string>
     <string name="start">Anfang</string>
@@ -65,7 +56,6 @@
 
     <!-- recent posts -->
     <string name="history_empty">Es sind keine ältere Einträge verfügbar</string>
-    <string name="more">Mehr</string>
     <string name="edit">Bearbeiten</string>
     <string name="delete">Löschen</string>
 

@@ -11,53 +11,60 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int menu_em=0x7f020001;
-        public static final int menu_strong=0x7f020002;
-        public static final int menu_tag=0x7f020003;
+        public static final int ic_action_cancel=0x7f020000;
+        public static final int ic_action_em=0x7f020001;
+        public static final int ic_action_info=0x7f020002;
+        public static final int ic_action_mylocation=0x7f020003;
+        public static final int ic_action_ok=0x7f020004;
+        public static final int ic_action_reload=0x7f020005;
+        public static final int ic_action_settings=0x7f020006;
+        public static final int ic_action_strong=0x7f020007;
+        public static final int ic_action_tag=0x7f020008;
+        public static final int ic_action_taxonomy=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
     }
     public static final class id {
-        public static final int Text=0x7f070005;
-        public static final int Title=0x7f070004;
-        public static final int about=0x7f070028;
-        public static final int about_close=0x7f070003;
-        public static final int about_content_1=0x7f070000;
-        public static final int about_content_2=0x7f070002;
-        public static final int add_site=0x7f070014;
-        public static final int add_tag=0x7f07001e;
-        public static final int default_text=0x7f070010;
-        public static final int drupal_icon=0x7f070001;
-        public static final int drupals=0x7f070019;
-        public static final int end_tag=0x7f070011;
-        public static final int history_size=0x7f070015;
-        public static final int insert_location=0x7f07001f;
-        public static final int location_dialog_info=0x7f070017;
-        public static final int location_dialog_text=0x7f070016;
-        public static final int location_insert=0x7f070018;
-        public static final int new_button=0x7f07001b;
-        public static final int password=0x7f07000b;
-        public static final int publish=0x7f070006;
-        public static final int recent_button=0x7f07001c;
-        public static final int reload_sites=0x7f070027;
-        public static final int save_post=0x7f070007;
-        public static final int save_tag=0x7f070012;
-        public static final int settings=0x7f070026;
-        public static final int show_signature=0x7f07000d;
-        public static final int signature=0x7f07000c;
-        public static final int signature_position=0x7f07000e;
-        public static final int site_cancel=0x7f070025;
-        public static final int site_list=0x7f070013;
-        public static final int site_name=0x7f070008;
-        public static final int site_save=0x7f070024;
-        public static final int site_url=0x7f070009;
-        public static final int sites=0x7f07001a;
-        public static final int sites_loader_progress=0x7f07001d;
-        public static final int start_tag=0x7f07000f;
-        public static final int tag_em=0x7f070021;
-        public static final int tag_menu=0x7f070023;
-        public static final int tag_strong=0x7f070022;
-        public static final int taxonomy=0x7f070020;
-        public static final int username=0x7f07000a;
+        public static final int Text=0x7f060005;
+        public static final int Title=0x7f060004;
+        public static final int about=0x7f060028;
+        public static final int about_close=0x7f060003;
+        public static final int about_content_1=0x7f060000;
+        public static final int about_content_2=0x7f060002;
+        public static final int add_site=0x7f060014;
+        public static final int add_tag=0x7f06001e;
+        public static final int default_text=0x7f060010;
+        public static final int drupal_icon=0x7f060001;
+        public static final int drupals=0x7f060019;
+        public static final int end_tag=0x7f060011;
+        public static final int history_size=0x7f060015;
+        public static final int insert_location=0x7f06001f;
+        public static final int location_dialog_info=0x7f060017;
+        public static final int location_dialog_text=0x7f060016;
+        public static final int location_insert=0x7f060018;
+        public static final int new_button=0x7f06001b;
+        public static final int password=0x7f06000b;
+        public static final int publish=0x7f060006;
+        public static final int recent_button=0x7f06001c;
+        public static final int reload_sites=0x7f060026;
+        public static final int save_post=0x7f060007;
+        public static final int save_tag=0x7f060012;
+        public static final int settings=0x7f060027;
+        public static final int show_signature=0x7f06000d;
+        public static final int signature=0x7f06000c;
+        public static final int signature_position=0x7f06000e;
+        public static final int site_cancel=0x7f060025;
+        public static final int site_list=0x7f060013;
+        public static final int site_name=0x7f060008;
+        public static final int site_save=0x7f060024;
+        public static final int site_url=0x7f060009;
+        public static final int sites=0x7f06001a;
+        public static final int sites_loader_progress=0x7f06001d;
+        public static final int start_tag=0x7f06000f;
+        public static final int tag_em=0x7f060021;
+        public static final int tag_menu=0x7f060023;
+        public static final int tag_strong=0x7f060022;
+        public static final int taxonomy=0x7f060020;
+        public static final int username=0x7f06000a;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -72,14 +79,14 @@ public final class R {
         public static final int tag_list=0x7f030009;
     }
     public static final class menu {
-        public static final int edit_post=0x7f060000;
-        public static final int edit_site=0x7f060001;
-        public static final int main=0x7f060002;
+        public static final int edit_post=0x7f050000;
+        public static final int edit_site=0x7f050001;
+        public static final int main=0x7f050002;
     }
     public static final class string {
-        public static final int about_label=0x7f050006;
-        public static final int about_text_thanks=0x7f05001e;
-        public static final int about_text_what=0x7f05001d;
+        public static final int about_label=0x7f040005;
+        public static final int about_text_thanks=0x7f040017;
+        public static final int about_text_what=0x7f040016;
         /**  about dialog 
  about dialog 
  about dialog 
@@ -88,10 +95,10 @@ public final class R {
  about dialog 
  about dialog 
          */
-        public static final int about_title=0x7f05001c;
-        public static final int accuracy_unit=0x7f050036;
-        public static final int add_site=0x7f05001a;
-        public static final int add_tag=0x7f050028;
+        public static final int about_title=0x7f040015;
+        public static final int accuracy_unit=0x7f04002e;
+        public static final int add_site=0x7f040013;
+        public static final int add_tag=0x7f040021;
         /**  main 
  main 
  main 
@@ -100,8 +107,8 @@ public final class R {
  main 
  main 
          */
-        public static final int app_name=0x7f050001;
-        public static final int cancel=0x7f050020;
+        public static final int app_name=0x7f040000;
+        public static final int cancel=0x7f040019;
         /**  share receiver 
  share receiver 
  share receiver 
@@ -110,25 +117,14 @@ public final class R {
  share receiver 
  share receiver 
          */
-        public static final int create_entry=0x7f050007;
-        public static final int default_signature=0x7f05001b;
-        public static final int default_text=0x7f05002a;
-        public static final int delete=0x7f050032;
-        public static final int edit=0x7f050031;
-        public static final int edit_tag=0x7f05002c;
-        public static final int enable_gps=0x7f050014;
-        public static final int enable_gps_summary=0x7f050015;
-        public static final int end=0x7f050019;
-        public static final int end_tag=0x7f05002b;
-        /**  Common 
- Common 
- Common 
- common 
- common 
- Common 
- Common 
-         */
-        public static final int help=0x7f050000;
+        public static final int create_entry=0x7f040006;
+        public static final int default_signature=0x7f040014;
+        public static final int default_text=0x7f040023;
+        public static final int delete=0x7f04002a;
+        public static final int edit=0x7f040029;
+        public static final int edit_tag=0x7f040025;
+        public static final int end=0x7f040012;
+        public static final int end_tag=0x7f040024;
         /**  recent posts 
  recent posts 
  recent posts 
@@ -137,14 +133,13 @@ public final class R {
  recent posts 
  recent posts 
          */
-        public static final int history_empty=0x7f05002f;
-        public static final int history_size=0x7f05000d;
-        public static final int history_size_summary=0x7f050010;
-        public static final int insert_location=0x7f050011;
-        public static final int insert_location_now=0x7f050037;
-        public static final int insert_tag=0x7f050023;
-        public static final int location_dialog_info=0x7f050035;
-        public static final int location_dialog_text=0x7f050034;
+        public static final int history_empty=0x7f040028;
+        public static final int history_size=0x7f04000b;
+        public static final int insert_location=0x7f04000c;
+        public static final int insert_location_now=0x7f04002f;
+        public static final int insert_tag=0x7f04001c;
+        public static final int location_dialog_info=0x7f04002d;
+        public static final int location_dialog_text=0x7f04002c;
         /**  location dialog 
  location dialog 
  location dialog 
@@ -153,13 +148,12 @@ public final class R {
  location dialog 
  location dialog 
          */
-        public static final int location_dialog_title=0x7f050033;
-        public static final int location_link=0x7f050012;
-        public static final int location_link_text=0x7f050013;
-        public static final int more=0x7f050030;
-        public static final int new_entry=0x7f050002;
-        public static final int password=0x7f05000c;
-        public static final int post_saved=0x7f050026;
+        public static final int location_dialog_title=0x7f04002b;
+        public static final int location_link=0x7f04000d;
+        public static final int location_link_text=0x7f04000e;
+        public static final int new_entry=0x7f040001;
+        public static final int password=0x7f04000a;
+        public static final int post_saved=0x7f04001f;
         /**  edit post 
  edit post 
  edit post 
@@ -168,9 +162,9 @@ public final class R {
  edit post 
  edit post 
          */
-        public static final int publish=0x7f050021;
-        public static final int recent_entries=0x7f050003;
-        public static final int reload_sites_label=0x7f050005;
+        public static final int publish=0x7f04001a;
+        public static final int recent_entries=0x7f040002;
+        public static final int reload_sites_label=0x7f040004;
         /**  edit 
  edit 
  edit 
@@ -179,12 +173,12 @@ public final class R {
  edit 
  edit 
          */
-        public static final int save=0x7f05001f;
-        public static final int save_tag=0x7f05002d;
-        public static final int saving_post=0x7f050025;
-        public static final int settings_label=0x7f050004;
-        public static final int show_signature=0x7f050017;
-        public static final int signature=0x7f050016;
+        public static final int save=0x7f040018;
+        public static final int save_tag=0x7f040026;
+        public static final int saving_post=0x7f04001e;
+        public static final int settings_label=0x7f040003;
+        public static final int show_signature=0x7f040010;
+        public static final int signature=0x7f04000f;
         /**  settings 
  settings 
  settings 
@@ -193,13 +187,10 @@ public final class R {
  settings 
  settings 
          */
-        public static final int site_name=0x7f050008;
-        public static final int site_password_summary=0x7f05000f;
-        public static final int site_url_label=0x7f050009;
-        public static final int site_url_summary=0x7f05000a;
-        public static final int site_username_summary=0x7f05000e;
-        public static final int start=0x7f050018;
-        public static final int start_tag=0x7f050029;
+        public static final int site_name=0x7f040007;
+        public static final int site_url_label=0x7f040008;
+        public static final int start=0x7f040011;
+        public static final int start_tag=0x7f040022;
         /**  tag list 
  tag list 
  tag list 
@@ -208,12 +199,12 @@ public final class R {
  tag list 
  tag list 
          */
-        public static final int tag_list=0x7f050027;
-        public static final int tag_warning=0x7f05002e;
-        public static final int taxonomy=0x7f050022;
-        public static final int taxonomy_warning=0x7f050024;
-        public static final int unknown=0x7f050038;
-        public static final int username=0x7f05000b;
+        public static final int tag_list=0x7f040020;
+        public static final int tag_warning=0x7f040027;
+        public static final int taxonomy=0x7f04001b;
+        public static final int taxonomy_warning=0x7f04001d;
+        public static final int unknown=0x7f040030;
+        public static final int username=0x7f040009;
         /**  WDAO 
  WDAO 
  WDAO 
@@ -222,10 +213,7 @@ public final class R {
  WDAO 
  WDAO 
          */
-        public static final int wdao_fault=0x7f050039;
-        public static final int xmlrpc_fault_1=0x7f05003a;
-    }
-    public static final class xml {
-        public static final int settings=0x7f040000;
+        public static final int wdao_fault=0x7f040031;
+        public static final int xmlrpc_fault_1=0x7f040032;
     }
 }

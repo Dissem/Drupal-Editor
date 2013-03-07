@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
 
-    <!-- Common -->
-    <string name="help">Aiuto</string>
-
     <!-- main -->
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">Scrivi nuovo</string>
@@ -18,17 +15,11 @@
     <!-- settings -->
     <string name="site_name">Nome del sito</string>
     <string name="site_url_label">URL</string>
-    <string name="site_url_summary">La tua pagina Drupal</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="history_size">Lunghezza dello storico</string>
-    <string name="site_username_summary">Username</string>
-    <string name="site_password_summary">Password (speriamo) segreta</string>
-    <string name="history_size_summary">Quanti scritti scaricare?</string>
     <string name="insert_location">Inserisci coordinate</string>
     <string name="location_link_text">Sono quì</string>
-    <string name="enable_gps">Attiva il GPS</string>
-    <string name="enable_gps_summary">Inserimento coordinate: più preciso, ma forse più lento</string>
     <string name="signature">Firma</string>
     <string name="show_signature">Aggiungi firma</string>
     <string name="start">Prima</string>
@@ -65,7 +56,6 @@
 
     <!-- recent posts -->
     <string name="history_empty">Non è disponibile alcuno scritto recente</string>
-    <string name="more">Continua</string>
     <string name="edit">Modifica</string>
     <string name="delete">Elimina</string>
 

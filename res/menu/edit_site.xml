@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/site_save" android:title="@string/save"
-		android:icon="@android:drawable/ic_menu_save" />
-	<item android:id="@+id/site_cancel" android:title="@string/cancel"
-		android:icon="@android:drawable/ic_menu_close_clear_cancel" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/site_save"
+        android:icon="@drawable/ic_action_ok"
+        android:showAsAction="ifRoom"
+        android:title="@string/save"/>
+    <item
+        android:id="@+id/site_cancel"
+        android:icon="@drawable/ic_action_cancel"
+        android:showAsAction="ifRoom"
+        android:title="@string/cancel"/>
+
 </menu>

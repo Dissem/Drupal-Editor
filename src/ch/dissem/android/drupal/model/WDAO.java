@@ -52,7 +52,7 @@ public class WDAO {
 		categoryInfo = new HashMap<String, List<CategoryInfo>>();
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Post[] getPosts(String blogid) {
 		try {
 			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
@@ -72,6 +72,20 @@ public class WDAO {
 		return new Post[0];
 	}
 
+	public void updateContent(Post post) {
+		try {
+			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
+			@SuppressWarnings("unchecked")
+			Map<String, Object> results = (Map<String, Object>) client.call(
+					"metaWeblog.getPost", post.getPostid(), //
+					Settings.getUserName(), //
+					Settings.getPassword());
+			post.setDescription(String.valueOf(results.get("description")));
+		} catch (XMLRPCException e) {
+			handleException(e, "Could not get post categories");
+		}
+	}
+
 	public void setCategories(Post post) {
 		Log.d(getClass().getSimpleName(), "setCategories started");
 		if (post == null || post.getPostid() == null)
@@ -80,12 +94,12 @@ public class WDAO {
 		XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 		Object[] categories;
 		try {
-			categories = (Object[]) client.call("mt.getPostCategories", post
-					.getPostid(), Settings.getUserName(), Settings
-					.getPassword());
+			categories = (Object[]) client.call("mt.getPostCategories",
+					post.getPostid(), Settings.getUserName(),
+					Settings.getPassword());
 		} catch (XMLRPCException e) {
-			handleException(e, "Could not load categories for post "
-					+ post.getPostid());
+			handleException(e,
+					"Could not load categories for post " + post.getPostid());
 			categories = null;
 		}
 		post.setCategories(categories);
@@ -96,9 +110,9 @@ public class WDAO {
 		try {
 			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 			if (post.getPostid() == null)
-				client.call("metaWeblog.newPost", blogid, Settings
-						.getUserName(), Settings.getPassword(), post.getMap(),
-						publish);
+				client.call("metaWeblog.newPost", blogid,
+						Settings.getUserName(), Settings.getPassword(),
+						post.getMap(), publish);
 			else
 				client.call("metaWeblog.editPost", post.getPostid(), //
 						Settings.getUserName(), Settings.getPassword(), //
@@ -126,14 +140,15 @@ public class WDAO {
 	public List<CategoryInfo> getCategories(String blogid) {
 		Lock lock = getLock(blogid);
 		lock.lock();
+		try {
+			List<CategoryInfo> availableCategories = categoryInfo.get(blogid);
+			if (availableCategories == null)
+				return loadCategory(blogid);
 
-		List<CategoryInfo> availableCategories = categoryInfo.get(blogid);
-		if (availableCategories == null) {
-			return loadCategory(blogid);
+			return availableCategories;
+		} finally {
+			lock.unlock();
 		}
-
-		lock.unlock();
-		return availableCategories;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -165,14 +180,14 @@ public class WDAO {
 		return availableCategories;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<UsersBlog> getUsersBlogs() {
 		try {
 			ArrayList<UsersBlog> usersBlogs;
 			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
 			Object[] result = (Object[]) client.call("blogger.getUsersBlogs",
-					BLOGGER_API_KEY, Settings.getUserName(), Settings
-							.getPassword());
+					BLOGGER_API_KEY, Settings.getUserName(),
+					Settings.getPassword());
 			usersBlogs = new ArrayList<UsersBlog>(result.length);
 			for (Object map : result) {
 				usersBlogs.add(new UsersBlog((Map) map));
@@ -208,8 +223,7 @@ public class WDAO {
 						&& ((XMLRPCFault) e).getFaultCode() == 1) {
 					String xmlrpcFault = ctx.getResources().getString(
 							R.string.xmlrpc_fault_1);
-					alertBuilder
-							.setMessage(xmlrpcFault + "\n" + e.getMessage());
+					alertBuilder.setMessage(xmlrpcFault + "\n" + e.getMessage());
 				} else {
 					String wdaoFault = ctx.getResources().getString(
 							R.string.wdao_fault);

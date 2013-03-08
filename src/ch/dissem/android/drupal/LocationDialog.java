@@ -47,6 +47,7 @@ public class LocationDialog extends Activity implements LocationListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.location_dialog);
+		setTitle(R.string.location_dialog_title);
 
 		mgr = (LocationManager) getSystemService(LOCATION_SERVICE);
 		criteria = new Criteria();

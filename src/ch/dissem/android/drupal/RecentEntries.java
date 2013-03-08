@@ -88,7 +88,7 @@ public class RecentEntries extends ListActivity implements OnItemClickListener {
 		super.onResume();
 	}
 
-	protected void loadRecentEntries() {
+	private void loadRecentEntries() {
 		final Handler handler = new Handler();
 		setProgressBarIndeterminateVisibility(true);
 		new Thread() {
@@ -121,12 +121,11 @@ public class RecentEntries extends ListActivity implements OnItemClickListener {
 								android.R.layout.simple_spinner_item,
 								contentTypeList);
 						adapter.setDropDownViewResource(//
-								android.R.layout.simple_spinner_dropdown_item);
+						android.R.layout.simple_spinner_dropdown_item);
 						blogs.setAdapter(adapter);
 						blogs.setClickable(true);
 						blogs.setSelection(selectedType);
-						blogs
-								.setOnItemSelectedListener(new SiteSelectedListener());
+						blogs.setOnItemSelectedListener(new SiteSelectedListener());
 					}
 				});
 			}
@@ -177,19 +176,16 @@ public class RecentEntries extends ListActivity implements OnItemClickListener {
 		setProgressBarIndeterminateVisibility(true);
 		new Thread() {
 			public void run() {
-				if (wdao.delete(post))
-					handler.post(new Runnable() {
-						public void run() {
+				final boolean deleted = wdao.delete(post);
+				handler.post(new Runnable() {
+					public void run() {
+						if (deleted)
 							loadRecentEntries();
-						}
-					});
-				else
-					handler.post(new Runnable() {
-						public void run() {
+						else
 							RecentEntries.this
 									.setProgressBarIndeterminateVisibility(false);
-						}
-					});
+					}
+				});
 			}
 		}.start();
 	}

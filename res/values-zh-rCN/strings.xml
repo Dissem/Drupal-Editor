@@ -1,83 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-	<!-- Common -->
-	<string name="help">帮助</string>
 
-	<!-- main -->
-	<string name="app_name">Drupal 编辑器</string>
-	<string name="new_entry">新条目</string>
-	<string name="recent_entries">最近条目</string>
-	<string name="settings_label">设置...</string>
-	<string name="reload_sites_label">重新加载</string>
-	<string name="about_label">关于</string>
+    <!-- main -->
+    <string name="app_name">Drupal 编辑器</string>
+    <string name="new_entry">新条目</string>
+    <string name="recent_entries">最近条目</string>
+    <string name="settings_label">设置…</string>
+    <string name="reload_sites_label">重新加载</string>
+    <string name="about_label">关于</string>
 
-	<!-- share receiver -->
-	<string name="create_entry">创建条目</string>
+    <!-- share receiver -->
+    <string name="create_entry">创建条目</string>
 
-	<!-- settings -->
-	<string name="site_name">网站名称</string>
-	<string name="site_url_label">URL</string>
-	<string name="site_url_summary">您的 Drupal 页</string>
-	<string name="username">用户名</string>
-	<string name="password">密码</string>
-	<string name="history_size">历史长度</string>
-	<string name="site_username_summary">您的登录名</string>
-	<string name="site_password_summary">您 (希望的) 私密密码</string>
-	<string name="history_size_summary">要调取多少条历史?</string>
-	<string name="insert_location">插入位置</string>
-	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
-	<string name="location_link_text">我在这里!</string>
-	<string name="enable_gps">启用 GPS</string>
-	<string name="enable_gps_summary">对于插入位置: 更高的精度, 但可能需要更长的时间。</string>
-	<string name="signature">签名</string>
-	<string name="show_signature">添加签名</string>
-	<string name="start">开始</string>
-	<string name="end">结束</string>
-	<string name="add_site">添加站点</string>
-	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Created with Drupal Editor&amp;lt;/a&amp;gt;</string>
+    <!-- settings -->
+    <string name="site_name">网站名称</string>
+    <string name="site_url_label">URL</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="history_size">历史长度</string>
+    <string name="insert_location">插入位置</string>
+    <string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
+    <string name="location_link_text">我在这里!</string>
+    <string name="signature">签名</string>
+    <string name="show_signature">添加签名</string>
+    <string name="start">开始</string>
+    <string name="end">结束</string>
+    <string name="add_site">添加站点</string>
+    <string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Created with Drupal Editor&amp;lt;/a&amp;gt;</string>
 
-	<!-- about dialog -->
-	<string name="about_title">关于 Drupal Editor</string>
-	<string name="about_text_what">Drupal Editor 可以让您使用博客 API 来在您基于 Drupal 站点上编辑内容。</string>
-	<string name="about_text_thanks">感谢: Drupal 团队的伟大的 CMS, 创建 Android xmlrpc 库的人和 Android 团队!</string>
+    <!-- about dialog -->
+    <string name="about_title">关于 Drupal Editor</string>
+    <string name="about_text_what">Drupal Editor 可以让您使用博客 API 来在您基于 Drupal 站点上编辑内容。</string>
+    <string name="about_text_thanks">感谢: Drupal 团队的伟大的 CMS, 创建 Android xmlrpc 库的人和 Android 团队!</string>
 
-	<!-- edit -->
-	<string name="save">保存</string>
-	<string name="cancel">取消</string>
+    <!-- edit -->
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
 
-	<!-- edit post -->
-	<string name="publish">发布</string>
-	<string name="taxonomy">分类方法</string>
-	<string name="insert_tag">插入标签</string>
-	<string name="taxonomy_warning">无法及时获取分类方法, 可能会导致您保存时发生混乱.</string>
-	<string name="saving_post">正在保存帖子</string>
-	<string name="post_saved">帖子已成功保存.</string>
+    <!-- edit post -->
+    <string name="publish">发布</string>
+    <string name="taxonomy">分类方法</string>
+    <string name="insert_tag">插入标签</string>
+    <string name="taxonomy_warning">无法及时获取分类方法, 可能会导致您保存时发生混乱.</string>
+    <string name="saving_post">正在保存帖子</string>
+    <string name="post_saved">帖子已成功保存.</string>
 
-	<!-- tag list -->
-	<string name="tag_list">标签列表</string>
-	<string name="add_tag">添加标签</string>
-	<string name="start_tag">开启标签</string>
-	<string name="default_text">默认文本</string>
-	<string name="end_tag">结束标签</string>
-	<string name="edit_tag">编辑标签</string>
-	<string name="save_tag">保存标签</string>
-	<string name="tag_warning">请注意：Drupal可能会将您的表情过滤掉。</string>
+    <!-- tag list -->
+    <string name="tag_list">标签列表</string>
+    <string name="add_tag">添加标签</string>
+    <string name="start_tag">开启标签</string>
+    <string name="default_text">默认文本</string>
+    <string name="end_tag">结束标签</string>
+    <string name="edit_tag">编辑标签</string>
+    <string name="save_tag">保存标签</string>
+    <string name="tag_warning">请注意：Drupal可能会将您的表情过滤掉。</string>
 
-	<!-- recent posts -->
-	<string name="history_empty">没有可用的最近条目</string>
-	<string name="more">更多</string>
-	<string name="edit">编辑</string>
-	<string name="delete">删除</string>
+    <!-- recent posts -->
+    <string name="history_empty">没有可用的最近条目</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
 
-	<!-- location dialog -->
-	<string name="location_dialog_title">位置</string>
-	<string name="location_dialog_text">请等待程序获取当前位置。</string>
-	<string name="location_dialog_info">精确度: %1$s 时间: %2$s</string>
-	<string name="accuracy_unit">m</string>
-	<string name="insert_location_now">现在插入</string>
-	<string name="unknown">未知</string>
+    <!-- location dialog -->
+    <string name="location_dialog_title">位置</string>
+    <string name="location_dialog_text">请等待程序获取当前位置。</string>
+    <string name="location_dialog_info">精确度: %1$s 时间: %2$s</string>
+    <string name="accuracy_unit">m</string>
+    <string name="insert_location_now">现在插入</string>
+    <string name="unknown">未知</string>
 
-	<!-- WDAO -->
-	<string name="wdao_fault">与 Drupal 对话时发生错误, 请稍候重试.</string>
-	<string name="xmlrpc_fault_1">登录验证出错. 您的用户名和密码可能有误, 或您无权限将帖子保存为草稿.</string>
+    <!-- WDAO -->
+    <string name="wdao_fault">与 Drupal 对话时发生错误, 请稍候重试.</string>
+    <string name="xmlrpc_fault_1">登录验证出错. 您的用户名和密码可能有误, 或您无权限将帖子保存为草稿.</string>
+
 </resources>

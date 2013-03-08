@@ -17,6 +17,7 @@
  */
 package ch.dissem.android.drupal;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -76,9 +77,26 @@ public class EditPost extends Activity implements OnClickListener {
 		if (post != null) {
 			EditText title = (EditText) findViewById(R.id.Title);
 			title.setText(post.getTitle());
-			String text = replaceLinks(post.getDescription());
-			text = removeSignature(text);
-			content.setText(text);
+			String description = post.getDescription();
+			if (description != null && description.length() > 0) {
+				setText(description);
+			} else {
+				setProgressBarIndeterminateVisibility(true);
+				new Thread() {
+					public void run() {
+						wdao.updateContent(post);
+						handler.post(new Runnable() {
+							@Override
+							public void run() {
+								if (content.getText().length() == 0)
+									setText(post.getDescription());
+								EditPost.this
+										.setProgressBarIndeterminateVisibility(false);
+							}
+						});
+					};
+				}.start();
+			}
 			if (!post.isCategoriesSet()) {
 				new Thread() {
 					public void run() {
@@ -88,6 +106,12 @@ public class EditPost extends Activity implements OnClickListener {
 			}
 		} else
 			post = new Post();
+	}
+
+	private void setText(String description) {
+		String text = replaceLinks(description);
+		text = removeSignature(text);
+		content.setText(text);
 	}
 
 	@Override
@@ -122,8 +146,9 @@ public class EditPost extends Activity implements OnClickListener {
 				builder.setCancelable(true);
 				Dialog warning = builder.create();
 				warning.show();
-			} else
+			} else {
 				showTaxonomyDialog();
+			}
 			return true;
 		case R.id.tag_em:
 			insertTag("<em>", null, "</em>");
@@ -141,11 +166,26 @@ public class EditPost extends Activity implements OnClickListener {
 	}
 
 	private void showTaxonomyDialog() {
-		MultiChoice<CategoryInfo> dlg = new MultiChoice<CategoryInfo>(this,
-				wdao.getCategories(blogid), post.getCategories());
-		dlg.setTitle(R.string.taxonomy);
-		post.setCategoriesSet(true);
-		dlg.show();
+		EditPost.this.setProgressBarIndeterminate(true);
+		final Handler handler = new Handler();
+		new Thread() {
+			@Override
+			public void run() {
+				final List<CategoryInfo> categories = wdao
+						.getCategories(blogid);
+				handler.post(new Runnable() {
+					@Override
+					public void run() {
+						MultiChoice<CategoryInfo> dlg = new MultiChoice<CategoryInfo>(
+								EditPost.this, categories, post.getCategories());
+						dlg.setTitle(R.string.taxonomy);
+						post.setCategoriesSet(true);
+						dlg.show();
+						EditPost.this.setProgressBarIndeterminate(false);
+					}
+				});
+			}
+		}.start();
 	}
 
 	@Override
@@ -205,10 +245,10 @@ public class EditPost extends Activity implements OnClickListener {
 		StringBuilder result = new StringBuilder(text);
 		String link = getResources().getText(R.string.location_link).toString();
 		Pattern p = Pattern.compile("(<a href=\""
-				+ link.replace("\\", "\\\\").replace(".", "\\.").replace("?",
-						"\\?").replace("+", "\\+").replace("-", "\\-").replace(
-						"&", "\\&").replace("%s", "\\d*\\.?\\d*")
-				+ "\">.*?</a>)");
+				+ link.replace("\\", "\\\\").replace(".", "\\.")
+						.replace("?", "\\?").replace("+", "\\+")
+						.replace("-", "\\-").replace("&", "\\&")
+						.replace("%s", "\\d*\\.?\\d*") + "\">.*?</a>)");
 		Matcher m = p.matcher(text);
 		while (m.find()) {
 			result.replace(m.start(), m.end(), getShorts(m.group()));

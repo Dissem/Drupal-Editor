@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/settings" android:title="@string/settings_label"
-		android:icon="@android:drawable/ic_menu_preferences" />
-	<item android:id="@+id/reload_sites" android:title="@string/reload_sites_label"
-		android:icon="@android:drawable/ic_menu_rotate" />
-	<item android:id="@+id/about" android:title="@string/about_label"
-		android:icon="@android:drawable/ic_menu_info_details" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/reload_sites"
+        android:icon="@drawable/ic_action_reload"
+        android:showAsAction="ifRoom"
+        android:title="@string/reload_sites_label"/>
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_action_settings"
+        android:showAsAction="ifRoom"
+        android:title="@string/settings_label"/>
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/ic_action_info"
+        android:showAsAction="ifRoom"
+        android:title="@string/about_label"/>
+
 </menu>

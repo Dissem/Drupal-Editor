@@ -1,56 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:layout_weight="1" android:fillViewport="true">
-	<LinearLayout android:layout_width="fill_parent"
-		android:layout_height="fill_parent" android:orientation="vertical">
-		<TextView android:text="@string/site_name"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<EditText android:id="@+id/site_name" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:singleLine="true" />
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:fillViewport="true" >
 
-		<TextView android:text="@string/site_url_label"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<EditText android:id="@+id/site_url" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:singleLine="true"
-			android:inputType="textUri" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-		<LinearLayout android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:orientation="horizontal">
-			<LinearLayout android:layout_width="0dip"
-				android:layout_weight="0.5" android:layout_height="wrap_content"
-				android:orientation="vertical">
-				<TextView android:text="@string/username"
-					android:layout_width="wrap_content" android:layout_height="wrap_content" />
-				<EditText android:id="@+id/username" android:layout_width="fill_parent"
-					android:layout_height="wrap_content" android:singleLine="true" />
-			</LinearLayout>
-			<LinearLayout android:layout_width="0dip"
-				android:layout_weight="0.5" android:layout_height="wrap_content"
-				android:orientation="vertical">
-				<TextView android:text="@string/password"
-					android:layout_width="wrap_content" android:layout_height="wrap_content" />
-				<EditText android:id="@+id/password" android:layout_width="fill_parent"
-					android:layout_height="wrap_content" android:singleLine="true"
-					android:password="true" android:inputType="textPassword" />
-			</LinearLayout>
-		</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/site_name" />
 
-		<TextView android:text="@string/signature"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
-		<EditText android:id="@+id/signature" android:layout_width="fill_parent"
-			android:layout_height="65dip" android:layout_weight="1.0"
-			android:gravity="top|left" />
+        <EditText
+            android:id="@+id/site_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:singleLine="true" />
 
-		<LinearLayout android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:orientation="horizontal"
-			android:gravity="center_vertical">
-			<CheckBox android:id="@+id/show_signature" android:text="@string/show_signature"
-				android:layout_width="0dip" android:layout_height="wrap_content"
-				android:layout_weight="0.5" />
-			<Spinner android:id="@+id/signature_position"
-				android:layout_width="0dip" android:layout_height="wrap_content"
-				android:layout_weight="0.5" />
-		</LinearLayout>
-	</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/site_url_label" />
+
+        <EditText
+            android:id="@+id/site_url"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textUri"
+            android:singleLine="true" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/username" />
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textNoSuggestions"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:singleLine="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signature" />
+
+        <EditText
+            android:id="@+id/signature"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:gravity="top|left"
+            android:inputType="text" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/show_signature"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/show_signature" />
+
+            <Spinner
+                android:id="@+id/signature_position"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+    </LinearLayout>
+
 </ScrollView>

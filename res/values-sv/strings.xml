@@ -1,82 +1,74 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-	<!-- common -->
-	<string name="help">Hjälp</string>
 
-	<!-- main -->
-	<string name="app_name">Drupal Editor</string>
-	<string name="new_entry">Nytt inlägg</string>
-	<string name="recent_entries">Senaste inläggen</string>
-	<string name="settings_label">Inställningar</string>
-	<string name="reload_sites_label">Läs om</string>
-	<string name="about_label">Om</string>
+    <!-- main -->
+    <string name="app_name">Drupal Editor</string>
+    <string name="new_entry">Nytt inlägg</string>
+    <string name="recent_entries">Senaste inläggen</string>
+    <string name="settings_label">Inställningar</string>
+    <string name="reload_sites_label">Läs om</string>
+    <string name="about_label">Om</string>
 
-	<!-- share receiver -->
-	<string name="create_entry">Skapa inlägg</string>
+    <!-- share receiver -->
+    <string name="create_entry">Skapa inlägg</string>
 
-	<!-- settings -->
-	<string name="site_name">Webbplatsnamn</string>
-	<string name="site_url_label">Adress</string>
-	<string name="site_url_summary">Din Drupalsajt</string>
-	<string name="username">Användarnamn</string>
-	<string name="password">Lösenord</string>
-	<string name="history_size">Antal gamla inlägg</string>
-	<string name="site_username_summary">Ditt loginnamn</string>
-	<string name="site_password_summary">Ditt (förhoppningsvis hemliga) lösenord</string>
-	<string name="history_size_summary">Hur många inlägg skall hämtas?</string>
-	<string name="insert_location">Lägg till plats</string>
-	<string name="location_link_text">Jag är här!</string>
-	<string name="enable_gps">Aktivera GPS</string>
-	<string name="enable_gps_summary">För att lägga till plats: högre noggrannhet, men det kan ta längre tid</string>
-	<string name="signature">Signatur</string>
-	<string name="show_signature">Lägg till signatur</string>
-	<string name="start">I början</string>
-	<string name="end">I slutet</string>
-	<string name="add_site">Lägg till sajt</string>
-	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Postad med Drupal Editor&amp;lt;/a&amp;gt;</string>
+    <!-- settings -->
+    <string name="site_name">Webbplatsnamn</string>
+    <string name="site_url_label">Adress</string>
+    <string name="username">Användarnamn</string>
+    <string name="password">Lösenord</string>
+    <string name="history_size">Antal gamla inlägg</string>
+    <string name="insert_location">Lägg till plats</string>
+    <string name="location_link_text">Jag är här!</string>
+    <string name="signature">Signatur</string>
+    <string name="show_signature">Lägg till signatur</string>
+    <string name="start">I början</string>
+    <string name="end">I slutet</string>
+    <string name="add_site">Lägg till sajt</string>
+    <string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Postad med Drupal Editor&amp;lt;/a&amp;gt;</string>
 
-	<!-- about dialog -->
-	<string name="about_title">Om Drupal Editor</string>
-	<string name="about_text_what">Drupal Editor tillåter dej att ändra och lägga till innehåll genom Drupals Blog API.</string>
-	<string name="about_text_thanks">Tack till: Drupalteamet för deras fantastiska CMS, personerna bakom Android\'s xmlrpc biblioteket och Android-teamet!</string>
+    <!-- about dialog -->
+    <string name="about_title">Om Drupal Editor</string>
+    <string name="about_text_what">Drupal Editor tillåter dej att ändra och lägga till innehåll genom Drupals Blog API.</string>
+    <string name="about_text_thanks">Tack till: Drupalteamet för deras fantastiska CMS, personerna bakom Android\'s xmlrpc biblioteket och Android-teamet!</string>
 
-	<!-- edit -->
-	<string name="save">Spara</string>
-	<string name="cancel">Avbryt</string>
+    <!-- edit -->
+    <string name="save">Spara</string>
+    <string name="cancel">Avbryt</string>
 
-	<!-- edit post -->
-	<string name="publish">Publisera</string>
-	<string name="taxonomy">Taxonomi</string>
-	<string name="insert_tag">Lägg till tagg</string>
-	<string name="taxonomy_warning">Kunde inte ladda taxonomin i rimlig tid,  det kan betyda att dina ändringar inte sparas.</string>
-	<string name="saving_post">Spara inlägg</string>
-	<string name="post_saved">Inlägget sparades.</string>
+    <!-- edit post -->
+    <string name="publish">Publisera</string>
+    <string name="taxonomy">Taxonomi</string>
+    <string name="insert_tag">Lägg till tagg</string>
+    <string name="taxonomy_warning">Kunde inte ladda taxonomin i rimlig tid,  det kan betyda att dina ändringar inte sparas.</string>
+    <string name="saving_post">Spara inlägg</string>
+    <string name="post_saved">Inlägget sparades.</string>
 
-	<!-- tag list -->
-	<string name="tag_list">Lista taggar</string>
-	<string name="add_tag">Lägg till HTML-tagg</string>
-	<string name="start_tag">Start-tagg</string>
-	<string name="default_text">Standardtext</string>
-	<string name="end_tag">Slut-tagg</string>
-	<string name="edit_tag">Ändra tagg</string>
-	<string name="save_tag">Spara tagg</string>
-	<string name="tag_warning">Notera att Drupal kan filtrera bort din tagg.</string>
+    <!-- tag list -->
+    <string name="tag_list">Lista taggar</string>
+    <string name="add_tag">Lägg till HTML-tagg</string>
+    <string name="start_tag">Start-tagg</string>
+    <string name="default_text">Standardtext</string>
+    <string name="end_tag">Slut-tagg</string>
+    <string name="edit_tag">Ändra tagg</string>
+    <string name="save_tag">Spara tagg</string>
+    <string name="tag_warning">Notera att Drupal kan filtrera bort din tagg.</string>
 
-	<!-- recent posts -->
-	<string name="history_empty">Det finns inga tidigare inlägg</string>
-	<string name="more">Mer</string>
-	<string name="edit">Editera</string>
-	<string name="delete">Ta bort</string>
+    <!-- recent posts -->
+    <string name="history_empty">Det finns inga tidigare inlägg</string>
+    <string name="edit">Editera</string>
+    <string name="delete">Ta bort</string>
 
-	<!-- location dialog -->
-	<string name="location_dialog_title">Plats</string>
-	<string name="location_dialog_text">Vänligen vänta medan programmet lokaliserar dej.</string>
-	<string name="location_dialog_info">Noggrannhet: %1$s Tid: %2$s</string>
-	<string name="accuracy_unit">m</string>
-	<string name="insert_location_now">Lägg till plats nu</string>
-	<string name="unknown">okänd</string>
+    <!-- location dialog -->
+    <string name="location_dialog_title">Plats</string>
+    <string name="location_dialog_text">Vänligen vänta medan programmet lokaliserar dej.</string>
+    <string name="location_dialog_info">Noggrannhet: %1$s Tid: %2$s</string>
+    <string name="accuracy_unit">m</string>
+    <string name="insert_location_now">Lägg till plats nu</string>
+    <string name="unknown">okänd</string>
 
-	<!-- WDAO -->
-	<string name="wdao_fault">Ett kommunikationsfel uppstod med din server. Försök igen.</string>
-	<string name="xmlrpc_fault_1">Ett fel uppstod. Antingen är ditt användarnamn eller lösenord felaktigt, eller så har du inte behörighet att spara inlägg som utkast.</string>
+    <!-- WDAO -->
+    <string name="wdao_fault">Ett kommunikationsfel uppstod med din server. Försök igen.</string>
+    <string name="xmlrpc_fault_1">Ett fel uppstod. Antingen är ditt användarnamn eller lösenord felaktigt, eller så har du inte behörighet att spara inlägg som utkast.</string>
+
 </resources>

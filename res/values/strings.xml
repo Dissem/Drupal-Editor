@@ -1,83 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<resources>
-	<!-- Common -->
-	<string name="help">Help</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-	<!-- main -->
-	<string name="app_name">Drupal Editor</string>
-	<string name="new_entry">New Entry</string>
-	<string name="recent_entries">Recent Entries</string>
-	<string name="settings_label">Settings...</string>
-	<string name="reload_sites_label">Reload</string>
-	<string name="about_label">About</string>
+    <!-- main -->
+    <string name="app_name">Drupal Editor</string>
+    <string name="new_entry">New Entry</string>
+    <string name="recent_entries">Recent Entries</string>
+    <string name="settings_label">Settings…</string>
+    <string name="reload_sites_label">Reload</string>
+    <string name="about_label">About</string>
 
-	<!-- share receiver -->
-	<string name="create_entry">Create Entry</string>
+    <!-- share receiver -->
+    <string name="create_entry">Create Entry</string>
 
-	<!-- settings -->
-	<string name="site_name">Site name</string>
-	<string name="site_url_label">URL</string>
-	<string name="site_url_summary">Your Drupal page</string>
-	<string name="username">User name</string>
-	<string name="password">Password</string>
-	<string name="history_size">History length</string>
-	<string name="site_username_summary">Your login name</string>
-	<string name="site_password_summary">Your (hopefully) secret password</string>
-	<string name="history_size_summary">How many entries should be fetched?</string>
-	<string name="insert_location">Insert Location</string>
-	<string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
-	<string name="location_link_text">I\'m here!</string>
-	<string name="enable_gps">Enable GPS</string>
-	<string name="enable_gps_summary">For inserting location: higher accuracy, but might take longer</string>
-	<string name="signature">Signature</string>
-	<string name="show_signature">Add signature</string>
-	<string name="start">Start</string>
-	<string name="end">End</string>
-	<string name="add_site">Add site</string>
-	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Created with Drupal Editor&amp;lt;/a&amp;gt;</string>
+    <!-- settings -->
+    <string name="site_name">Site name</string>
+    <string name="site_url_label">URL</string>
+    <string name="username">User name</string>
+    <string name="password">Password</string>
+    <string name="history_size">History length</string>
+    <string name="insert_location">Insert Location</string>
+    <string name="location_link" tools:ignore="MissingTranslation">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
+    <string name="location_link_text">I\'m here!</string>
+    <string name="signature">Signature</string>
+    <string name="show_signature">Add signature</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
+    <string name="add_site">Add site</string>
+    <string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Created with Drupal Editor&amp;lt;/a&amp;gt;</string>
 
-	<!-- about dialog -->
-	<string name="about_title">About Drupal Editor</string>
-	<string name="about_text_what">Drupal Editor lets you edit the contents of your Drupal based sites using the Blog API.</string>
-	<string name="about_text_thanks">Thanks to: the Drupal team for their great CMS, the people who created the Android xmlrpc library and the Android team!</string>
+    <!-- about dialog -->
+    <string name="about_title">About Drupal Editor</string>
+    <string name="about_text_what">Drupal Editor lets you edit the contents of your Drupal based sites using the Blog API.</string>
+    <string name="about_text_thanks">Thanks to: the Drupal team for their great CMS, the people who created the Android xmlrpc library and the Android team!</string>
 
-	<!-- edit -->
-	<string name="save">Save</string>
-	<string name="cancel">Cancel</string>
+    <!-- edit -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
-	<!-- edit post -->
-	<string name="publish">Publish</string>
-	<string name="taxonomy">Taxonomy</string>
-	<string name="insert_tag">Insert tag</string>
-	<string name="taxonomy_warning">Could not load taxonomy in time, it might get lost when you save.</string>
-	<string name="saving_post">Saving post</string>
-	<string name="post_saved">Post has successfully been saved.</string>
+    <!-- edit post -->
+    <string name="publish">Publish</string>
+    <string name="taxonomy">Taxonomy</string>
+    <string name="insert_tag">Insert tag</string>
+    <string name="taxonomy_warning">Could not load taxonomy in time, it might get lost when you save.</string>
+    <string name="saving_post">Saving post</string>
+    <string name="post_saved">Post has successfully been saved.</string>
 
-	<!-- tag list -->
-	<string name="tag_list">Tag List</string>
-	<string name="add_tag">Add tag</string>
-	<string name="start_tag">Start tag</string>
-	<string name="default_text">Default text</string>
-	<string name="end_tag">End tag</string>
-	<string name="edit_tag">Edit Tag</string>
-	<string name="save_tag">Save tag</string>
-	<string name="tag_warning">Please note that Drupal might filter out your tags.</string>
+    <!-- tag list -->
+    <string name="tag_list">Tag List</string>
+    <string name="add_tag">Add tag</string>
+    <string name="start_tag">Start tag</string>
+    <string name="default_text">Default text</string>
+    <string name="end_tag">End tag</string>
+    <string name="edit_tag">Edit Tag</string>
+    <string name="save_tag">Save tag</string>
+    <string name="tag_warning">Please note that Drupal might filter out your tags.</string>
 
-	<!-- recent posts -->
-	<string name="history_empty">There are no recent entries available</string>
-	<string name="more">More</string>
-	<string name="edit">Edit</string>
-	<string name="delete">Delete</string>
+    <!-- recent posts -->
+    <string name="history_empty">There are no recent entries available</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 
-	<!-- location dialog -->
-	<string name="location_dialog_title">Location</string>
-	<string name="location_dialog_text">Please wait while the Application is trying to get the current location.</string>
-	<string name="location_dialog_info">Accuracy: %1$s Time: %2$s</string>
-	<string name="accuracy_unit">m</string>
-	<string name="insert_location_now">Insert now</string>
-	<string name="unknown">unknown</string>
+    <!-- location dialog -->
+    <string name="location_dialog_title">Location</string>
+    <string name="location_dialog_text">Please wait while the Application is trying to get the current location.</string>
+    <string name="location_dialog_info">Accuracy: %1$s Time: %2$s</string>
+    <string name="accuracy_unit">m</string>
+    <string name="insert_location_now">Insert now</string>
+    <string name="unknown">unknown</string>
 
-	<!-- WDAO -->
-	<string name="wdao_fault">There was an error while talking with your Drupal, please try again later.</string>	
-	<string name="xmlrpc_fault_1">A permission error occurred. Your username or passwort might be wrong, or you do not have permission to save a post as a draft.</string>
+    <!-- WDAO -->
+    <string name="wdao_fault">There was an error while talking with your Drupal, please try again later.</string>
+    <string name="xmlrpc_fault_1">A permission error occurred. Your username or passwort might be wrong, or you do not have permission to save a post as a draft.</string>
+
 </resources>

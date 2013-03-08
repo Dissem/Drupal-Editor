@@ -1,82 +1,74 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-	<!-- common -->
-	<string name="help">Помощь</string>
 
-	<!-- main -->
-	<string name="app_name">Drupal Editor</string>
-	<string name="new_entry">Новая запись</string>
-	<string name="recent_entries">Недавние записи</string>
-	<string name="settings_label">Настройки...</string>
-	<string name="reload_sites_label">Обновить</string>
-	<string name="about_label">О программе</string>
+    <!-- main -->
+    <string name="app_name">Drupal Editor</string>
+    <string name="new_entry">Новая запись</string>
+    <string name="recent_entries">Недавние записи</string>
+    <string name="settings_label">Настройки…</string>
+    <string name="reload_sites_label">Обновить</string>
+    <string name="about_label">О программе</string>
 
-	<!-- share receiver -->
-	<string name="create_entry">Создать запись</string>
+    <!-- share receiver -->
+    <string name="create_entry">Создать запись</string>
 
-	<!-- settings -->
-	<string name="site_name">Название сайта</string>
-	<string name="site_url_label">URL</string>
-	<string name="site_url_summary">Адрес вашего сайта Drupal</string>
-	<string name="username">Имя пользователя</string>
-	<string name="password">Пароль</string>
-	<string name="history_size">Длина истории</string>
-	<string name="site_username_summary">Ваше имя пользователья</string>
-	<string name="site_password_summary">Ваш пароль</string>
-	<string name="history_size_summary">Сколько записей истории вы хотите получать?</string>
-	<string name="insert_location">Добавить местоположение</string>
-	<string name="location_link_text">Я здесь!</string>
-	<string name="enable_gps">Включить GPS</string>
-	<string name="enable_gps_summary">Для определения местоположения: повышенная точность, но занимает больше времени</string>
-	<string name="signature">Подпись</string>
-	<string name="show_signature">Добавить подпись</string>
-	<string name="start">Начало</string>
-	<string name="end">Конец</string>
-	<string name="add_site">Добавить сайт</string>
-	<string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Созданно с помощью Drupal Editor&amp;lt;/a&amp;gt;</string>
+    <!-- settings -->
+    <string name="site_name">Название сайта</string>
+    <string name="site_url_label">URL</string>
+    <string name="username">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="history_size">Длина истории</string>
+    <string name="insert_location">Добавить местоположение</string>
+    <string name="location_link_text">Я здесь!</string>
+    <string name="signature">Подпись</string>
+    <string name="show_signature">Добавить подпись</string>
+    <string name="start">Начало</string>
+    <string name="end">Конец</string>
+    <string name="add_site">Добавить сайт</string>
+    <string name="default_signature">\n&amp;lt;a href=\"http://dissem.ch/en/node/16\"&amp;gt;Созданно с помощью Drupal Editor&amp;lt;/a&amp;gt;</string>
 
-	<!-- about dialog -->
-	<string name="about_title">О Drupal Editor</string>
-	<string name="about_text_what">Drupal Editor позволяет вам редактировать содержимое вашего сайта на Drupal использую api для блогов.</string>
-	<string name="about_text_thanks">Спасибо: команде Drupal за прекрасную CMS, людям которые создали библиотеку Android xmlrpc сообществу андроид!</string>
+    <!-- about dialog -->
+    <string name="about_title">О Drupal Editor</string>
+    <string name="about_text_what">Drupal Editor позволяет вам редактировать содержимое вашего сайта на Drupal использую api для блогов.</string>
+    <string name="about_text_thanks">Спасибо: команде Drupal за прекрасную CMS, людям которые создали библиотеку Android xmlrpc сообществу андроид!</string>
 
-	<!-- edit -->
-	<string name="save">Сохранить</string>
-	<string name="cancel">Отменить</string>
+    <!-- edit -->
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отменить</string>
 
-	<!-- edit post -->
-	<string name="publish">Опубликовать</string>
-	<string name="taxonomy">Таксономия</string>
-	<string name="insert_tag">Вставить тэг</string>
-	<string name="taxonomy_warning">Сейчас не удалось загрузить таксономию, она может быть потеряна при сохранение.</string>
-	<string name="saving_post">Сохранение записи</string>
-	<string name="post_saved">Запись успешно сохранена.</string>
+    <!-- edit post -->
+    <string name="publish">Опубликовать</string>
+    <string name="taxonomy">Таксономия</string>
+    <string name="insert_tag">Вставить тэг</string>
+    <string name="taxonomy_warning">Сейчас не удалось загрузить таксономию, она может быть потеряна при сохранение.</string>
+    <string name="saving_post">Сохранение записи</string>
+    <string name="post_saved">Запись успешно сохранена.</string>
 
-	<!-- tag list -->
-	<string name="tag_list">Список тэгов</string>
-	<string name="add_tag">Добавить тэг</string>
-	<string name="start_tag">Начало тэга</string>
-	<string name="default_text">Текст по умолчанию</string>
-	<string name="end_tag">Окончание тэга</string>
-	<string name="edit_tag">Редактировать тэг</string>
-	<string name="save_tag">Сохранить тэг</string>
-	<string name="tag_warning">Учтите, что Друпал может фильтровать ваши тэги.</string>
+    <!-- tag list -->
+    <string name="tag_list">Список тэгов</string>
+    <string name="add_tag">Добавить тэг</string>
+    <string name="start_tag">Начало тэга</string>
+    <string name="default_text">Текст по умолчанию</string>
+    <string name="end_tag">Окончание тэга</string>
+    <string name="edit_tag">Редактировать тэг</string>
+    <string name="save_tag">Сохранить тэг</string>
+    <string name="tag_warning">Учтите, что Друпал может фильтровать ваши тэги.</string>
 
-	<!-- recent posts -->
-	<string name="history_empty">Старых записей нет</string>
-	<string name="more">Ещё</string>
-	<string name="edit">Редактировать</string>
-	<string name="delete">Удалить</string>
+    <!-- recent posts -->
+    <string name="history_empty">Старых записей нет</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
 
-	<!-- location dialog -->
-	<string name="location_dialog_title">Местоположение</string>
-	<string name="location_dialog_text">Пожалуйста подождите пока приложение пытается определить ваше текущее местоположение.</string>
-	<string name="location_dialog_info">Точность: %1$s Время: %2$s</string>
-	<string name="accuracy_unit">м</string>
-	<string name="insert_location_now">Указать сейчас</string>
-	<string name="unknown">неизвестно</string>
+    <!-- location dialog -->
+    <string name="location_dialog_title">Местоположение</string>
+    <string name="location_dialog_text">Пожалуйста подождите пока приложение пытается определить ваше текущее местоположение.</string>
+    <string name="location_dialog_info">Точность: %1$s Время: %2$s</string>
+    <string name="accuracy_unit">м</string>
+    <string name="insert_location_now">Указать сейчас</string>
+    <string name="unknown">неизвестно</string>
 
-	<!-- WDAO -->
-	<string name="wdao_fault">Произошла ошибка при соединение с сервером. Попробуйте ещё раз</string>
-	<string name="xmlrpc_fault_1">Ошибка прав доступа. Ваше имя пользователя или пароль не верны, или Вы не имеете прав на сохранение записи как черновика.</string>
+    <!-- WDAO -->
+    <string name="wdao_fault">Произошла ошибка при соединение с сервером. Попробуйте ещё раз</string>
+    <string name="xmlrpc_fault_1">Ошибка прав доступа. Ваше имя пользователя или пароль не верны, или Вы не имеете прав на сохранение записи как черновика.</string>
+
 </resources>

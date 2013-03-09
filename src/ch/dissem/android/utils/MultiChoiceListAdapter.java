@@ -108,6 +108,10 @@ public class MultiChoiceListAdapter<T> extends BaseAdapter {
 			this.object = object;
 			setOnCheckedChangeListener(this);
 			setItem(object, selected);
+
+			final float scale = context.getResources().getDisplayMetrics().density;
+			int pixels = (int) (48 * scale);
+			setHeight(pixels);
 		}
 
 		@Override

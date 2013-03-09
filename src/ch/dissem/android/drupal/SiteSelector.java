@@ -86,6 +86,10 @@ public abstract class SiteSelector extends Activity implements
 		contentTypeList = savedInstanceState
 				.getParcelableArrayList(KEY_CONTENT_TYPE_LIST);
 		drupalSiteList = new DAO(this).getSites();
+		if (!contentTypeList.isEmpty()) {
+			for (Button btn : getButtons())
+				btn.setEnabled(true);
+		}
 	}
 
 	@Override
@@ -156,7 +160,7 @@ public abstract class SiteSelector extends Activity implements
 		ArrayAdapter<Site> adapter = new ArrayAdapter<Site>(this,
 				android.R.layout.simple_spinner_item, dao.getSites());
 		adapter.setDropDownViewResource(//
-				android.R.layout.simple_spinner_dropdown_item);
+		android.R.layout.simple_spinner_dropdown_item);
 		drupalSites.setAdapter(adapter);
 		if (selectedSite >= 0 && selectedSite < drupalSites.getCount())
 			drupalSites.setSelection(selectedSite);
@@ -239,7 +243,7 @@ public abstract class SiteSelector extends Activity implements
 					SiteSelector.this, android.R.layout.simple_spinner_item,
 					contentTypeList);
 			adapter.setDropDownViewResource(//
-					android.R.layout.simple_spinner_dropdown_item);
+			android.R.layout.simple_spinner_dropdown_item);
 			contentTypes.setAdapter(adapter);
 
 			if (selectedType >= 0 && selectedType < contentTypes.getCount())

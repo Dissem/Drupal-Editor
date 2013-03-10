@@ -17,15 +17,22 @@
  */
 package ch.dissem.android.drupal;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 import ch.dissem.android.drupal.model.Post;
 
 public class PostAdapter extends BaseAdapter {
 	private Post[] posts;
 	private Context ctx;
+	private DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT,
+			Locale.getDefault());
 
 	public PostAdapter(Context ctx, Post[] posts) {
 		this.ctx = ctx;
@@ -44,15 +51,14 @@ public class PostAdapter extends BaseAdapter {
 		return position;
 	}
 
-	public View getView(int position, View convertView, ViewGroup parent) {
-		PostView layout;
-		if (convertView == null) {
-			layout = new PostView(ctx);
-		} else {
-			layout = (PostView) convertView;
+	public View getView(int position, View v, ViewGroup parent) {
+		if (v == null) {
+			v = View.inflate(ctx, R.layout.recent_list_item, null);
 		}
-		layout.setDate(posts[position].getDateCreated());
-		layout.setTitle(String.valueOf(posts[position].getTitle()));
-		return layout;
+		Date date = posts[position].getDateCreated();
+		String title = posts[position].getTitle();
+		((TextView) v.findViewById(R.id.date)).setText(df.format(date));
+		((TextView) v.findViewById(R.id.title)).setText(title);
+		return v;
 	}
 }

@@ -72,19 +72,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class id {
         public static final int Text=0x7f080005;
         public static final int Title=0x7f080004;
-        public static final int about=0x7f08002a;
+        public static final int about=0x7f08002c;
         public static final int about_close=0x7f080003;
         public static final int about_content_1=0x7f080000;
         public static final int about_content_2=0x7f080002;
         public static final int ad_space=0x7f08001a;
         public static final int add_site=0x7f080014;
-        public static final int add_tag=0x7f080020;
+        public static final int add_tag=0x7f080022;
+        public static final int date=0x7f080020;
         public static final int default_text=0x7f080010;
         public static final int drupal_icon=0x7f080001;
         public static final int drupals=0x7f08001b;
         public static final int end_tag=0x7f080011;
         public static final int history_size=0x7f080015;
-        public static final int insert_location=0x7f080021;
+        public static final int insert_location=0x7f080023;
         public static final int location_dialog_info=0x7f080018;
         public static final int location_dialog_text=0x7f080017;
         public static final int location_insert=0x7f080019;
@@ -92,26 +93,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int password=0x7f08000b;
         public static final int publish=0x7f080006;
         public static final int recent_button=0x7f08001e;
-        public static final int reload_sites=0x7f080028;
+        public static final int reload_sites=0x7f08002a;
         public static final int save_post=0x7f080007;
         public static final int save_tag=0x7f080012;
-        public static final int settings=0x7f080029;
+        public static final int settings=0x7f08002b;
         public static final int show_ads=0x7f080016;
         public static final int show_signature=0x7f08000d;
         public static final int signature=0x7f08000c;
         public static final int signature_position=0x7f08000e;
-        public static final int site_cancel=0x7f080027;
+        public static final int site_cancel=0x7f080029;
         public static final int site_list=0x7f080013;
         public static final int site_name=0x7f080008;
-        public static final int site_save=0x7f080026;
+        public static final int site_save=0x7f080028;
         public static final int site_url=0x7f080009;
         public static final int sites=0x7f08001c;
         public static final int sites_loader_progress=0x7f08001f;
         public static final int start_tag=0x7f08000f;
-        public static final int tag_em=0x7f080023;
-        public static final int tag_menu=0x7f080025;
-        public static final int tag_strong=0x7f080024;
-        public static final int taxonomy=0x7f080022;
+        public static final int tag_em=0x7f080025;
+        public static final int tag_menu=0x7f080027;
+        public static final int tag_strong=0x7f080026;
+        public static final int taxonomy=0x7f080024;
+        public static final int title=0x7f080021;
         public static final int username=0x7f08000a;
     }
     public static final class layout {
@@ -123,8 +125,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int location_dialog=0x7f030005;
         public static final int main=0x7f030006;
         public static final int recent_entries=0x7f030007;
-        public static final int share_receiver=0x7f030008;
-        public static final int tag_list=0x7f030009;
+        public static final int recent_list_item=0x7f030008;
+        public static final int share_receiver=0x7f030009;
+        public static final int tag_list=0x7f03000a;
     }
     public static final class menu {
         public static final int edit_post=0x7f070000;

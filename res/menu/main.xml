@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/reload_sites"
-        android:icon="@drawable/ic_action_reload"
+        android:icon="?attr/actionIconReload"
         android:showAsAction="ifRoom"
         android:title="@string/reload_sites_label"/>
     <item
         android:id="@+id/settings"
-        android:icon="@drawable/ic_action_settings"
+        android:icon="?attr/actionIconSettings"
         android:showAsAction="ifRoom"
         android:title="@string/settings_label"/>
     <item
         android:id="@+id/about"
-        android:icon="@drawable/ic_action_info"
+        android:icon="?attr/actionIconInfo"
         android:showAsAction="ifRoom"
         android:title="@string/about_label"/>
 

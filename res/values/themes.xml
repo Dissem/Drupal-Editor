@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DrupalEditor">
+        <item name="actionIconSettings">@android:drawable/ic_menu_preferences</item>
+        <item name="actionIconReload">@android:drawable/ic_menu_rotate</item>
+        <item name="actionIconInfo">@android:drawable/ic_menu_info_details</item>
+        <item name="actionIconOK">@android:drawable/ic_menu_save</item>
+        <item name="actionIconCancel">@android:drawable/ic_menu_close_clear_cancel</item>
+        <item name="actionIconInsertLocation">@android:drawable/ic_menu_mylocation</item>
+        <item name="actionIconTaxonomy">@android:drawable/ic_menu_info_details</item>
+        <item name="actionIconTagEm">@drawable/ic_menu_em</item>
+        <item name="actionIconTagStrong">@drawable/ic_menu_strong</item>
+        <item name="actionIconTagCustom">@drawable/ic_menu_tag</item>
+    </style>
+
+</resources>

@@ -42,6 +42,7 @@
     <string name="insert_tag">Tag einfügen</string>
     <string name="taxonomy_warning">Die Tags konnten nicht rechtzeitig geladen werden, sie könnten beim speichern durcheinander geraten.</string>
     <string name="saving_post">Eintrag wird gespeichert</string>
+    <string name="taxonomy_save_error">Beim Speichern der Klassifizierung ist ein Fehler aufgetreten. Aber keine Angst.</string>
     <string name="post_saved">Der Eintrag wurde gespeichert.</string>
 
     <!-- tag list -->

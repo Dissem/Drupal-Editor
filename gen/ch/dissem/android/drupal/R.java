@@ -9,6 +9,46 @@ package ch.dissem.android.drupal;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconCancel=0x7f010004;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconInfo=0x7f010002;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconInsertLocation=0x7f010005;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconOK=0x7f010003;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconReload=0x7f010001;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconSettings=0x7f010000;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconTagCustom=0x7f010009;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconTagEm=0x7f010007;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconTagStrong=0x7f010008;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int actionIconTaxonomy=0x7f010006;
     }
     public static final class drawable {
         public static final int ic_action_cancel=0x7f020000;
@@ -22,49 +62,52 @@ public final class R {
         public static final int ic_action_tag=0x7f020008;
         public static final int ic_action_taxonomy=0x7f020009;
         public static final int ic_launcher=0x7f02000a;
+        public static final int ic_menu_em=0x7f02000b;
+        public static final int ic_menu_strong=0x7f02000c;
+        public static final int ic_menu_tag=0x7f02000d;
     }
     public static final class id {
-        public static final int Text=0x7f060005;
-        public static final int Title=0x7f060004;
-        public static final int about=0x7f060028;
-        public static final int about_close=0x7f060003;
-        public static final int about_content_1=0x7f060000;
-        public static final int about_content_2=0x7f060002;
-        public static final int add_site=0x7f060014;
-        public static final int add_tag=0x7f06001e;
-        public static final int default_text=0x7f060010;
-        public static final int drupal_icon=0x7f060001;
-        public static final int drupals=0x7f060019;
-        public static final int end_tag=0x7f060011;
-        public static final int history_size=0x7f060015;
-        public static final int insert_location=0x7f06001f;
-        public static final int location_dialog_info=0x7f060017;
-        public static final int location_dialog_text=0x7f060016;
-        public static final int location_insert=0x7f060018;
-        public static final int new_button=0x7f06001b;
-        public static final int password=0x7f06000b;
-        public static final int publish=0x7f060006;
-        public static final int recent_button=0x7f06001c;
-        public static final int reload_sites=0x7f060026;
-        public static final int save_post=0x7f060007;
-        public static final int save_tag=0x7f060012;
-        public static final int settings=0x7f060027;
-        public static final int show_signature=0x7f06000d;
-        public static final int signature=0x7f06000c;
-        public static final int signature_position=0x7f06000e;
-        public static final int site_cancel=0x7f060025;
-        public static final int site_list=0x7f060013;
-        public static final int site_name=0x7f060008;
-        public static final int site_save=0x7f060024;
-        public static final int site_url=0x7f060009;
-        public static final int sites=0x7f06001a;
-        public static final int sites_loader_progress=0x7f06001d;
-        public static final int start_tag=0x7f06000f;
-        public static final int tag_em=0x7f060021;
-        public static final int tag_menu=0x7f060023;
-        public static final int tag_strong=0x7f060022;
-        public static final int taxonomy=0x7f060020;
-        public static final int username=0x7f06000a;
+        public static final int Text=0x7f070005;
+        public static final int Title=0x7f070004;
+        public static final int about=0x7f070028;
+        public static final int about_close=0x7f070003;
+        public static final int about_content_1=0x7f070000;
+        public static final int about_content_2=0x7f070002;
+        public static final int add_site=0x7f070014;
+        public static final int add_tag=0x7f07001e;
+        public static final int default_text=0x7f070010;
+        public static final int drupal_icon=0x7f070001;
+        public static final int drupals=0x7f070019;
+        public static final int end_tag=0x7f070011;
+        public static final int history_size=0x7f070015;
+        public static final int insert_location=0x7f07001f;
+        public static final int location_dialog_info=0x7f070017;
+        public static final int location_dialog_text=0x7f070016;
+        public static final int location_insert=0x7f070018;
+        public static final int new_button=0x7f07001b;
+        public static final int password=0x7f07000b;
+        public static final int publish=0x7f070006;
+        public static final int recent_button=0x7f07001c;
+        public static final int reload_sites=0x7f070026;
+        public static final int save_post=0x7f070007;
+        public static final int save_tag=0x7f070012;
+        public static final int settings=0x7f070027;
+        public static final int show_signature=0x7f07000d;
+        public static final int signature=0x7f07000c;
+        public static final int signature_position=0x7f07000e;
+        public static final int site_cancel=0x7f070025;
+        public static final int site_list=0x7f070013;
+        public static final int site_name=0x7f070008;
+        public static final int site_save=0x7f070024;
+        public static final int site_url=0x7f070009;
+        public static final int sites=0x7f07001a;
+        public static final int sites_loader_progress=0x7f07001d;
+        public static final int start_tag=0x7f07000f;
+        public static final int tag_em=0x7f070021;
+        public static final int tag_menu=0x7f070023;
+        public static final int tag_strong=0x7f070022;
+        public static final int taxonomy=0x7f070020;
+        public static final int username=0x7f07000a;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -79,9 +122,9 @@ public final class R {
         public static final int tag_list=0x7f030009;
     }
     public static final class menu {
-        public static final int edit_post=0x7f050000;
-        public static final int edit_site=0x7f050001;
-        public static final int main=0x7f050002;
+        public static final int edit_post=0x7f060000;
+        public static final int edit_site=0x7f060001;
+        public static final int main=0x7f060002;
     }
     public static final class string {
         public static final int about_label=0x7f040005;
@@ -96,9 +139,9 @@ public final class R {
  about dialog 
          */
         public static final int about_title=0x7f040015;
-        public static final int accuracy_unit=0x7f04002e;
+        public static final int accuracy_unit=0x7f04002f;
         public static final int add_site=0x7f040013;
-        public static final int add_tag=0x7f040021;
+        public static final int add_tag=0x7f040022;
         /**  main 
  main 
  main 
@@ -119,12 +162,12 @@ public final class R {
          */
         public static final int create_entry=0x7f040006;
         public static final int default_signature=0x7f040014;
-        public static final int default_text=0x7f040023;
-        public static final int delete=0x7f04002a;
-        public static final int edit=0x7f040029;
-        public static final int edit_tag=0x7f040025;
+        public static final int default_text=0x7f040024;
+        public static final int delete=0x7f04002b;
+        public static final int edit=0x7f04002a;
+        public static final int edit_tag=0x7f040026;
         public static final int end=0x7f040012;
-        public static final int end_tag=0x7f040024;
+        public static final int end_tag=0x7f040025;
         /**  recent posts 
  recent posts 
  recent posts 
@@ -133,13 +176,13 @@ public final class R {
  recent posts 
  recent posts 
          */
-        public static final int history_empty=0x7f040028;
+        public static final int history_empty=0x7f040029;
         public static final int history_size=0x7f04000b;
         public static final int insert_location=0x7f04000c;
-        public static final int insert_location_now=0x7f04002f;
+        public static final int insert_location_now=0x7f040030;
         public static final int insert_tag=0x7f04001c;
-        public static final int location_dialog_info=0x7f04002d;
-        public static final int location_dialog_text=0x7f04002c;
+        public static final int location_dialog_info=0x7f04002e;
+        public static final int location_dialog_text=0x7f04002d;
         /**  location dialog 
  location dialog 
  location dialog 
@@ -148,12 +191,12 @@ public final class R {
  location dialog 
  location dialog 
          */
-        public static final int location_dialog_title=0x7f04002b;
+        public static final int location_dialog_title=0x7f04002c;
         public static final int location_link=0x7f04000d;
         public static final int location_link_text=0x7f04000e;
         public static final int new_entry=0x7f040001;
         public static final int password=0x7f04000a;
-        public static final int post_saved=0x7f04001f;
+        public static final int post_saved=0x7f040020;
         /**  edit post 
  edit post 
  edit post 
@@ -174,7 +217,7 @@ public final class R {
  edit 
          */
         public static final int save=0x7f040018;
-        public static final int save_tag=0x7f040026;
+        public static final int save_tag=0x7f040027;
         public static final int saving_post=0x7f04001e;
         public static final int settings_label=0x7f040003;
         public static final int show_signature=0x7f040010;
@@ -190,7 +233,7 @@ public final class R {
         public static final int site_name=0x7f040007;
         public static final int site_url_label=0x7f040008;
         public static final int start=0x7f040011;
-        public static final int start_tag=0x7f040022;
+        public static final int start_tag=0x7f040023;
         /**  tag list 
  tag list 
  tag list 
@@ -199,11 +242,12 @@ public final class R {
  tag list 
  tag list 
          */
-        public static final int tag_list=0x7f040020;
-        public static final int tag_warning=0x7f040027;
+        public static final int tag_list=0x7f040021;
+        public static final int tag_warning=0x7f040028;
         public static final int taxonomy=0x7f04001b;
+        public static final int taxonomy_save_error=0x7f04001f;
         public static final int taxonomy_warning=0x7f04001d;
-        public static final int unknown=0x7f040030;
+        public static final int unknown=0x7f040031;
         public static final int username=0x7f040009;
         /**  WDAO 
  WDAO 
@@ -213,7 +257,145 @@ public final class R {
  WDAO 
  WDAO 
          */
-        public static final int wdao_fault=0x7f040031;
-        public static final int xmlrpc_fault_1=0x7f040032;
+        public static final int wdao_fault=0x7f040032;
+        public static final int xmlrpc_fault_1=0x7f040033;
     }
+    public static final class style {
+        public static final int DrupalEditor=0x7f050000;
+    }
+    public static final class styleable {
+        /** Attributes that can be used with a AppTheme.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #AppTheme_actionIconCancel ch.dissem.android.drupal:actionIconCancel}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconInfo ch.dissem.android.drupal:actionIconInfo}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconInsertLocation ch.dissem.android.drupal:actionIconInsertLocation}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconOK ch.dissem.android.drupal:actionIconOK}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconReload ch.dissem.android.drupal:actionIconReload}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconSettings ch.dissem.android.drupal:actionIconSettings}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconTagCustom ch.dissem.android.drupal:actionIconTagCustom}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconTagEm ch.dissem.android.drupal:actionIconTagEm}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconTagStrong ch.dissem.android.drupal:actionIconTagStrong}</code></td><td></td></tr>
+           <tr><td><code>{@link #AppTheme_actionIconTaxonomy ch.dissem.android.drupal:actionIconTaxonomy}</code></td><td></td></tr>
+           </table>
+           @see #AppTheme_actionIconCancel
+           @see #AppTheme_actionIconInfo
+           @see #AppTheme_actionIconInsertLocation
+           @see #AppTheme_actionIconOK
+           @see #AppTheme_actionIconReload
+           @see #AppTheme_actionIconSettings
+           @see #AppTheme_actionIconTagCustom
+           @see #AppTheme_actionIconTagEm
+           @see #AppTheme_actionIconTagStrong
+           @see #AppTheme_actionIconTaxonomy
+         */
+        public static final int[] AppTheme = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
+            0x7f010008, 0x7f010009
+        };
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconCancel}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconCancel
+        */
+        public static final int AppTheme_actionIconCancel = 4;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconInfo}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconInfo
+        */
+        public static final int AppTheme_actionIconInfo = 2;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconInsertLocation}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconInsertLocation
+        */
+        public static final int AppTheme_actionIconInsertLocation = 5;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconOK}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconOK
+        */
+        public static final int AppTheme_actionIconOK = 3;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconReload}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconReload
+        */
+        public static final int AppTheme_actionIconReload = 1;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconSettings}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconSettings
+        */
+        public static final int AppTheme_actionIconSettings = 0;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconTagCustom}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconTagCustom
+        */
+        public static final int AppTheme_actionIconTagCustom = 9;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconTagEm}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconTagEm
+        */
+        public static final int AppTheme_actionIconTagEm = 7;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconTagStrong}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconTagStrong
+        */
+        public static final int AppTheme_actionIconTagStrong = 8;
+        /**
+          <p>This symbol is the offset where the {@link ch.dissem.android.drupal.R.attr#actionIconTaxonomy}
+          attribute's value can be found in the {@link #AppTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:actionIconTaxonomy
+        */
+        public static final int AppTheme_actionIconTaxonomy = 6;
+    };
 }

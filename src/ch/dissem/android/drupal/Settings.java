@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -43,6 +44,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.DAO;
 import ch.dissem.android.drupal.model.Site.SignaturePosition;
+import ch.dissem.android.utils.CompatibilityHoneycomb;
 
 public class Settings extends Activity implements OnClickListener {
 	private static final String HISTORY_SIZE = "history_size";
@@ -70,6 +72,10 @@ public class Settings extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list_sites);
 
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			CompatibilityHoneycomb.displayHomeAdUp(this);
+		}
+
 		dao = new DAO(this);
 		List<Site> drupals = dao.getSites();
 		if (drupals.isEmpty()) {
@@ -95,6 +101,12 @@ public class Settings extends Activity implements OnClickListener {
 		Button btn = (Button) findViewById(R.id.add_site);
 		btn.setOnClickListener(this);
 		registerForContextMenu(list);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		finish();
+		return true;
 	}
 
 	protected void editSite(Site drupal) {

@@ -24,7 +24,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Spinner;
 import ch.dissem.android.drupal.model.UsersBlog;
-import ch.dissem.android.utils.CustomExceptionHandler;
 
 public class Main extends SiteSelector implements OnClickListener {
 
@@ -34,8 +33,6 @@ public class Main extends SiteSelector implements OnClickListener {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler(
-				this, Thread.getDefaultUncaughtExceptionHandler()));
 		setContentView(R.layout.main);
 		super.onCreate(savedInstanceState);
 

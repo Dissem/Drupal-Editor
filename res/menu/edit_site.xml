@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/site_save"
-        android:icon="@drawable/ic_action_ok"
+        android:icon="?attr/actionIconOK"
         android:showAsAction="ifRoom"
         android:title="@string/save"/>
     <item
         android:id="@+id/site_cancel"
-        android:icon="@drawable/ic_action_cancel"
+        android:icon="?attr/actionIconCancel"
         android:showAsAction="ifRoom"
         android:title="@string/cancel"/>
 

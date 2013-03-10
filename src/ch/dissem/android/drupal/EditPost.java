@@ -27,14 +27,15 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ import ch.dissem.android.drupal.model.CategoryInfo;
 import ch.dissem.android.drupal.model.Post;
 import ch.dissem.android.drupal.model.Tag;
 import ch.dissem.android.drupal.model.WDAO;
+import ch.dissem.android.utils.CompatibilityHoneycomb;
 import ch.dissem.android.utils.MultiChoice;
 import ch.dissem.android.utils.ThreadingUtils;
 
@@ -64,6 +66,10 @@ public class EditPost extends Activity implements OnClickListener {
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_post);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			CompatibilityHoneycomb.displayHomeAdUp(this);
+		}
 
 		View saveButton = findViewById(R.id.save_post);
 		saveButton.setOnClickListener(this);
@@ -125,6 +131,10 @@ public class EditPost extends Activity implements OnClickListener {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case android.R.id.home:
+			setResult(Activity.RESULT_CANCELED);
+			finish();
+			return true;
 		case R.id.insert_location:
 			startActivityForResult(new Intent(this, LocationDialog.class),
 					LocationDialog.REQUEST_CODE);

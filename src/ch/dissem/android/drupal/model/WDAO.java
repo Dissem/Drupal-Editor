@@ -34,8 +34,10 @@ import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 import ch.dissem.android.drupal.R;
 import ch.dissem.android.drupal.Settings;
+import ch.dissem.android.utils.ThreadingUtils;
 
 public class WDAO {
 	public static final String BLOGGER_API_KEY = "0123456789ABCDEF";
@@ -109,18 +111,26 @@ public class WDAO {
 	public boolean save(Post post, String blogid, boolean publish) {
 		try {
 			XMLRPCClient client = new XMLRPCClient(Settings.getURI());
-			if (post.getPostid() == null)
-				client.call("metaWeblog.newPost", blogid,
+			Object postid = post.getPostid();
+			if (postid == null) {
+				postid = client.call("metaWeblog.newPost", blogid,
 						Settings.getUserName(), Settings.getPassword(),
 						post.getMap(), publish);
-			else
+			} else {
 				client.call("metaWeblog.editPost", post.getPostid(), //
 						Settings.getUserName(), Settings.getPassword(), //
 						post.getMap(), publish);
-			if (post.isCategoriesSet())
-				client.call("mt.setPostCategories", post.getPostid(), //
-						Settings.getUserName(), Settings.getPassword(), //
-						post.getCategoriesAsMap());
+			}
+			if (post.isCategoriesSet()) {
+				try {
+					client.call("mt.setPostCategories", postid, //
+							Settings.getUserName(), Settings.getPassword(), //
+							post.getCategoriesAsMap());
+				} catch (XMLRPCException e) {
+					ThreadingUtils.showToast(handler, ctx,
+							R.string.taxonomy_save_error, Toast.LENGTH_LONG);
+				}
+			}
 			return true;
 		} catch (XMLRPCException e) {
 			handleException(e, "Could not send post");

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AppTheme">
+        <attr name="actionIconSettings" format="reference" />
+        <attr name="actionIconReload" format="reference" />
+        <attr name="actionIconInfo" format="reference" />
+        <attr name="actionIconOK" format="reference" />
+        <attr name="actionIconCancel" format="reference" />
+        <attr name="actionIconInsertLocation" format="reference" />
+        <attr name="actionIconTaxonomy" format="reference" />
+        <attr name="actionIconTagEm" format="reference" />
+        <attr name="actionIconTagStrong" format="reference" />
+        <attr name="actionIconTagCustom" format="reference" />
+    </declare-styleable>
+
+</resources>

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -35,6 +36,7 @@ import ch.dissem.android.drupal.model.DAO;
 import ch.dissem.android.drupal.model.NamedObject;
 import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.Site.SignaturePosition;
+import ch.dissem.android.utils.CompatibilityHoneycomb;
 
 public class EditSite extends Activity {
 	public static final String KEY_SITE = "drupalsite";
@@ -54,6 +56,10 @@ public class EditSite extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_site);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			CompatibilityHoneycomb.displayHomeAdUp(this);
+		}
 
 		drupal = getIntent().getParcelableExtra(KEY_SITE);
 
@@ -88,7 +94,7 @@ public class EditSite extends Activity {
 		ArrayAdapter<NamedObject<SignaturePosition>> adapter = new ArrayAdapter<NamedObject<SignaturePosition>>(
 				this, android.R.layout.simple_spinner_item, data);
 		adapter.setDropDownViewResource(//
-				android.R.layout.simple_spinner_dropdown_item);
+		android.R.layout.simple_spinner_dropdown_item);
 		signaturePos.setAdapter(adapter);
 
 		SignaturePosition sp = drupal.getSignaturePosition();
@@ -108,6 +114,9 @@ public class EditSite extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case android.R.id.home:
+			safeExit();
+			return true;
 		case R.id.site_save:
 			save();
 			finish();
@@ -129,8 +138,8 @@ public class EditSite extends Activity {
 		drupal.setSignature(signature.getText().toString());
 		drupal.setSignatureEnabled(useSignature.isChecked());
 		drupal.setSignaturePosition(//
-				((NamedObject<SignaturePosition>) signaturePos
-						.getSelectedItem()).getValue());
+		((NamedObject<SignaturePosition>) signaturePos.getSelectedItem())
+				.getValue());
 		new DAO(this).save(drupal);
 	}
 
@@ -142,26 +151,30 @@ public class EditSite extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("                             ");
-			builder.setPositiveButton(R.string.save,
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int id) {
-							save();
-							EditSite.this.finish();
-						}
-					});
-			builder.setNegativeButton(R.string.cancel,
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int id) {
-							EditSite.this.finish();
-						}
-					});
-			AlertDialog alert = builder.create();
-			alert.show();
-
+			safeExit();
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+
+	private void safeExit() {
+		// FIXME: That one's ugly as hell
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("                             ");
+		builder.setPositiveButton(R.string.save,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						save();
+						EditSite.this.finish();
+					}
+				});
+		builder.setNegativeButton(R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						EditSite.this.finish();
+					}
+				});
+		AlertDialog alert = builder.create();
+		alert.show();
 	}
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DrupalEditor" parent="android:Theme.Holo">
+        <item name="actionIconSettings">@drawable/ic_action_settings</item>
+        <item name="actionIconReload">@drawable/ic_action_reload</item>
+        <item name="actionIconInfo">@drawable/ic_action_info</item>
+        <item name="actionIconOK">@drawable/ic_action_ok</item>
+        <item name="actionIconCancel">@drawable/ic_action_cancel</item>
+        <item name="actionIconInsertLocation">@drawable/ic_action_mylocation</item>
+        <item name="actionIconTaxonomy">@drawable/ic_action_taxonomy</item>
+        <item name="actionIconTagEm">@drawable/ic_action_em</item>
+        <item name="actionIconTagStrong">@drawable/ic_action_strong</item>
+        <item name="actionIconTagCustom">@drawable/ic_action_tag</item>
+    </style>
+
+</resources>

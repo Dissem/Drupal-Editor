@@ -86,7 +86,9 @@ public abstract class SiteSelector extends Activity implements
 		contentTypeList = savedInstanceState
 				.getParcelableArrayList(KEY_CONTENT_TYPE_LIST);
 		drupalSiteList = new DAO(this).getSites();
-		if (!contentTypeList.isEmpty()) {
+		if (contentTypeList == null || contentTypeList.isEmpty()) {
+			fillSiteSpinner();
+		} else {
 			for (Button btn : getButtons())
 				btn.setEnabled(true);
 		}

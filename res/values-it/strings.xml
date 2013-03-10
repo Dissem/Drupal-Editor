@@ -5,7 +5,7 @@
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">Scrivi nuovo</string>
     <string name="recent_entries">Ultimi scritti</string>
-    <string name="settings_label">Impostazioni…</string>
+    <string name="settings_label">Impostazioni</string>
     <string name="reload_sites_label">Aggiorna</string>
     <string name="about_label">Informazioni</string>
 

@@ -1,53 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:orientation="vertical"
-    android:padding="30dip"
-    android:saveEnabled="true" >
+    android:layout_height="fill_parent" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ad_space"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="25dip"
-        android:text="@string/app_name"
-        android:textSize="24.5sp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_horizontal" >
+    </LinearLayout>
 
-    <Spinner
-        android:id="@+id/drupals"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
-    <Spinner
-        android:id="@+id/sites"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/new_button"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="@string/new_entry" />
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:padding="30dip"
+        android:saveEnabled="true" >
 
-    <Button
-        android:id="@+id/recent_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="@string/recent_entries" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dip"
+            android:text="@string/app_name"
+            android:textSize="24.5sp" />
 
-    <View
-        android:layout_width="10dip"
-        android:layout_height="20dip" />
+        <Spinner
+            android:id="@+id/drupals"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
 
-    <ProgressBar
-        android:id="@+id/sites_loader_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:visibility="invisible" />
+        <Spinner
+            android:id="@+id/sites"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/new_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/new_entry" />
+
+        <Button
+            android:id="@+id/recent_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/recent_entries" />
+
+        <View
+            android:layout_width="10dip"
+            android:layout_height="20dip" />
+
+        <ProgressBar
+            android:id="@+id/sites_loader_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+</RelativeLayout>

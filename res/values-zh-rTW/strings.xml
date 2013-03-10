@@ -5,7 +5,7 @@
     <string name="app_name">Drupal 編輯器</string>
     <string name="new_entry">新條目</string>
     <string name="recent_entries">最近條目</string>
-    <string name="settings_label">設定…</string>
+    <string name="settings_label">設定</string>
     <string name="reload_sites_label">重新載入</string>
     <string name="about_label">關於</string>
 

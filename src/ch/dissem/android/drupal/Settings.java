@@ -38,6 +38,9 @@ import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
@@ -48,6 +51,7 @@ import ch.dissem.android.utils.CompatibilityHoneycomb;
 
 public class Settings extends Activity implements OnClickListener {
 	private static final String HISTORY_SIZE = "history_size";
+	private static final String SHOW_ADS = "show_ads";
 	private static Site selected;
 	private static Editor settingsEditor;
 
@@ -96,13 +100,23 @@ public class Settings extends Activity implements OnClickListener {
 			}
 		});
 
+		final CheckBox ads = (CheckBox) findViewById(R.id.show_ads);
+		ads.setChecked(isShowAds(this));
+		ads.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView,
+					boolean isChecked) {
+				settingsEditor.putBoolean(SHOW_ADS, isChecked);
+			}
+		});
+
 		list = (ListView) findViewById(R.id.site_list);
 
 		Button btn = (Button) findViewById(R.id.add_site);
 		btn.setOnClickListener(this);
 		registerForContextMenu(list);
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		finish();
@@ -174,6 +188,11 @@ public class Settings extends Activity implements OnClickListener {
 		} catch (NumberFormatException e) {
 			return 10;
 		}
+	}
+
+	public static boolean isShowAds(Context context) {
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getBoolean(SHOW_ADS, true);
 	}
 
 	public static boolean isSignatureEnabled() {

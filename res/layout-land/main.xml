@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -31,40 +32,57 @@
             android:visibility="invisible" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.7"
-        android:orientation="vertical" >
+        android:layout_weight="0.7" >
 
-        <Spinner
-            android:id="@+id/drupals"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/sites"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/new_button"
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:text="@string/new_entry" />
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/recent_button"
-            android:layout_width="fill_parent"
+            <Spinner
+                android:id="@+id/drupals"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+            <Spinner
+                android:id="@+id/sites"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+            <Button
+                android:id="@+id/new_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/new_entry" />
+
+            <Button
+                android:id="@+id/recent_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/recent_entries" />
+
+            <View
+                android:layout_width="10dip"
+                android:layout_height="20dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ad_space"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:text="@string/recent_entries" />
-
-        <View
-            android:layout_width="10dip"
-            android:layout_height="20dip" />
-    </LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_horizontal" >
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

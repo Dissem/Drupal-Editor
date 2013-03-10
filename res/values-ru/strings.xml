@@ -5,7 +5,7 @@
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">Новая запись</string>
     <string name="recent_entries">Недавние записи</string>
-    <string name="settings_label">Настройки…</string>
+    <string name="settings_label">Настройки</string>
     <string name="reload_sites_label">Обновить</string>
     <string name="about_label">О программе</string>
 

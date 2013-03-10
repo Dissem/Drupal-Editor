@@ -5,7 +5,7 @@
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">Neuer Eintrag</string>
     <string name="recent_entries">Letzte Einträge</string>
-    <string name="settings_label">Einstellungen…</string>
+    <string name="settings_label">Einstellungen</string>
     <string name="reload_sites_label">Neu laden</string>
     <string name="about_label">Über Drupal Editor</string>
 
@@ -18,6 +18,7 @@
     <string name="username">Benutzername</string>
     <string name="password">Passwort</string>
     <string name="history_size">Verlaufslänge</string>
+    <string name="show_ads">Werbebanner anzeigen</string>
     <string name="insert_location">Position Einfügen</string>
     <string name="location_link_text">Ich bin hier!</string>
     <string name="signature">Signatur</string>

@@ -5,7 +5,7 @@
     <string name="app_name">Drupal Editor</string>
     <string name="new_entry">New Entry</string>
     <string name="recent_entries">Recent Entries</string>
-    <string name="settings_label">Settings…</string>
+    <string name="settings_label">Settings</string>
     <string name="reload_sites_label">Reload</string>
     <string name="about_label">About</string>
 
@@ -17,7 +17,8 @@
     <string name="site_url_label">URL</string>
     <string name="username">User name</string>
     <string name="password">Password</string>
-    <string name="history_size">History length</string>
+    <string name="history_size">History size</string>
+    <string name="show_ads">Show ads</string>
     <string name="insert_location">Insert Location</string>
     <string name="location_link" tools:ignore="MissingTranslation">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
     <string name="location_link_text">I\'m here!</string>

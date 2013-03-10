@@ -17,15 +17,25 @@
  */
 package ch.dissem.android.drupal;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
+
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import ch.dissem.android.drupal.model.UsersBlog;
 
 public class Main extends SiteSelector implements OnClickListener {
+
+	private AdView adView;
 
 	private Button btnNew;
 	private Button btnRecent;
@@ -40,6 +50,9 @@ public class Main extends SiteSelector implements OnClickListener {
 		btnNew.setOnClickListener(this);
 		btnRecent = (Button) findViewById(R.id.recent_button);
 		btnRecent.setOnClickListener(this);
+
+		if (Settings.isShowAds(this))
+			setUpAds();
 	}
 
 	public void onClick(View v) {
@@ -64,5 +77,23 @@ public class Main extends SiteSelector implements OnClickListener {
 	@Override
 	protected Button[] getButtons() {
 		return new Button[] { btnNew, btnRecent };
+	}
+
+	private void setUpAds() {
+		try {
+			TypedArray admob = getResources().obtainTypedArray(R.array.admob);
+			adView = new AdView(this, AdSize.SMART_BANNER, admob.getString(0));
+			AdRequest adRequest = new AdRequest();
+			adRequest.addTestDevice(AdRequest.TEST_EMULATOR); // Emulator
+			adRequest.addTestDevice("D8DAABC966F7DF36A94AF57F1F809AE7"); // Transformer
+			adRequest.addTestDevice("82CC01D4D1D7EFD209DB33A58DD10EF1"); // GalaxyNexus
+			adView.loadAd(adRequest);
+
+			LinearLayout main = (LinearLayout) findViewById(R.id.ad_space);
+			main.addView(adView);
+		} catch (Exception e) {
+			// Ignore all exceptions, just don't display any ads...
+			Log.d("ads", e.getMessage());
+		}
 	}
 }

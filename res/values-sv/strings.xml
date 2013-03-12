@@ -18,6 +18,7 @@
     <string name="username">Användarnamn</string>
     <string name="password">Lösenord</string>
     <string name="history_size">Antal gamla inlägg</string>
+    <string name="show_ads">Visa annonser</string>
     <string name="insert_location">Lägg till plats</string>
     <string name="location_link_text">Jag är här!</string>
     <string name="signature">Signatur</string>
@@ -42,6 +43,7 @@
     <string name="insert_tag">Lägg till tagg</string>
     <string name="taxonomy_warning">Kunde inte ladda taxonomin i rimlig tid,  det kan betyda att dina ändringar inte sparas.</string>
     <string name="saving_post">Spara inlägg</string>
+    <string name="taxonomy_save_error">Det uppstod ett fel spara taxonomi. Men oroa dig inte.</string>
     <string name="post_saved">Inlägget sparades.</string>
 
     <!-- tag list -->

@@ -18,6 +18,7 @@
     <string name="username">Имя пользователя</string>
     <string name="password">Пароль</string>
     <string name="history_size">Длина истории</string>
+    <string name="show_ads">Показать рекламу</string>
     <string name="insert_location">Добавить местоположение</string>
     <string name="location_link_text">Я здесь!</string>
     <string name="signature">Подпись</string>
@@ -42,6 +43,7 @@
     <string name="insert_tag">Вставить тэг</string>
     <string name="taxonomy_warning">Сейчас не удалось загрузить таксономию, она может быть потеряна при сохранение.</string>
     <string name="saving_post">Сохранение записи</string>
+    <string name="taxonomy_save_error">Существовал ошибка при сохранении таксономии. Но не волнуйтесь.</string>
     <string name="post_saved">Запись успешно сохранена.</string>
 
     <!-- tag list -->

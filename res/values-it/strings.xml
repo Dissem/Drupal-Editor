@@ -18,6 +18,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="history_size">Lunghezza dello storico</string>
+    <string name="show_ads">Mostra gli annunci</string>
     <string name="insert_location">Inserisci coordinate</string>
     <string name="location_link_text">Sono quì</string>
     <string name="signature">Firma</string>
@@ -42,6 +43,7 @@
     <string name="insert_tag">Inserisci un tag</string>
     <string name="taxonomy_warning">Non è stata caricata la tassonomia, potrebbe perdersi quando salvi.</string>
     <string name="saving_post">Salvataggio in corso …</string>
+    <string name="taxonomy_save_error">C\'era un errore durante il salvataggio della tassonomia. Ma non ti preoccupare.</string>
     <string name="post_saved">Il contenuto è stato salvato correttamente</string>
 
     <!-- tag list -->

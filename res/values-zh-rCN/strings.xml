@@ -18,6 +18,7 @@
     <string name="username">用户名</string>
     <string name="password">密码</string>
     <string name="history_size">历史长度</string>
+    <string name="show_ads">显示广告</string>
     <string name="insert_location">插入位置</string>
     <string name="location_link">http://www.openstreetmap.org/index.html?mlat=%1$s&amp;mlon=%2$s&amp;zoom=16&amp;layers=B00FTT</string>
     <string name="location_link_text">我在这里!</string>
@@ -43,6 +44,7 @@
     <string name="insert_tag">插入标签</string>
     <string name="taxonomy_warning">无法及时获取分类方法, 可能会导致您保存时发生混乱.</string>
     <string name="saving_post">正在保存帖子</string>
+    <string name="taxonomy_save_error">有一个错误，保存分类法。不过不用担心。</string>
     <string name="post_saved">帖子已成功保存.</string>
 
     <!-- tag list -->

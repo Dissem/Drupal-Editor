@@ -81,12 +81,13 @@ public class Main extends SiteSelector implements OnClickListener {
 
 	private void setUpAds() {
 		try {
-			TypedArray admob = getResources().obtainTypedArray(R.array.admob);
-			adView = new AdView(this, AdSize.SMART_BANNER, admob.getString(0));
+			adView = new AdView(this, AdSize.SMART_BANNER, getString(R.string.admob));
 			AdRequest adRequest = new AdRequest();
 			adRequest.addTestDevice(AdRequest.TEST_EMULATOR); // Emulator
 			adRequest.addTestDevice("D8DAABC966F7DF36A94AF57F1F809AE7"); // Transformer
 			adRequest.addTestDevice("82CC01D4D1D7EFD209DB33A58DD10EF1"); // GalaxyNexus
+			adRequest.addTestDevice("5827EEF4F3AEF72339B86D1A2A3193AC"); // Note 10.1
+
 			adView.loadAd(adRequest);
 
 			LinearLayout main = (LinearLayout) findViewById(R.id.ad_space);

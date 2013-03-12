@@ -74,4 +74,6 @@
     <string name="wdao_fault">There was an error while talking with your Drupal, please try again later.</string>
     <string name="xmlrpc_fault_1">A permission error occurred. Your username or passwort might be wrong, or you do not have permission to save a post as a draft.</string>
 
+    <!-- AdMob Publisher ID -->
+    <string name="admob">a1513c930c87d5b</string>
 </resources>

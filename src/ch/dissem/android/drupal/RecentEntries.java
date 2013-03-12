@@ -19,33 +19,30 @@ package ch.dissem.android.drupal;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
 import ch.dissem.android.drupal.model.Post;
 import ch.dissem.android.drupal.model.UsersBlog;
 import ch.dissem.android.drupal.model.WDAO;
-import ch.dissem.android.utils.CompatibilityHoneycomb;
 
 public class RecentEntries extends ListActivity implements OnItemClickListener {
 	private String blogid;
@@ -61,10 +58,6 @@ public class RecentEntries extends ListActivity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recent_entries);
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			CompatibilityHoneycomb.displayHomeAdUp(this);
-		}
-
 		contentTypeList = getIntent().getParcelableArrayListExtra(
 				SiteSelector.KEY_CONTENT_TYPE_LIST);
 
@@ -74,18 +67,6 @@ public class RecentEntries extends ListActivity implements OnItemClickListener {
 		wdao = new WDAO(this);
 		fillSiteSpinner();
 		getListView().setOnItemClickListener(this);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
-	 */
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		setResult(Activity.RESULT_CANCELED);
-		finish();
-		return true;
 	}
 
 	@Override

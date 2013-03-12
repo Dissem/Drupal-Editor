@@ -24,18 +24,18 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -43,11 +43,9 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
-import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.DAO;
+import ch.dissem.android.drupal.model.Site;
 import ch.dissem.android.drupal.model.Site.SignaturePosition;
-import ch.dissem.android.utils.CompatibilityHoneycomb;
 
 public class Settings extends Activity implements OnClickListener {
 	private static final String HISTORY_SIZE = "history_size";
@@ -75,10 +73,6 @@ public class Settings extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list_sites);
-
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			CompatibilityHoneycomb.displayHomeAdUp(this);
-		}
 
 		dao = new DAO(this);
 		List<Site> drupals = dao.getSites();
@@ -115,12 +109,6 @@ public class Settings extends Activity implements OnClickListener {
 		Button btn = (Button) findViewById(R.id.add_site);
 		btn.setOnClickListener(this);
 		registerForContextMenu(list);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		finish();
-		return true;
 	}
 
 	protected void editSite(Site drupal) {

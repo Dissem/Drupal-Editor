@@ -1,7 +1,0 @@
-
-syntax: regexp
-^bin/
-
-syntax: glob
-.DS_Store
-

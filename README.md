@@ -1,3 +1,13 @@
+![Maintenance](https://img.shields.io/maintenance/no/2014.svg)
+
+*Warning:* this project is dead for different reasons:
+- For my web page I switched from Drupal to Jekyll, so I just don't need it anymore
+- It doesn't work properly on newer Drupal versions because it uses an obsolete API
+- Google removed it from the Play store, apparently because it looked too much like an official Drupal App. I'm terribly sorry I made this impression, I really should have given the name and icon more thought. It was lazyness, not malice.
+
+If someone wants to pick this up and make something with the code base, be my guest. But I think you'll be faster making a new app from scratch.
+
+
 Drupal-Editor
 =============
 
